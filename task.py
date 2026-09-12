@@ -64,6 +64,8 @@ class Task:
             if disturbance == "rain" else 10 ** 9
 
     def fields_at(self, step):
+        if torch.is_tensor(step):                  # per-robot clocks (PPO auto-reset): use the batch median
+            step = int(step.float().median())
         return self.rain_fields if step >= self.rain_t else self.true_fields
 
     def sample(self, k, n):
