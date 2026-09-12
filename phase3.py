@@ -9,9 +9,12 @@ the same trajectories: SE(2) distance to the nominal geodesic at the same tau, a
 the one-step residual of the unicycle model (constant body twist along the
 geodesic).
 
-Closed-loop part: a threshold on raw D is chosen on validation seeds (0, 1) as the
-value maximising Youden's J at horizon 10; on test seeds (2-4) a replan fires when
-D exceeds it during tau in [0.1, 0.9] (at most once per skill).  Replan = re-solve
+Closed-loop part: raw D grows like 1/(tau(1-tau)) towards both ends of a skill, so
+a single threshold on it fires late in every skill regardless of state; the
+trigger therefore uses the tau-normalised D~ = D tau(1-tau) (the deviation from
+the bridge's support itself).  Its threshold is chosen on validation seeds (0, 1)
+as the value maximising Youden's J at horizon 10; on test seeds (2-4) a replan
+fires when D~ exceeds it during tau in [0.1, 0.9] (at most once per skill).  Replan = re-solve
 the current skill's bridge from the current state as the new initial marginal;
 for an iteration-0 bridge with independent coupling that bridge is exactly the
 learned drift restarted at tau = 0 from the current pose, so the skill clock is
@@ -99,10 +102,10 @@ def offline(device):
 
 
 def choose_threshold(df_val_trajs):
-    """Youden's J on validation seeds at horizon 10, raw D, pooled over layouts/disturbances."""
+    """Youden's J on validation seeds at horizon 10, normalised D~, pooled over layouts/disturbances."""
     scores, labels = [], []
     for f in df_val_trajs:
-        z = np.load(f); D, succ, alive, traj = z["D"][:, :, 0], z["success"].astype(bool), z["alive"].astype(bool), z["traj"]
+        z = np.load(f); D, succ, alive, traj = z["D"][:, :, 1], z["success"].astype(bool), z["alive"].astype(bool), z["traj"]
         moved = np.abs(np.diff(traj[:, :, :2], axis=1)).sum(2) > 0
         t_fail = np.where(alive | moved.all(1), 300, np.argmin(moved, axis=1))
         tt = np.arange(300)[None]
@@ -136,7 +139,7 @@ def rollout_trigger(tk, ctl, thr, n, max_replan=1):
             sel = (k == kk) & ~done
             if sel.any():
                 uu, ex = ctl(g[sel], kk, tau[sel], 0)
-                u[sel] = uu; Dv[sel] = ex[:, 0]
+                u[sel] = uu; Dv[sel] = ex[:, 1]          # normalised D~
         # trigger: D above threshold in the middle of a skill, at most max_replan per skill
         fire = (~done) & (Dv > thr) & (tau >= 0.1) & (tau <= 0.9) & (rp_skill < max_replan)
         t = torch.where(fire, torch.zeros_like(t), t); replans += fire.long(); rp_skill += fire.long()
@@ -192,7 +195,7 @@ def run(quick=False):
     allf = glob.glob(os.path.join(RES, "phase2_traj_*.npz"))
     val = [f for f in allf if int(f[:-4].rsplit("_s", 1)[1]) in VAL_SEEDS] or allf
     thr, J = choose_threshold(val)
-    print(f"[p3] threshold on raw D from validation seeds: {thr:.3f} (Youden J {J:.3f})", flush=True)
+    print(f"[p3] threshold on normalised D~ from validation seeds: {thr:.4f} (Youden J {J:.3f})", flush=True)
     cl = closed_loop(thr, device, quick)
     cl.to_parquet(os.path.join(RES, "phase3_closedloop.parquet"), index=False)
     return off, cl

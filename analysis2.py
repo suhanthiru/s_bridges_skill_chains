@@ -160,7 +160,7 @@ def phase3():
                     continue
                 dl, hw = ci95((d.success_trigger - d.success_no_trigger).values)
                 ct.append(f"| {m} | {layout} | {x_} | {fmt(*ci95(d.success_no_trigger))} | {fmt(*ci95(d.success_trigger))} | {fmt(dl, hw)} | {d.replan_rate.mean():.2f} | {d.false_replan_rate.mean():.2f} |")
-    out = f"## Offline AUC\n\n" + "\n".join(t) + f"\n\n## Closed loop (threshold on raw D = {cl.threshold.iloc[0]:.3f})\n\n" + "\n".join(ct) + "\n"
+    out = f"## Offline AUC\n\n" + "\n".join(t) + f"\n\n## Closed loop (threshold on normalised D~ = {cl.threshold.iloc[0]:.4f})\n\n" + "\n".join(ct) + "\n"
     open(os.path.join(FIND, "_phase3_tables.md"), "w", encoding="utf-8").write(out); print(out)
 
 
