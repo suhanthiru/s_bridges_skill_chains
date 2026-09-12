@@ -137,3 +137,80 @@ for kind in ("bridge", "flow0"):
                 rows.append(dict(kind=kind, w=w, sigma_d=sd, seed=s, success=sum(x["success"] for x in r) / len(r)))
 pd.DataFrame(rows).to_csv("results/check_iter0_vs_ipf_fixed_eps.csv", index=False)
 ```
+
+---
+
+# Experiment 2: are bridge skills more robust to terrain disturbance?
+
+Second experiment, same repo, new files: `terrain_env.py`, `demos.py`,
+`conditions.py`, `run_terrain.py`, `plots_terrain.py`; results in
+`results_terrain/`, figures `figures/fig*t_*`, findings in
+`FINDINGS_terrain.md`.  The bridges reuse `bridge.py`'s sinusoidal features
+and the iteration-0 (independent-coupling) bridge-matching loss; PPO reuses
+`rl.ppo_train`.
+
+```bash
+python run_terrain.py                       # layouts, demos, training, eval, figures
+python run_terrain.py --quick               # smoke test (~20 min, dominated by the oracle MPC)
+python run_terrain.py --stage eval --stage plots --conds ORACLE,TRACK,BRIDGE-plain,BRIDGE-obs
+python run_terrain.py --tune                # tuning at (sigma_k=0.06, mild), layouts 20-24
+python plots_terrain.py                     # figures from results_terrain/*.csv|npz
+```
+
+**What was run.**  Per the order of work the run stopped at the step-4
+checkpoint (ORACLE, TRACK, BRIDGE-plain, BRIDGE-obs evaluated on all 10
+cells × 5 seeds).  DIFF and PPO are implemented in `conditions.py` and were
+tuned, but not trained or evaluated: `python run_terrain.py --stage
+train_diff --stage train_ppo --stage eval --stage plots` runs them.
+Figures 1, 2, 4, 5 are produced from the four conditions; figure 3 (example
+rollouts) shows the conditions available.
+
+**Environment.**  Unit square, dt = 0.01, ‖u‖ ≤ 1, no wall.  Roughness
+field r(x) ∈ [0,1] on a 64×64 grid: sum of 6 random sinusoids, min-max
+normalised, with smooth Gaussian clearings (std 0.06) carved at the four
+waypoint means; fields are resampled until every route segment crosses
+r ≥ 0.7.  The clearings are a deviation from a pure sinusoid field: without
+them the oracle could not hold a goal inside a rough patch (process noise per
+step exceeds the slip-limited correction) and the required ≥ 95 % no-push
+success was unreachable (74 % on rough terrain).  Slip
+v = (1 − s·r) R(θ·r) u, process noise √(σ_p² r dt), pushes N(0, σ_k² I) with
+probability 0.02 per step.  Route means (0.12, 0.37, 0.63, 0.88) × 0.5, std
+0.05, fixed across layouts so demo paths are transferable.  Layouts 0–19
+train, 20–24 tuning eval, 20–29 test; the layout ids reproduce the fields
+(`results_terrain/layouts.npz` is a cache).
+
+**Oracle / demos.**  MPPI-style sampling MPC (K = 200, H = 30, noise 0.5,
+λ = 0.002, running + terminal goal cost) that knows the true field.  Targets
+are ρ_k samples truncated to 1.5 std so the target sits inside the 2-std
+success set.  Verified: 100 % chain success without pushes on all 30
+layouts in both settings (`layout_check.csv`).  500 demos per skill per
+training layout per setting (`data/`, 39 MB, float16, committed).
+
+**Conditions.**  BRIDGE-plain/obs: iteration-0 bridge matching on the demo
+(start, end) pairs of all 20 training layouts, reference noise
+ε = σ_p²·0.5 (env process noise at mean roughness); obs variant appends the
+16-ray roughness at x_τ.  Executed as drift only; the env's process noise
+plays the role of the bridge noise.  Handoffs at steps 100/200 regardless of
+position.  TRACK: nearest training demo by start state (across layouts) as
+the nominal path, PD on position error plus the demo's feed-forward action.
+DIFF: MLP denoiser over 8×2 action chunks conditioned on x ⊕ one-hot k ⊕
+rays, DDPM-50 train / DDIM-10 test, executes 4 of 8.  PPO: Gaussian policy
+on the same observation, 2M steps, trained at σ_k = 0.10.
+
+**Metrics.**  Recovery is measured in corridor coordinates (progress along
+the route polyline, lateral distance).  Only pushes that move the robot
+laterally by > 0.05 are tracked (an along-track push would otherwise count
+as instantly recovered); recovered = lateral distance back within 0.05 of its
+pre-push value; a push arriving while one is open supersedes it; open pushes
+at episode end are "never".  Corridor deviation = mean distance from the
+current skill's straight segment.  Handoff W₂ by assignment vs ρ_k samples.
+
+**Tuning** (`results_terrain/tuning.csv`, cell σ_k = 0.06 mild, layouts
+20–24, seed 0): TRACK kp ∈ {2, 5, 10} × kd ∈ {0, 0.05} → kp = 10, kd = 0
+(0.97; kp = 10 is the grid edge); BRIDGE lr ∈ {3e-4, 1e-3} → 3e-4 (0.485 vs
+0.48); DIFF lr ∈ {1e-4, 3e-4} → 1e-4 (0.40); PPO lr ∈ {1e-4, 3e-4} → 3e-4
+(0.00 at both).  Frozen in `CONFIG`.
+
+**Wall-clock** (RTX 3080 Ti, shared): layouts 25 s, demos 9.3 min, tuning
+6.4 min, bridge training 15.8 min (30 nets), eval of four conditions 17.4 min
+(ORACLE 10.9 min of that).  `results_terrain/timing.json`.
