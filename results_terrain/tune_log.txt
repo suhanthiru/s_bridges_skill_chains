@@ -1,0 +1,17 @@
+=== stage tune ===
+{'what': 'track', 'kp': 2.0, 'kd': 0.0, 'success': 0.76}
+{'what': 'track', 'kp': 2.0, 'kd': 0.05, 'success': 0.785}
+{'what': 'track', 'kp': 5.0, 'kd': 0.0, 'success': 0.9}
+{'what': 'track', 'kp': 5.0, 'kd': 0.05, 'success': 0.91}
+{'what': 'track', 'kp': 10.0, 'kd': 0.0, 'success': 0.97}
+{'what': 'track', 'kp': 10.0, 'kd': 0.05, 'success': 0.96}
+{'what': 'BRIDGE-plain', 'lr': 0.0003, 'success': 0.485}
+{'what': 'BRIDGE-obs', 'lr': 0.0003, 'success': 0.475}
+{'what': 'BRIDGE-plain', 'lr': 0.001, 'success': 0.48}
+{'what': 'BRIDGE-obs', 'lr': 0.001, 'success': 0.47}
+{'what': 'diff', 'lr': 0.0001, 'success': 0.4}
+{'what': 'diff', 'lr': 0.0003, 'success': 0.315}
+{'what': 'ppo', 'lr': 0.0001, 'success': 0.0}
+{'what': 'ppo', 'lr': 0.0003, 'success': 0.0}
+=== tune took 385.2s ===
+EXIT 0

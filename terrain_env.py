@@ -177,9 +177,9 @@ class TerrainEnv:
             kick = self.sigma_k * self._randn(self.n, 2)
             x_new = torch.where(pushed[:, None], x_new + kick, x_new)
             prog1, lat1 = corridor_coords(x_new)
-            # only pushes that displace the robot by > tol in corridor coordinates are tracked;
+            # only pushes that move the robot laterally (off its corridor lane) by > tol are tracked;
             # a push that lands while another is still open supersedes it (the open one is dropped)
-            eff = pushed & (((prog1 - prog0) ** 2 + (lat1 - lat0) ** 2).sqrt() > self.REC_TOL)
+            eff = pushed & ((lat1 - lat0).abs() > self.REC_TOL)
             self.push_active |= eff
             self.push_t = torch.where(eff, self.t, self.push_t)
             self.pre_prog = torch.where(eff, prog0, self.pre_prog); self.pre_lat = torch.where(eff, lat0, self.pre_lat)
@@ -187,10 +187,10 @@ class TerrainEnv:
         self.t += 1
         u2 = (u ** 2).sum(1); self.effort += u2 * DT
         self.dev_sum += segment_dist(self.x, self.k.clamp(max=N_SKILLS - 1))
-        # recovery: back in lane (lateral within tol of pre-push) and no lost ground
+        # recovery: back in lane (lateral distance within tol of its pre-push value)
         if self.push_active.any():
             prog, lat = corridor_coords(self.x)
-            rec = self.push_active & ((lat - self.pre_lat).abs() <= self.REC_TOL) & (prog >= self.pre_prog)
+            rec = self.push_active & ((lat - self.pre_lat).abs() <= self.REC_TOL)
             for i in rec.nonzero().flatten().tolist():
                 self.push_log.append((i, int(self.push_t[i]), int(self.t[i] - self.push_t[i])))
             self.push_active &= ~rec
