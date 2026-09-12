@@ -65,7 +65,8 @@ def eval_controller(ctl, layout, dist, seed, n, device, **kw):
 
 
 def phase1_job(args):
-    seed, ref_kind, mf_name, quick = args
+    seed, ref_kind, mf_name, quick = args[:4]
+    frozen = args[4] if len(args) > 4 else False
     torch.set_num_threads(2)
     cfg = QUICK if quick else CFG
     device = torch.device("cpu")
@@ -77,7 +78,8 @@ def phase1_job(args):
     nets, train_s, ipf_diag = SV.train_all(TK_train, ref_kind, mf, seed, device,
                                  sigma=cfg["sigma"], K=cfg["K"], log=lambda m: None,
                                  n_pair=cfg["n_pair"], steps0=cfg["steps0"], steps_ipf=cfg["steps_ipf"],
-                                 batch=cfg["batch"], lr=cfg["lr"], n_sim=cfg["n_sim"])
+                                 batch=cfg["batch"], lr=cfg["lr"], n_sim=cfg["n_sim"],
+                                 frozen_coupling=frozen)
     rows = []
     for it in (0, cfg["K"]):
         for dist in PHASE1_DIST:
@@ -88,7 +90,8 @@ def phase1_job(args):
             D = out["D"]
             m.update(D_mean=float(D[:, :, 0].mean()), D_p90=float(D[:, :, 0].quantile(0.9)))
             rows.append(dict(phase=1, seed=seed, reference=ref_kind, manifold=mf_name, ipf=it,
-                             condition=f"bridge_iter{it}", disturbance=dist, layout="L1",
+                             condition=("frozen_iter%d" % it) if frozen else f"bridge_iter{it}",
+                             disturbance=dist, layout="L1",
                              train_s=train_s, **m))
     ipf_rows = [dict(phase=1, seed=seed, reference=ref_kind, manifold=mf_name, **d) for d in ipf_diag]
     print(f"[p1 s{seed} {ref_kind}/{mf_name}] {time.time() - t0:.0f}s  "
@@ -96,8 +99,12 @@ def phase1_job(args):
     return rows, ipf_rows
 
 
-def phase1(seed, quick, workers):
-    jobs = [(seed, r, m, quick) for r in REFERENCES for m in MANIFOLDS]
+def phase1(seed, quick, workers, frozen=False):
+    """frozen=True runs the optimiser-churn control instead of the main grid."""
+    if frozen:
+        jobs = [(seed, r, "se2", quick, True) for r in ("brownian", "slip")]
+    else:
+        jobs = [(seed, r, m, quick) for r in REFERENCES for m in MANIFOLDS]
     if workers <= 1:
         out = [phase1_job(j) for j in jobs]
     else:
@@ -105,6 +112,8 @@ def phase1(seed, quick, workers):
             out = p.map(phase1_job, jobs, chunksize=1)
     rows = [r for o in out for r in o[0]]
     ipf_rows = [r for o in out for r in o[1]]
+    if frozen:
+        return rows, ipf_rows
     # nominal-tracking context line (not a bridge; no reference/manifold)
     device = torch.device("cpu")
     for dist in PHASE1_DIST:
@@ -141,14 +150,23 @@ def main():
     a = ap.parse_args()
     os.makedirs(RES, exist_ok=True)
     if a.merge:
-        merge(); return
+        merge()
+        import seam; seam.merge(); return
+    if a.phase in ("A", "B", "D"):
+        import seam; seam.run_phase(a.phase, a.seed, a.quick); return
+    if a.phase == "C":
+        import seam_plots; seam_plots.phase_C(); return
+    if a.phase == "seamtests":
+        os.system(f"{os.sys.executable} tests_seam.py"); return
     if a.phase == "tests":
         os.system(f"{os.sys.executable} tests.py"); return
     t0 = time.time()
-    if a.phase == "1":
-        rows, ipf_rows = phase1(a.seed, a.quick, a.workers)
-        write(rows, 1, a.seed)
-        pd.DataFrame(ipf_rows).to_parquet(os.path.join(RES, f"phase1_ipf_seed{a.seed}.parquet"), index=False)
+    if a.phase in ("1", "1frozen"):
+        fz = a.phase == "1frozen"
+        rows, ipf_rows = phase1(a.seed, a.quick, a.workers, frozen=fz)
+        tag = "1frozen" if fz else 1
+        write(rows, tag, a.seed)
+        pd.DataFrame(ipf_rows).to_parquet(os.path.join(RES, f"phase{tag}_ipf_seed{a.seed}.parquet"), index=False)
     else:
         raise SystemExit(f"phase {a.phase} not implemented yet")
     el = round(time.time() - t0, 1)
