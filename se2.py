@@ -100,6 +100,12 @@ class Flat:
         return torch.cat([(g0 + tau.unsqueeze(1) * d)[:, :2], wrap(g0[:, 2:3] + tau.unsqueeze(1) * d[:, 2:3])], 1)
 
     @staticmethod
+    def interp_from(g0, vnom, tau):
+        """interp(g0, g1, tau) with vnom = logmap(g0, g1) precomputed."""
+        p = g0 + tau.unsqueeze(1) * vnom
+        return torch.cat([p[:, :2], wrap(p[:, 2:3])], 1)
+
+    @staticmethod
     def logmap(g, h):
         d = h - g
         return torch.cat([d[:, :2], wrap(d[:, 2:3])], 1)
@@ -117,7 +123,7 @@ class Flat:
         d = Flat.logmap(g, goal)
         return torch.cat([g[:, :2], g[:, 2:3].cos(), g[:, 2:3].sin(), d, tau.unsqueeze(1)], 1)
 
-    n_feat = 9
+    n_feat = 8
 
 
 class SE2:
@@ -127,6 +133,10 @@ class SE2:
     @staticmethod
     def interp(g0, g1, tau):
         return compose(g0, exp_se2(tau.unsqueeze(1) * between(g0, g1)))
+
+    @staticmethod
+    def interp_from(g0, vnom, tau):
+        return compose(g0, exp_se2(tau.unsqueeze(1) * vnom))
 
     @staticmethod
     def logmap(g, h):

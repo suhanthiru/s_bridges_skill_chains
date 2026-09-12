@@ -227,8 +227,35 @@ def test_reference_bridge():
           f"OU var {dev_o:.5f} < Brownian var {dev_b:.5f}")
 
 
+def test_fast_path():
+    """The optimised training path must agree with sde.Reference (same maths)."""
+    print("6. fast path agrees with the reference implementation")
+    import bridge_fast as BF
+    import terrain as TRm
+    n = 4000
+    fields = torch.tensor(TRm.property_fields(TRm.class_map(0)))
+    for kind, mf in (("brownian", S.Flat), ("unicycle", S.SE2), ("slip", S.SE2), ("slip", S.Flat)):
+        ref = SD.Reference(kind, sigma=0.06, kappa=2.0, fields=fields)
+        g0 = torch.randn(n, 3) * 0.05 + torch.tensor([0.30, 0.5, 0.0])
+        g1 = torch.randn(n, 3) * 0.05 + torch.tensor([0.60, 0.5, 0.0])
+        tau = torch.rand(n).clamp(0.05, 0.95)
+        prep = BF.prepare(ref, g0, g1, mf)
+        gA, tA = BF.sample_and_target(ref, g0, prep, tau, mf,
+                                      torch.Generator().manual_seed(3))
+        # same sample, drift from the reference implementation
+        tB = ref.bridge_drift(gA, g0, g1, tau, mf)
+        e = (tA - tB).abs().max().item() / tB.abs().max().item()
+        check(f"drift target matches for {kind}/{mf.name}", e < 2e-3, f"max rel err {e:.2e}")
+        vA = (mf.logmap(mf.interp(g0, g1, tau), gA) ** 2).mean().item()
+        gC = ref.bridge_sample(g0, g1, tau, mf, torch.Generator().manual_seed(3))
+        vC = (mf.logmap(mf.interp(g0, g1, tau), gC) ** 2).mean().item()
+        check(f"bridge covariance matches for {kind}/{mf.name}", abs(vA / vC - 1) < 0.08,
+              f"var ratio {vA / vC:.4f}")
+
+
 if __name__ == "__main__":
     test_covariance_steering(); test_se2(); test_terrain(); test_w2(); test_reference_bridge()
+    test_fast_path()
     print()
     if FAILS:
         print(f"FAILED {len(FAILS)}: {FAILS}")

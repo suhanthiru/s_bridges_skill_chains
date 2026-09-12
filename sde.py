@@ -78,8 +78,7 @@ class Reference:
         phi = torch.exp(-self.kappa * (1 - tau))[:, None, None]
         M = Q_t0 @ (phi * torch.linalg.inv(Q_10))
         P = Q_t0 - M @ (phi * Q_t0)
-        P = 0.5 * (P + P.transpose(1, 2)) + 1e-10 * torch.eye(3, device=g0.device)
-        L = torch.linalg.cholesky(P)
+        L = psd_sqrt(P)
         xi = torch.einsum("nij,nj->ni", L, torch.randn(n, 3, generator=gen, device=g0.device))
         return mf.retract(mf.interp(g0, g1, tau), xi)
 
@@ -111,6 +110,17 @@ def gaussian_sb_coupling(S0, S1, eps):
 def gaussian_sb_marginal(S0, S1, C, eps, t):
     """Marginal covariance of the Gaussian SB at time t."""
     return ((1 - t) ** 2 * S0 + t ** 2 * S1 + t * (1 - t) * (C + C.T) + eps * t * (1 - t) * np.eye(len(S0)))
+
+
+def psd_sqrt(P):
+    """Batched symmetric square root with eigenvalues floored at 0.
+
+    P is a difference of covariances and loses positive-definiteness to
+    cancellation as tau -> 0 or 1, so Cholesky is not safe here.
+    """
+    P = 0.5 * (P + P.transpose(-1, -2))
+    w, V = torch.linalg.eigh(P)
+    return V @ torch.diag_embed(w.clamp_min(0).sqrt())
 
 
 def _sqrtm(A):

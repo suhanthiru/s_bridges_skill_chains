@@ -6,5 +6,7 @@
  "ppo_e": 187.7,
  "eval": 547.5,
  "plots": 4.0,
- "tune": 587.5
+ "tune": 587.5,
+ "phase1_seed99": 39.8,
+ "phase1_seed98": 35.8
 }

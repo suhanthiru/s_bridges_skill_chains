@@ -23,6 +23,10 @@ CLASSES = {
 NAMES = list(CLASSES)
 WET = NAMES.index("wet")
 RAIN_FRICTION_DROP = 0.40
+# Friction contrast between classes.  The raw table below is compressed toward 1
+# by this factor so that all three Phase-1 disturbance modes are informative for
+# the non-bridge nominal controller (see findings/phase1.md, "calibration").
+FRIC_SCALE = 0.5
 
 
 def class_map(layout_id, n_seed=14, flip_rate=0.0, boundary_jitter=0.0, seed_off=0):
@@ -46,7 +50,7 @@ def class_map(layout_id, n_seed=14, flip_rate=0.0, boundary_jitter=0.0, seed_off
 
 def property_fields(cmap, rain=False):
     """(3+1+1, GRID, GRID): slip stds (3), friction, push rate."""
-    fric = np.array([CLASSES[n][0] for n in NAMES])
+    fric = 1.0 - (1.0 - np.array([CLASSES[n][0] for n in NAMES])) * FRIC_SCALE
     slip = np.array([CLASSES[n][1] for n in NAMES])
     push = np.array([CLASSES[n][2] for n in NAMES])
     if rain:
