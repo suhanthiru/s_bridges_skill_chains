@@ -253,9 +253,34 @@ def test_fast_path():
               f"var ratio {vA / vC:.4f}")
 
 
+def test_equivariance():
+    """The SE(2) bridge construction must commute with a rigid motion of the whole
+    scene; the flat construction must not (that is the point of the comparison)."""
+    print("7. left-equivariance of the bridge construction")
+    import bridge_fast as BF
+    n = 3000
+    a = S.exp_se2(torch.tensor([[0.3, -0.2, 1.1]])).expand(n, 3).contiguous()
+    for kind in ("brownian", "unicycle"):
+        ref = SD.Reference(kind, sigma=0.06, kappa=2.0)
+        g0 = torch.randn(n, 3) * 0.05 + torch.tensor([0.30, 0.5, 0.2])
+        g1 = torch.randn(n, 3) * 0.05 + torch.tensor([0.60, 0.5, -0.1])
+        tau = torch.rand(n).clamp(0.05, 0.95)
+        for mf, want_equi in ((S.SE2, True), (S.Flat, False)):
+            p = BF.prepare(ref, g0, g1, mf)
+            gA, tA = BF.sample_and_target(ref, g0, p, tau, mf, torch.Generator().manual_seed(7))
+            pg = BF.prepare(ref, S.compose(a, g0), S.compose(a, g1), mf)
+            gB, tB = BF.sample_and_target(ref, S.compose(a, g0), pg, tau, mf, torch.Generator().manual_seed(7))
+            e = (S.between(S.compose(a, gA), gB)).abs().max().item()
+            if want_equi:
+                check(f"SE(2) bridge sample is equivariant ({kind})", e < 1e-4, f"max dev {e:.2e}")
+            else:
+                check(f"flat bridge sample is NOT equivariant ({kind}) - expected", e > 1e-2,
+                      f"max dev {e:.2e}")
+
+
 if __name__ == "__main__":
     test_covariance_steering(); test_se2(); test_terrain(); test_w2(); test_reference_bridge()
-    test_fast_path()
+    test_fast_path(); test_equivariance()
     print()
     if FAILS:
         print(f"FAILED {len(FAILS)}: {FAILS}")
