@@ -13,8 +13,10 @@ Closed-loop part: raw D grows like 1/(tau(1-tau)) towards both ends of a skill, 
 a single threshold on it fires late in every skill regardless of state; the
 trigger therefore uses the tau-normalised D~ = D tau(1-tau) (the deviation from
 the bridge's support itself).  Its threshold is chosen on validation seeds (0, 1)
-as the value maximising Youden's J at horizon 10; on test seeds (2-4) a replan
-fires when D~ exceeds it during tau in [0.1, 0.9] (at most once per skill).  Replan = re-solve
+as the 90th percentile of the per-episode maximum of D~ (over tau in [0.1, 0.9])
+among SUCCESSFUL episodes, i.e. a 10% false-replan budget by construction; on test
+seeds (2-4) a replan fires when D~ exceeds it during tau in [0.1, 0.9] (at most
+once per skill).  Replan = re-solve
 the current skill's bridge from the current state as the new initial marginal;
 for an iteration-0 bridge with independent coupling that bridge is exactly the
 learned drift restarted at tau = 0 from the current pose, so the skill clock is
@@ -101,25 +103,22 @@ def offline(device):
     return pd.DataFrame(rows)
 
 
-def choose_threshold(df_val_trajs):
-    """Youden's J on validation seeds at horizon 10, normalised D~, pooled over layouts/disturbances."""
-    scores, labels = [], []
+def choose_threshold(df_val_trajs, budget=0.10):
+    """Episode-level rule on validation seeds: the (1-budget) quantile of the per-episode
+    maximum of normalised D~ within the trigger window among successful episodes, so the
+    false-replan rate on validation data is `budget` by construction.  Also returns the
+    fraction of failing validation episodes that would have fired (the trigger's recall)."""
+    mx_ok, mx_fail = [], []
+    tau = (np.arange(300) % 100) / 100.0
+    win = (tau >= 0.1) & (tau <= 0.9)
     for f in df_val_trajs:
-        z = np.load(f); D, succ, alive, traj = z["D"][:, :, 1], z["success"].astype(bool), z["alive"].astype(bool), z["traj"]
-        moved = np.abs(np.diff(traj[:, :, :2], axis=1)).sum(2) > 0
-        t_fail = np.where(alive | moved.all(1), 300, np.argmin(moved, axis=1))
-        tt = np.arange(300)[None]
-        pos = (~succ)[:, None] & (tt <= t_fail[:, None] - 10); neg = succ[:, None] & np.ones((1, 300), bool)
-        m = pos | neg
-        scores.append(D[m]); labels.append(pos[m])
-    s, y = np.concatenate(scores), np.concatenate(labels)
-    qs = np.quantile(s, np.linspace(0.5, 0.995, 100))
-    best, bj = qs[0], -1
-    for q in qs:
-        tpr = (s[y] > q).mean(); fpr = (s[~y] > q).mean()
-        if tpr - fpr > bj:
-            bj, best = tpr - fpr, q
-    return float(best), float(bj)
+        z = np.load(f); D, succ = z["D"][:, :, 1], z["success"].astype(bool)
+        mx = D[:, win].max(1)
+        mx_ok.append(mx[succ]); mx_fail.append(mx[~succ])
+    ok, fail = np.concatenate(mx_ok), np.concatenate(mx_fail)
+    thr = float(np.quantile(ok, 1 - budget)) if len(ok) else float("inf")
+    recall = float((fail > thr).mean()) if len(fail) else float("nan")
+    return thr, recall
 
 
 @torch.no_grad()
@@ -194,8 +193,9 @@ def run(quick=False):
     off.to_parquet(os.path.join(RES, "phase3_offline.parquet"), index=False)
     allf = glob.glob(os.path.join(RES, "phase2_traj_*.npz"))
     val = [f for f in allf if int(f[:-4].rsplit("_s", 1)[1]) in VAL_SEEDS] or allf
-    thr, J = choose_threshold(val)
-    print(f"[p3] threshold on normalised D~ from validation seeds: {thr:.4f} (Youden J {J:.3f})", flush=True)
+    thr, rec = choose_threshold(val)
+    print(f"[p3] threshold on normalised D~ (10% false-replan budget on validation): {thr:.4f}; "
+          f"validation recall on failing episodes {rec:.2f}", flush=True)
     cl = closed_loop(thr, device, quick)
     cl.to_parquet(os.path.join(RES, "phase3_closedloop.parquet"), index=False)
     return off, cl
