@@ -1,0 +1,936 @@
+=== stage bridges ===
+[bridge w=0.1 s=1 k=1]   ipf 0: cost=0.1004 sinkhorn=0.0042 w2=0.0162 killed=0.008
+[bridge w=0.1 s=2 k=1]   ipf 0: cost=0.1003 sinkhorn=0.0051 w2=0.0285 killed=0.000
+[bridge w=0.1 s=0 k=1]   ipf 0: cost=0.1007 sinkhorn=0.0039 w2=0.0161 killed=0.010
+[bridge w=0.1 s=2 k=1]   ipf 1: cost=0.0906 sinkhorn=0.0046 w2=0.0271 killed=0.040
+[bridge w=0.1 s=1 k=1]   ipf 1: cost=0.0927 sinkhorn=0.0042 w2=0.0173 killed=0.020
+[bridge w=0.1 s=0 k=1]   ipf 1: cost=0.1001 sinkhorn=0.0044 w2=0.0219 killed=0.006
+[bridge w=0.1 s=2 k=1]   ipf 2: cost=0.0910 sinkhorn=0.0043 w2=0.0168 killed=0.024
+[bridge w=0.1 s=0 k=1]   ipf 2: cost=0.0949 sinkhorn=0.0043 w2=0.0123 killed=0.020
+[bridge w=0.1 s=1 k=1]   ipf 2: cost=0.0889 sinkhorn=0.0040 w2=0.0107 killed=0.026
+[bridge w=0.1 s=0 k=1]   ipf 3: cost=0.0919 sinkhorn=0.0044 w2=0.0155 killed=0.016
+[bridge w=0.1 s=2 k=1]   ipf 3: cost=0.0930 sinkhorn=0.0039 w2=0.0135 killed=0.034
+[bridge w=0.1 s=1 k=1]   ipf 3: cost=0.0930 sinkhorn=0.0043 w2=0.0199 killed=0.008
+[bridge w=0.1 s=1 k=1]   ipf 4: cost=0.0932 sinkhorn=0.0044 w2=0.0207 killed=0.022
+[bridge w=0.1 s=0 k=1]   ipf 4: cost=0.0861 sinkhorn=0.0045 w2=0.0152 killed=0.028
+[bridge w=0.1 s=2 k=1]   ipf 4: cost=0.0906 sinkhorn=0.0041 w2=0.0181 killed=0.026
+[bridge w=0.1 s=0 k=1]   ipf 5: cost=0.0922 sinkhorn=0.0040 w2=0.0121 killed=0.014
+[bridge w=0.1 s=1 k=1]   ipf 5: cost=0.0912 sinkhorn=0.0042 w2=0.0173 killed=0.014
+[bridge w=0.1 s=2 k=1]   ipf 5: cost=0.0917 sinkhorn=0.0044 w2=0.0272 killed=0.008
+[bridge w=0.1 s=0 k=1] done in 98s
+[bridge w=0.1 s=1 k=1] done in 99s
+[bridge w=0.1 s=2 k=1] done in 99s
+[bridge w=0.1 s=0 k=2]   ipf 0: cost=0.0309 sinkhorn=0.0038 w2=0.0173 killed=0.488
+[bridge w=0.1 s=1 k=2]   ipf 0: cost=0.0309 sinkhorn=0.0042 w2=0.0240 killed=0.468
+[bridge w=0.1 s=2 k=2]   ipf 0: cost=0.0308 sinkhorn=0.0041 w2=0.0122 killed=0.522
+[bridge w=0.1 s=0 k=2]   ipf 1: cost=0.0309 sinkhorn=0.0040 w2=0.0145 killed=0.530
+[bridge w=0.1 s=1 k=2]   ipf 1: cost=0.0324 sinkhorn=0.0044 w2=0.0260 killed=0.506
+[bridge w=0.1 s=2 k=2]   ipf 1: cost=0.0287 sinkhorn=0.0046 w2=0.0250 killed=0.506
+[bridge w=0.1 s=1 k=2]   ipf 2: cost=0.0327 sinkhorn=0.0038 w2=0.0162 killed=0.476
+[bridge w=0.1 s=0 k=2]   ipf 2: cost=0.0293 sinkhorn=0.0042 w2=0.0229 killed=0.498
+[bridge w=0.1 s=2 k=2]   ipf 2: cost=0.0292 sinkhorn=0.0036 w2=0.0127 killed=0.504
+[bridge w=0.1 s=0 k=2]   ipf 3: cost=0.0298 sinkhorn=0.0043 w2=0.0197 killed=0.534
+[bridge w=0.1 s=1 k=2]   ipf 3: cost=0.0293 sinkhorn=0.0042 w2=0.0187 killed=0.512
+[bridge w=0.1 s=2 k=2]   ipf 3: cost=0.0302 sinkhorn=0.0041 w2=0.0232 killed=0.480
+[bridge w=0.1 s=1 k=2]   ipf 4: cost=0.0289 sinkhorn=0.0041 w2=0.0221 killed=0.552
+[bridge w=0.1 s=0 k=2]   ipf 4: cost=0.0266 sinkhorn=0.0042 w2=0.0229 killed=0.486
+[bridge w=0.1 s=2 k=2]   ipf 4: cost=0.0302 sinkhorn=0.0044 w2=0.0243 killed=0.560
+[bridge w=0.1 s=1 k=2]   ipf 5: cost=0.0283 sinkhorn=0.0042 w2=0.0196 killed=0.508
+[bridge w=0.1 s=0 k=2]   ipf 5: cost=0.0284 sinkhorn=0.0040 w2=0.0220 killed=0.496
+[bridge w=0.1 s=1 k=2] done in 95s
+[bridge w=0.1 s=0 k=2] done in 95s
+[bridge w=0.1 s=2 k=2]   ipf 5: cost=0.0304 sinkhorn=0.0044 w2=0.0194 killed=0.532
+[bridge w=0.1 s=2 k=2] done in 96s
+[bridge w=0.1 s=1 k=3]   ipf 0: cost=0.1008 sinkhorn=0.0084 w2=0.0261 killed=0.002
+[bridge w=0.1 s=0 k=3]   ipf 0: cost=0.1008 sinkhorn=0.0092 w2=0.0375 killed=0.006
+[bridge w=0.1 s=2 k=3]   ipf 0: cost=0.1006 sinkhorn=0.0086 w2=0.0288 killed=0.008
+[bridge w=0.1 s=1 k=3]   ipf 1: cost=0.0921 sinkhorn=0.0086 w2=0.0302 killed=0.006
+[bridge w=0.1 s=0 k=3]   ipf 1: cost=0.0912 sinkhorn=0.0088 w2=0.0324 killed=0.004
+[bridge w=0.1 s=2 k=3]   ipf 1: cost=0.0914 sinkhorn=0.0082 w2=0.0217 killed=0.004
+[bridge w=0.1 s=1 k=3]   ipf 2: cost=0.0900 sinkhorn=0.0100 w2=0.0478 killed=0.010
+[bridge w=0.1 s=0 k=3]   ipf 2: cost=0.0907 sinkhorn=0.0100 w2=0.0473 killed=0.006
+[bridge w=0.1 s=2 k=3]   ipf 2: cost=0.0926 sinkhorn=0.0089 w2=0.0324 killed=0.010
+[bridge w=0.1 s=1 k=3]   ipf 3: cost=0.0877 sinkhorn=0.0085 w2=0.0258 killed=0.010
+[bridge w=0.1 s=0 k=3]   ipf 3: cost=0.0896 sinkhorn=0.0086 w2=0.0291 killed=0.006
+[bridge w=0.1 s=2 k=3]   ipf 3: cost=0.0891 sinkhorn=0.0085 w2=0.0273 killed=0.014
+[bridge w=0.1 s=1 k=3]   ipf 4: cost=0.0894 sinkhorn=0.0085 w2=0.0290 killed=0.008
+[bridge w=0.1 s=0 k=3]   ipf 4: cost=0.0919 sinkhorn=0.0088 w2=0.0304 killed=0.006
+[bridge w=0.1 s=2 k=3]   ipf 4: cost=0.0884 sinkhorn=0.0088 w2=0.0317 killed=0.004
+[bridge w=0.1 s=1 k=3]   ipf 5: cost=0.0915 sinkhorn=0.0095 w2=0.0418 killed=0.014
+[bridge w=0.1 s=1 k=3] done in 94s
+[bridge w=0.1 s=0 k=3]   ipf 5: cost=0.0923 sinkhorn=0.0089 w2=0.0322 killed=0.010
+[bridge w=0.1 s=0 k=3] done in 95s
+[bridge w=0.1 s=2 k=3]   ipf 5: cost=0.0933 sinkhorn=0.0084 w2=0.0270 killed=0.014
+[bridge w=0.1 s=2 k=3] done in 96s
+[bridge w=0.1 s=3 k=1]   ipf 0: cost=0.1000 sinkhorn=0.0039 w2=0.0108 killed=0.016
+[bridge w=0.1 s=4 k=1]   ipf 0: cost=0.1003 sinkhorn=0.0040 w2=0.0147 killed=0.010
+[bridge w=0.2 s=0 k=1]   ipf 0: cost=0.1055 sinkhorn=0.0063 w2=0.0297 killed=0.010
+[bridge w=0.1 s=3 k=1]   ipf 1: cost=0.0863 sinkhorn=0.0041 w2=0.0135 killed=0.024
+[bridge w=0.1 s=4 k=1]   ipf 1: cost=0.0918 sinkhorn=0.0045 w2=0.0167 killed=0.018
+[bridge w=0.2 s=0 k=1]   ipf 1: cost=0.0940 sinkhorn=0.0060 w2=0.0216 killed=0.006
+[bridge w=0.1 s=3 k=1]   ipf 2: cost=0.0883 sinkhorn=0.0045 w2=0.0231 killed=0.046
+[bridge w=0.1 s=4 k=1]   ipf 2: cost=0.0946 sinkhorn=0.0040 w2=0.0134 killed=0.014
+[bridge w=0.2 s=0 k=1]   ipf 2: cost=0.0917 sinkhorn=0.0060 w2=0.0214 killed=0.028
+[bridge w=0.1 s=3 k=1]   ipf 3: cost=0.0968 sinkhorn=0.0043 w2=0.0204 killed=0.014
+[bridge w=0.1 s=4 k=1]   ipf 3: cost=0.0926 sinkhorn=0.0043 w2=0.0202 killed=0.006
+[bridge w=0.2 s=0 k=1]   ipf 3: cost=0.0906 sinkhorn=0.0058 w2=0.0150 killed=0.016
+[bridge w=0.1 s=3 k=1]   ipf 4: cost=0.0931 sinkhorn=0.0046 w2=0.0270 killed=0.008
+[bridge w=0.1 s=4 k=1]   ipf 4: cost=0.0915 sinkhorn=0.0041 w2=0.0161 killed=0.014
+[bridge w=0.2 s=0 k=1]   ipf 4: cost=0.0830 sinkhorn=0.0058 w2=0.0139 killed=0.012
+[bridge w=0.1 s=3 k=1]   ipf 5: cost=0.0853 sinkhorn=0.0041 w2=0.0132 killed=0.004
+[bridge w=0.1 s=3 k=1] done in 97s
+[bridge w=0.1 s=4 k=1]   ipf 5: cost=0.0870 sinkhorn=0.0040 w2=0.0139 killed=0.004
+[bridge w=0.1 s=4 k=1] done in 96s
+[bridge w=0.2 s=0 k=1]   ipf 5: cost=0.0827 sinkhorn=0.0058 w2=0.0184 killed=0.012
+[bridge w=0.2 s=0 k=1] done in 97s
+[bridge w=0.1 s=3 k=2]   ipf 0: cost=0.0307 sinkhorn=0.0042 w2=0.0212 killed=0.572
+[bridge w=0.1 s=4 k=2]   ipf 0: cost=0.0309 sinkhorn=0.0037 w2=0.0152 killed=0.518
+[bridge w=0.2 s=0 k=2]   ipf 0: cost=0.0403 sinkhorn=0.0059 w2=0.0287 killed=0.246
+[bridge w=0.1 s=3 k=2]   ipf 1: cost=0.0276 sinkhorn=0.0043 w2=0.0243 killed=0.492
+[bridge w=0.1 s=4 k=2]   ipf 1: cost=0.0309 sinkhorn=0.0039 w2=0.0152 killed=0.478
+[bridge w=0.2 s=0 k=2]   ipf 1: cost=0.0341 sinkhorn=0.0061 w2=0.0266 killed=0.280
+[bridge w=0.1 s=3 k=2]   ipf 2: cost=0.0300 sinkhorn=0.0044 w2=0.0156 killed=0.484
+[bridge w=0.1 s=4 k=2]   ipf 2: cost=0.0281 sinkhorn=0.0042 w2=0.0177 killed=0.486
+[bridge w=0.2 s=0 k=2]   ipf 2: cost=0.0312 sinkhorn=0.0064 w2=0.0349 killed=0.256
+[bridge w=0.1 s=3 k=2]   ipf 3: cost=0.0301 sinkhorn=0.0045 w2=0.0244 killed=0.502
+[bridge w=0.1 s=4 k=2]   ipf 3: cost=0.0295 sinkhorn=0.0038 w2=0.0144 killed=0.546
+[bridge w=0.2 s=0 k=2]   ipf 3: cost=0.0340 sinkhorn=0.0059 w2=0.0211 killed=0.290
+[bridge w=0.1 s=3 k=2]   ipf 4: cost=0.0302 sinkhorn=0.0038 w2=0.0131 killed=0.522
+[bridge w=0.1 s=4 k=2]   ipf 4: cost=0.0302 sinkhorn=0.0037 w2=0.0161 killed=0.506
+[bridge w=0.2 s=0 k=2]   ipf 4: cost=0.0297 sinkhorn=0.0058 w2=0.0226 killed=0.298
+[bridge w=0.1 s=3 k=2]   ipf 5: cost=0.0295 sinkhorn=0.0040 w2=0.0192 killed=0.524
+[bridge w=0.1 s=3 k=2] done in 96s
+[bridge w=0.1 s=4 k=2]   ipf 5: cost=0.0290 sinkhorn=0.0040 w2=0.0197 killed=0.466
+[bridge w=0.1 s=4 k=2] done in 98s
+[bridge w=0.2 s=0 k=2]   ipf 5: cost=0.0305 sinkhorn=0.0061 w2=0.0293 killed=0.290
+[bridge w=0.2 s=0 k=2] done in 97s
+[bridge w=0.1 s=3 k=3]   ipf 0: cost=0.0999 sinkhorn=0.0087 w2=0.0302 killed=0.002
+[bridge w=0.1 s=4 k=3]   ipf 0: cost=0.1005 sinkhorn=0.0083 w2=0.0221 killed=0.006
+[bridge w=0.2 s=0 k=3]   ipf 0: cost=0.1055 sinkhorn=0.0091 w2=0.0359 killed=0.004
+[bridge w=0.1 s=3 k=3]   ipf 1: cost=0.0925 sinkhorn=0.0084 w2=0.0255 killed=0.016
+[bridge w=0.1 s=4 k=3]   ipf 1: cost=0.0936 sinkhorn=0.0084 w2=0.0292 killed=0.018
+[bridge w=0.2 s=0 k=3]   ipf 1: cost=0.0885 sinkhorn=0.0085 w2=0.0264 killed=0.006
+[bridge w=0.1 s=3 k=3]   ipf 2: cost=0.0913 sinkhorn=0.0115 w2=0.0585 killed=0.012
+[bridge w=0.1 s=4 k=3]   ipf 2: cost=0.0919 sinkhorn=0.0107 w2=0.0547 killed=0.008
+[bridge w=0.2 s=0 k=3]   ipf 2: cost=0.0862 sinkhorn=0.0093 w2=0.0369 killed=0.002
+[bridge w=0.1 s=3 k=3]   ipf 3: cost=0.0931 sinkhorn=0.0086 w2=0.0293 killed=0.014
+[bridge w=0.1 s=4 k=3]   ipf 3: cost=0.0922 sinkhorn=0.0087 w2=0.0297 killed=0.010
+[bridge w=0.2 s=0 k=3]   ipf 3: cost=0.0863 sinkhorn=0.0088 w2=0.0342 killed=0.002
+[bridge w=0.1 s=3 k=3]   ipf 4: cost=0.0897 sinkhorn=0.0151 w2=0.0842 killed=0.008
+[bridge w=0.1 s=4 k=3]   ipf 4: cost=0.0864 sinkhorn=0.0083 w2=0.0245 killed=0.010
+[bridge w=0.2 s=0 k=3]   ipf 4: cost=0.0867 sinkhorn=0.0085 w2=0.0274 killed=0.000
+[bridge w=0.1 s=3 k=3]   ipf 5: cost=0.0870 sinkhorn=0.0086 w2=0.0297 killed=0.006
+[bridge w=0.1 s=3 k=3] done in 94s
+[bridge w=0.1 s=4 k=3]   ipf 5: cost=0.0906 sinkhorn=0.0091 w2=0.0374 killed=0.010
+[bridge w=0.1 s=4 k=3] done in 95s
+[bridge w=0.2 s=0 k=3]   ipf 5: cost=0.0893 sinkhorn=0.0087 w2=0.0292 killed=0.006
+[bridge w=0.2 s=0 k=3] done in 96s
+[bridge w=0.2 s=1 k=1]   ipf 0: cost=0.1051 sinkhorn=0.0058 w2=0.0150 killed=0.008
+[bridge w=0.2 s=2 k=1]   ipf 0: cost=0.1050 sinkhorn=0.0065 w2=0.0278 killed=0.000
+[bridge w=0.2 s=3 k=1]   ipf 0: cost=0.1049 sinkhorn=0.0061 w2=0.0257 killed=0.014
+[bridge w=0.2 s=1 k=1]   ipf 1: cost=0.0872 sinkhorn=0.0058 w2=0.0200 killed=0.010
+[bridge w=0.2 s=2 k=1]   ipf 1: cost=0.0870 sinkhorn=0.0060 w2=0.0225 killed=0.004
+[bridge w=0.2 s=3 k=1]   ipf 1: cost=0.0820 sinkhorn=0.0058 w2=0.0164 killed=0.020
+[bridge w=0.2 s=1 k=1]   ipf 2: cost=0.0919 sinkhorn=0.0060 w2=0.0226 killed=0.012
+[bridge w=0.2 s=2 k=1]   ipf 2: cost=0.0830 sinkhorn=0.0060 w2=0.0210 killed=0.014
+[bridge w=0.2 s=3 k=1]   ipf 2: cost=0.0851 sinkhorn=0.0060 w2=0.0195 killed=0.022
+[bridge w=0.2 s=1 k=1]   ipf 3: cost=0.0877 sinkhorn=0.0060 w2=0.0193 killed=0.012
+[bridge w=0.2 s=2 k=1]   ipf 3: cost=0.0832 sinkhorn=0.0059 w2=0.0183 killed=0.012
+[bridge w=0.2 s=3 k=1]   ipf 3: cost=0.0850 sinkhorn=0.0056 w2=0.0136 killed=0.010
+[bridge w=0.2 s=1 k=1]   ipf 4: cost=0.0895 sinkhorn=0.0057 w2=0.0147 killed=0.002
+[bridge w=0.2 s=2 k=1]   ipf 4: cost=0.0842 sinkhorn=0.0062 w2=0.0265 killed=0.010
+[bridge w=0.2 s=3 k=1]   ipf 4: cost=0.0902 sinkhorn=0.0061 w2=0.0212 killed=0.006
+[bridge w=0.2 s=1 k=1]   ipf 5: cost=0.0854 sinkhorn=0.0057 w2=0.0132 killed=0.008
+[bridge w=0.2 s=1 k=1] done in 94s
+[bridge w=0.2 s=2 k=1]   ipf 5: cost=0.0848 sinkhorn=0.0057 w2=0.0126 killed=0.004
+[bridge w=0.2 s=2 k=1] done in 94s
+[bridge w=0.2 s=3 k=1]   ipf 5: cost=0.0824 sinkhorn=0.0062 w2=0.0222 killed=0.008
+[bridge w=0.2 s=3 k=1] done in 95s
+[bridge w=0.2 s=1 k=2]   ipf 0: cost=0.0403 sinkhorn=0.0063 w2=0.0325 killed=0.240
+[bridge w=0.2 s=2 k=2]   ipf 0: cost=0.0402 sinkhorn=0.0060 w2=0.0216 killed=0.280
+[bridge w=0.2 s=3 k=2]   ipf 0: cost=0.0401 sinkhorn=0.0061 w2=0.0280 killed=0.292
+[bridge w=0.2 s=1 k=2]   ipf 1: cost=0.0343 sinkhorn=0.0066 w2=0.0405 killed=0.238
+[bridge w=0.2 s=2 k=2]   ipf 1: cost=0.0333 sinkhorn=0.0061 w2=0.0265 killed=0.270
+[bridge w=0.2 s=3 k=2]   ipf 1: cost=0.0349 sinkhorn=0.0058 w2=0.0257 killed=0.282
+[bridge w=0.2 s=1 k=2]   ipf 2: cost=0.0334 sinkhorn=0.0065 w2=0.0352 killed=0.232
+[bridge w=0.2 s=2 k=2]   ipf 2: cost=0.0341 sinkhorn=0.0063 w2=0.0346 killed=0.274
+[bridge w=0.2 s=3 k=2]   ipf 2: cost=0.0329 sinkhorn=0.0062 w2=0.0270 killed=0.280
+[bridge w=0.2 s=1 k=2]   ipf 3: cost=0.0334 sinkhorn=0.0063 w2=0.0313 killed=0.312
+[bridge w=0.2 s=2 k=2]   ipf 3: cost=0.0312 sinkhorn=0.0064 w2=0.0328 killed=0.258
+[bridge w=0.2 s=3 k=2]   ipf 3: cost=0.0336 sinkhorn=0.0063 w2=0.0289 killed=0.280
+[bridge w=0.2 s=1 k=2]   ipf 4: cost=0.0330 sinkhorn=0.0058 w2=0.0250 killed=0.286
+[bridge w=0.2 s=2 k=2]   ipf 4: cost=0.0341 sinkhorn=0.0063 w2=0.0285 killed=0.318
+[bridge w=0.2 s=3 k=2]   ipf 4: cost=0.0315 sinkhorn=0.0062 w2=0.0334 killed=0.312
+[bridge w=0.2 s=1 k=2]   ipf 5: cost=0.0314 sinkhorn=0.0060 w2=0.0273 killed=0.256
+[bridge w=0.2 s=1 k=2] done in 95s
+[bridge w=0.2 s=2 k=2]   ipf 5: cost=0.0342 sinkhorn=0.0063 w2=0.0317 killed=0.272
+[bridge w=0.2 s=2 k=2] done in 95s
+[bridge w=0.2 s=3 k=2]   ipf 5: cost=0.0330 sinkhorn=0.0058 w2=0.0240 killed=0.314
+[bridge w=0.2 s=3 k=2] done in 95s
+[bridge w=0.2 s=1 k=3]   ipf 0: cost=0.1056 sinkhorn=0.0087 w2=0.0304 killed=0.000
+[bridge w=0.2 s=2 k=3]   ipf 0: cost=0.1054 sinkhorn=0.0085 w2=0.0273 killed=0.006
+[bridge w=0.2 s=3 k=3]   ipf 0: cost=0.1047 sinkhorn=0.0087 w2=0.0292 killed=0.002
+[bridge w=0.2 s=1 k=3]   ipf 1: cost=0.0859 sinkhorn=0.0086 w2=0.0278 killed=0.004
+[bridge w=0.2 s=2 k=3]   ipf 1: cost=0.0840 sinkhorn=0.0086 w2=0.0294 killed=0.002
+[bridge w=0.2 s=3 k=3]   ipf 1: cost=0.0872 sinkhorn=0.0083 w2=0.0241 killed=0.010
+[bridge w=0.2 s=1 k=3]   ipf 2: cost=0.0876 sinkhorn=0.0088 w2=0.0293 killed=0.006
+[bridge w=0.2 s=2 k=3]   ipf 2: cost=0.0879 sinkhorn=0.0090 w2=0.0335 killed=0.006
+[bridge w=0.2 s=3 k=3]   ipf 2: cost=0.0856 sinkhorn=0.0090 w2=0.0349 killed=0.002
+[bridge w=0.2 s=1 k=3]   ipf 3: cost=0.0860 sinkhorn=0.0086 w2=0.0268 killed=0.006
+[bridge w=0.2 s=2 k=3]   ipf 3: cost=0.0849 sinkhorn=0.0088 w2=0.0299 killed=0.006
+[bridge w=0.2 s=3 k=3]   ipf 3: cost=0.0863 sinkhorn=0.0083 w2=0.0244 killed=0.000
+[bridge w=0.2 s=1 k=3]   ipf 4: cost=0.0873 sinkhorn=0.0082 w2=0.0248 killed=0.006
+[bridge w=0.2 s=2 k=3]   ipf 4: cost=0.0848 sinkhorn=0.0092 w2=0.0369 killed=0.002
+[bridge w=0.2 s=3 k=3]   ipf 4: cost=0.0868 sinkhorn=0.0086 w2=0.0269 killed=0.006
+[bridge w=0.2 s=1 k=3]   ipf 5: cost=0.0866 sinkhorn=0.0082 w2=0.0253 killed=0.006
+[bridge w=0.2 s=1 k=3] done in 94s
+[bridge w=0.2 s=2 k=3]   ipf 5: cost=0.0899 sinkhorn=0.0088 w2=0.0338 killed=0.010
+[bridge w=0.2 s=2 k=3] done in 94s
+[bridge w=0.2 s=3 k=3]   ipf 5: cost=0.0851 sinkhorn=0.0083 w2=0.0246 killed=0.004
+[bridge w=0.2 s=3 k=3] done in 95s
+[bridge w=0.2 s=4 k=1]   ipf 0: cost=0.1051 sinkhorn=0.0060 w2=0.0225 killed=0.008
+[bridge w=0.4 s=0 k=1]   ipf 0: cost=0.1245 sinkhorn=0.0069 w2=0.0309 killed=0.008
+[bridge w=0.4 s=1 k=1]   ipf 0: cost=0.1243 sinkhorn=0.0066 w2=0.0178 killed=0.002
+[bridge w=0.2 s=4 k=1]   ipf 1: cost=0.0870 sinkhorn=0.0059 w2=0.0198 killed=0.006
+[bridge w=0.4 s=0 k=1]   ipf 1: cost=0.0942 sinkhorn=0.0068 w2=0.0248 killed=0.002
+[bridge w=0.4 s=1 k=1]   ipf 1: cost=0.0847 sinkhorn=0.0070 w2=0.0285 killed=0.016
+[bridge w=0.2 s=4 k=1]   ipf 2: cost=0.0879 sinkhorn=0.0059 w2=0.0200 killed=0.006
+[bridge w=0.4 s=0 k=1]   ipf 2: cost=0.0909 sinkhorn=0.0069 w2=0.0255 killed=0.014
+[bridge w=0.4 s=1 k=1]   ipf 2: cost=0.0808 sinkhorn=0.0067 w2=0.0231 killed=0.018
+[bridge w=0.2 s=4 k=1]   ipf 3: cost=0.0912 sinkhorn=0.0057 w2=0.0165 killed=0.006
+[bridge w=0.4 s=0 k=1]   ipf 3: cost=0.0914 sinkhorn=0.0070 w2=0.0306 killed=0.000
+[bridge w=0.4 s=1 k=1]   ipf 3: cost=0.0895 sinkhorn=0.0069 w2=0.0271 killed=0.006
+[bridge w=0.2 s=4 k=1]   ipf 4: cost=0.0858 sinkhorn=0.0061 w2=0.0233 killed=0.014
+[bridge w=0.4 s=0 k=1]   ipf 4: cost=0.0868 sinkhorn=0.0070 w2=0.0295 killed=0.002
+[bridge w=0.4 s=1 k=1]   ipf 4: cost=0.0903 sinkhorn=0.0066 w2=0.0219 killed=0.006
+[bridge w=0.2 s=4 k=1]   ipf 5: cost=0.0900 sinkhorn=0.0057 w2=0.0182 killed=0.008
+[bridge w=0.2 s=4 k=1] done in 94s
+[bridge w=0.4 s=0 k=1]   ipf 5: cost=0.0810 sinkhorn=0.0066 w2=0.0242 killed=0.008
+[bridge w=0.4 s=0 k=1] done in 94s
+[bridge w=0.4 s=1 k=1]   ipf 5: cost=0.0878 sinkhorn=0.0064 w2=0.0210 killed=0.000
+[bridge w=0.4 s=1 k=1] done in 95s
+[bridge w=0.2 s=4 k=2]   ipf 0: cost=0.0403 sinkhorn=0.0057 w2=0.0205 killed=0.280
+[bridge w=0.4 s=0 k=2]   ipf 0: cost=0.0785 sinkhorn=0.0083 w2=0.0470 killed=0.146
+[bridge w=0.4 s=1 k=2]   ipf 0: cost=0.0779 sinkhorn=0.0087 w2=0.0530 killed=0.124
+[bridge w=0.2 s=4 k=2]   ipf 1: cost=0.0351 sinkhorn=0.0063 w2=0.0298 killed=0.264
+[bridge w=0.4 s=0 k=2]   ipf 1: cost=0.0408 sinkhorn=0.0107 w2=0.0656 killed=0.214
+[bridge w=0.4 s=1 k=2]   ipf 1: cost=0.0391 sinkhorn=0.0100 w2=0.0629 killed=0.208
+[bridge w=0.2 s=4 k=2]   ipf 2: cost=0.0354 sinkhorn=0.0061 w2=0.0311 killed=0.286
+[bridge w=0.4 s=0 k=2]   ipf 2: cost=0.0383 sinkhorn=0.0100 w2=0.0637 killed=0.224
+[bridge w=0.4 s=1 k=2]   ipf 2: cost=0.0386 sinkhorn=0.0092 w2=0.0574 killed=0.188
+[bridge w=0.2 s=4 k=2]   ipf 3: cost=0.0351 sinkhorn=0.0058 w2=0.0263 killed=0.312
+[bridge w=0.4 s=0 k=2]   ipf 3: cost=0.0382 sinkhorn=0.0100 w2=0.0604 killed=0.210
+[bridge w=0.4 s=1 k=2]   ipf 3: cost=0.0385 sinkhorn=0.0090 w2=0.0510 killed=0.196
+[bridge w=0.2 s=4 k=2]   ipf 4: cost=0.0335 sinkhorn=0.0057 w2=0.0277 killed=0.262
+[bridge w=0.4 s=0 k=2]   ipf 4: cost=0.0380 sinkhorn=0.0095 w2=0.0521 killed=0.242
+[bridge w=0.4 s=1 k=2]   ipf 4: cost=0.0387 sinkhorn=0.0088 w2=0.0568 killed=0.212
+[bridge w=0.2 s=4 k=2]   ipf 5: cost=0.0334 sinkhorn=0.0061 w2=0.0279 killed=0.240
+[bridge w=0.2 s=4 k=2] done in 94s
+[bridge w=0.4 s=0 k=2]   ipf 5: cost=0.0398 sinkhorn=0.0096 w2=0.0613 killed=0.220
+[bridge w=0.4 s=0 k=2] done in 95s
+[bridge w=0.4 s=1 k=2]   ipf 5: cost=0.0364 sinkhorn=0.0101 w2=0.0624 killed=0.178
+[bridge w=0.4 s=1 k=2] done in 96s
+[bridge w=0.2 s=4 k=3]   ipf 0: cost=0.1053 sinkhorn=0.0084 w2=0.0234 killed=0.000
+[bridge w=0.4 s=0 k=3]   ipf 0: cost=0.1242 sinkhorn=0.0088 w2=0.0327 killed=0.002
+[bridge w=0.4 s=1 k=3]   ipf 0: cost=0.1242 sinkhorn=0.0087 w2=0.0304 killed=0.000
+[bridge w=0.2 s=4 k=3]   ipf 1: cost=0.0873 sinkhorn=0.0100 w2=0.0479 killed=0.008
+[bridge w=0.4 s=0 k=3]   ipf 1: cost=0.0855 sinkhorn=0.0094 w2=0.0398 killed=0.002
+[bridge w=0.4 s=1 k=3]   ipf 1: cost=0.0866 sinkhorn=0.0085 w2=0.0263 killed=0.004
+[bridge w=0.2 s=4 k=3]   ipf 2: cost=0.0874 sinkhorn=0.0087 w2=0.0301 killed=0.010
+[bridge w=0.4 s=0 k=3]   ipf 2: cost=0.0855 sinkhorn=0.0087 w2=0.0303 killed=0.000
+[bridge w=0.4 s=1 k=3]   ipf 2: cost=0.0849 sinkhorn=0.0090 w2=0.0320 killed=0.004
+[bridge w=0.2 s=4 k=3]   ipf 3: cost=0.0916 sinkhorn=0.0089 w2=0.0318 killed=0.012
+[bridge w=0.4 s=0 k=3]   ipf 3: cost=0.0919 sinkhorn=0.0087 w2=0.0300 killed=0.004
+[bridge w=0.4 s=1 k=3]   ipf 3: cost=0.0841 sinkhorn=0.0084 w2=0.0249 killed=0.004
+[bridge w=0.2 s=4 k=3]   ipf 4: cost=0.0849 sinkhorn=0.0088 w2=0.0339 killed=0.004
+[bridge w=0.4 s=0 k=3]   ipf 4: cost=0.0904 sinkhorn=0.0090 w2=0.0358 killed=0.000
+[bridge w=0.4 s=1 k=3]   ipf 4: cost=0.0860 sinkhorn=0.0084 w2=0.0277 killed=0.010
+[bridge w=0.2 s=4 k=3]   ipf 5: cost=0.0889 sinkhorn=0.0095 w2=0.0416 killed=0.008
+[bridge w=0.2 s=4 k=3] done in 96s
+[bridge w=0.4 s=0 k=3]   ipf 5: cost=0.0886 sinkhorn=0.0093 w2=0.0390 killed=0.004
+[bridge w=0.4 s=0 k=3] done in 96s
+[bridge w=0.4 s=1 k=3]   ipf 5: cost=0.0885 sinkhorn=0.0094 w2=0.0419 killed=0.010
+[bridge w=0.4 s=1 k=3] done in 97s
+[bridge w=0.4 s=2 k=1]   ipf 0: cost=0.1237 sinkhorn=0.0074 w2=0.0339 killed=0.000
+[bridge w=0.4 s=3 k=1]   ipf 0: cost=0.1240 sinkhorn=0.0068 w2=0.0271 killed=0.004
+[bridge w=0.4 s=4 k=1]   ipf 0: cost=0.1238 sinkhorn=0.0073 w2=0.0305 killed=0.008
+[bridge w=0.4 s=2 k=1]   ipf 1: cost=0.0825 sinkhorn=0.0080 w2=0.0443 killed=0.008
+[bridge w=0.4 s=3 k=1]   ipf 1: cost=0.0813 sinkhorn=0.0072 w2=0.0343 killed=0.006
+[bridge w=0.4 s=4 k=1]   ipf 1: cost=0.0863 sinkhorn=0.0064 w2=0.0196 killed=0.016
+[bridge w=0.4 s=2 k=1]   ipf 2: cost=0.0883 sinkhorn=0.0068 w2=0.0231 killed=0.012
+[bridge w=0.4 s=3 k=1]   ipf 2: cost=0.0862 sinkhorn=0.0071 w2=0.0305 killed=0.012
+[bridge w=0.4 s=4 k=1]   ipf 2: cost=0.0937 sinkhorn=0.0073 w2=0.0339 killed=0.006
+[bridge w=0.4 s=2 k=1]   ipf 3: cost=0.0916 sinkhorn=0.0066 w2=0.0210 killed=0.014
+[bridge w=0.4 s=3 k=1]   ipf 3: cost=0.0883 sinkhorn=0.0066 w2=0.0219 killed=0.008
+[bridge w=0.4 s=4 k=1]   ipf 3: cost=0.0899 sinkhorn=0.0067 w2=0.0251 killed=0.006
+[bridge w=0.4 s=2 k=1]   ipf 4: cost=0.0846 sinkhorn=0.0070 w2=0.0304 killed=0.006
+[bridge w=0.4 s=3 k=1]   ipf 4: cost=0.0817 sinkhorn=0.0068 w2=0.0269 killed=0.004
+[bridge w=0.4 s=4 k=1]   ipf 4: cost=0.0848 sinkhorn=0.0069 w2=0.0298 killed=0.010
+[bridge w=0.4 s=2 k=1]   ipf 5: cost=0.0852 sinkhorn=0.0065 w2=0.0184 killed=0.010
+[bridge w=0.4 s=2 k=1] done in 98s
+[bridge w=0.4 s=3 k=1]   ipf 5: cost=0.0793 sinkhorn=0.0095 w2=0.0583 killed=0.004
+[bridge w=0.4 s=3 k=1] done in 98s
+[bridge w=0.4 s=4 k=1]   ipf 5: cost=0.0852 sinkhorn=0.0068 w2=0.0271 killed=0.008
+[bridge w=0.4 s=4 k=1] done in 99s
+[bridge w=0.4 s=2 k=2]   ipf 0: cost=0.0772 sinkhorn=0.0073 w2=0.0318 killed=0.166
+[bridge w=0.4 s=3 k=2]   ipf 0: cost=0.0764 sinkhorn=0.0081 w2=0.0465 killed=0.186
+[bridge w=0.4 s=4 k=2]   ipf 0: cost=0.0768 sinkhorn=0.0072 w2=0.0313 killed=0.138
+[bridge w=0.4 s=2 k=2]   ipf 1: cost=0.0414 sinkhorn=0.0097 w2=0.0609 killed=0.220
+[bridge w=0.4 s=3 k=2]   ipf 1: cost=0.0381 sinkhorn=0.0091 w2=0.0540 killed=0.232
+[bridge w=0.4 s=4 k=2]   ipf 1: cost=0.0400 sinkhorn=0.0114 w2=0.0734 killed=0.206
+[bridge w=0.4 s=2 k=2]   ipf 2: cost=0.0402 sinkhorn=0.0089 w2=0.0565 killed=0.204
+[bridge w=0.4 s=3 k=2]   ipf 2: cost=0.0394 sinkhorn=0.0110 w2=0.0723 killed=0.214
+[bridge w=0.4 s=4 k=2]   ipf 2: cost=0.0393 sinkhorn=0.0099 w2=0.0612 killed=0.216
+[bridge w=0.4 s=2 k=2]   ipf 3: cost=0.0387 sinkhorn=0.0091 w2=0.0569 killed=0.248
+[bridge w=0.4 s=3 k=2]   ipf 3: cost=0.0406 sinkhorn=0.0106 w2=0.0640 killed=0.246
+[bridge w=0.4 s=4 k=2]   ipf 3: cost=0.0399 sinkhorn=0.0083 w2=0.0465 killed=0.254
+[bridge w=0.4 s=2 k=2]   ipf 4: cost=0.0373 sinkhorn=0.0091 w2=0.0557 killed=0.226
+[bridge w=0.4 s=3 k=2]   ipf 4: cost=0.0404 sinkhorn=0.0090 w2=0.0569 killed=0.274
+[bridge w=0.4 s=4 k=2]   ipf 4: cost=0.0388 sinkhorn=0.0084 w2=0.0502 killed=0.226
+[bridge w=0.4 s=2 k=2]   ipf 5: cost=0.0381 sinkhorn=0.0095 w2=0.0559 killed=0.234
+[bridge w=0.4 s=2 k=2] done in 96s
+[bridge w=0.4 s=3 k=2]   ipf 5: cost=0.0389 sinkhorn=0.0086 w2=0.0519 killed=0.246
+[bridge w=0.4 s=3 k=2] done in 95s
+[bridge w=0.4 s=4 k=2]   ipf 5: cost=0.0405 sinkhorn=0.0108 w2=0.0699 killed=0.164
+[bridge w=0.4 s=4 k=2] done in 96s
+[bridge w=0.4 s=2 k=3]   ipf 0: cost=0.1245 sinkhorn=0.0087 w2=0.0299 killed=0.004
+[bridge w=0.4 s=3 k=3]   ipf 0: cost=0.1234 sinkhorn=0.0087 w2=0.0289 killed=0.002
+[bridge w=0.4 s=4 k=3]   ipf 0: cost=0.1238 sinkhorn=0.0085 w2=0.0253 killed=0.000
+[bridge w=0.4 s=2 k=3]   ipf 1: cost=0.0860 sinkhorn=0.0084 w2=0.0255 killed=0.000
+[bridge w=0.4 s=3 k=3]   ipf 1: cost=0.0871 sinkhorn=0.0089 w2=0.0338 killed=0.010
+[bridge w=0.4 s=4 k=3]   ipf 1: cost=0.0896 sinkhorn=0.0085 w2=0.0262 killed=0.008
+[bridge w=0.4 s=2 k=3]   ipf 2: cost=0.0854 sinkhorn=0.0084 w2=0.0233 killed=0.004
+[bridge w=0.4 s=3 k=3]   ipf 2: cost=0.0886 sinkhorn=0.0089 w2=0.0332 killed=0.004
+[bridge w=0.4 s=4 k=3]   ipf 2: cost=0.0861 sinkhorn=0.0109 w2=0.0556 killed=0.006
+[bridge w=0.4 s=2 k=3]   ipf 3: cost=0.0835 sinkhorn=0.0086 w2=0.0282 killed=0.000
+[bridge w=0.4 s=3 k=3]   ipf 3: cost=0.0871 sinkhorn=0.0085 w2=0.0270 killed=0.002
+[bridge w=0.4 s=4 k=3]   ipf 3: cost=0.0865 sinkhorn=0.0084 w2=0.0250 killed=0.010
+[bridge w=0.4 s=2 k=3]   ipf 4: cost=0.0847 sinkhorn=0.0099 w2=0.0462 killed=0.002
+[bridge w=0.4 s=3 k=3]   ipf 4: cost=0.0858 sinkhorn=0.0095 w2=0.0399 killed=0.004
+[bridge w=0.4 s=4 k=3]   ipf 4: cost=0.0859 sinkhorn=0.0083 w2=0.0250 killed=0.004
+[bridge w=0.4 s=2 k=3]   ipf 5: cost=0.0867 sinkhorn=0.0081 w2=0.0210 killed=0.002
+[bridge w=0.4 s=2 k=3] done in 95s
+[bridge w=0.4 s=3 k=3]   ipf 5: cost=0.0830 sinkhorn=0.0095 w2=0.0428 killed=0.002
+[bridge w=0.4 s=3 k=3] done in 94s
+[bridge w=0.4 s=4 k=3]   ipf 5: cost=0.0908 sinkhorn=0.0092 w2=0.0387 killed=0.000
+[bridge w=0.4 s=4 k=3] done in 94s
+=== bridges took 1443.6s ===
+=== stage flows ===
+[flow0 w=0.1 s=0 k=1]   ipf 0: cost=0.1007 sinkhorn=0.0039 w2=0.0161 killed=0.010
+[flow0 w=0.1 s=1 k=1]   ipf 0: cost=0.1004 sinkhorn=0.0042 w2=0.0162 killed=0.008
+[flow0 w=0.1 s=2 k=1]   ipf 0: cost=0.1003 sinkhorn=0.0051 w2=0.0285 killed=0.000
+[flow0 w=0.1 s=0 k=1] done in 21s
+[flow0 w=0.1 s=1 k=1] done in 21s
+[flow0 w=0.1 s=2 k=1] done in 21s
+[flow0 w=0.1 s=0 k=2]   ipf 0: cost=0.0309 sinkhorn=0.0038 w2=0.0130 killed=0.494
+[flow0 w=0.1 s=0 k=2] done in 19s
+[flow0 w=0.1 s=1 k=2]   ipf 0: cost=0.0309 sinkhorn=0.0048 w2=0.0300 killed=0.440
+[flow0 w=0.1 s=2 k=2]   ipf 0: cost=0.0308 sinkhorn=0.0043 w2=0.0190 killed=0.536
+[flow0 w=0.1 s=1 k=2] done in 20s
+[flow0 w=0.1 s=2 k=2] done in 20s
+[flow0 w=0.1 s=0 k=3]   ipf 0: cost=0.1008 sinkhorn=0.0089 w2=0.0329 killed=0.006
+[flow0 w=0.1 s=1 k=3]   ipf 0: cost=0.1008 sinkhorn=0.0090 w2=0.0349 killed=0.002
+[flow0 w=0.1 s=0 k=3] done in 20s
+[flow0 w=0.1 s=1 k=3] done in 19s
+[flow0 w=0.1 s=2 k=3]   ipf 0: cost=0.1006 sinkhorn=0.0092 w2=0.0371 killed=0.010
+[flow0 w=0.1 s=2 k=3] done in 20s
+[flow0 w=0.1 s=3 k=1]   ipf 0: cost=0.1000 sinkhorn=0.0039 w2=0.0108 killed=0.016
+[flow0 w=0.1 s=4 k=1]   ipf 0: cost=0.1003 sinkhorn=0.0040 w2=0.0147 killed=0.010
+[flow0 w=0.1 s=3 k=1] done in 24s
+[flow0 w=0.1 s=4 k=1] done in 24s
+[flow0 w=0.2 s=0 k=1]   ipf 0: cost=0.1055 sinkhorn=0.0063 w2=0.0297 killed=0.010
+[flow0 w=0.2 s=0 k=1] done in 25s
+[flow0 w=0.1 s=3 k=2]   ipf 0: cost=0.0307 sinkhorn=0.0041 w2=0.0212 killed=0.548
+[flow0 w=0.1 s=4 k=2]   ipf 0: cost=0.0309 sinkhorn=0.0041 w2=0.0167 killed=0.538
+[flow0 w=0.1 s=3 k=2] done in 33s
+[flow0 w=0.1 s=4 k=2] done in 33s
+[flow0 w=0.2 s=0 k=2]   ipf 0: cost=0.0403 sinkhorn=0.0061 w2=0.0312 killed=0.236
+[flow0 w=0.2 s=0 k=2] done in 33s
+[flow0 w=0.1 s=3 k=3]   ipf 0: cost=0.0999 sinkhorn=0.0099 w2=0.0449 killed=0.004
+[flow0 w=0.1 s=4 k=3]   ipf 0: cost=0.1005 sinkhorn=0.0098 w2=0.0442 killed=0.006
+[flow0 w=0.1 s=3 k=3] done in 34s
+[flow0 w=0.1 s=4 k=3] done in 34s
+[flow0 w=0.2 s=0 k=3]   ipf 0: cost=0.1055 sinkhorn=0.0090 w2=0.0342 killed=0.004
+[flow0 w=0.2 s=0 k=3] done in 34s
+[flow0 w=0.2 s=1 k=1]   ipf 0: cost=0.1051 sinkhorn=0.0058 w2=0.0150 killed=0.008
+[flow0 w=0.2 s=2 k=1]   ipf 0: cost=0.1050 sinkhorn=0.0065 w2=0.0278 killed=0.000
+[flow0 w=0.2 s=1 k=1] done in 21s
+[flow0 w=0.2 s=2 k=1] done in 20s
+[flow0 w=0.2 s=3 k=1]   ipf 0: cost=0.1049 sinkhorn=0.0061 w2=0.0257 killed=0.014
+[flow0 w=0.2 s=3 k=1] done in 20s
+[flow0 w=0.2 s=1 k=2]   ipf 0: cost=0.0403 sinkhorn=0.0073 w2=0.0428 killed=0.246
+[flow0 w=0.2 s=2 k=2]   ipf 0: cost=0.0402 sinkhorn=0.0061 w2=0.0249 killed=0.298
+[flow0 w=0.2 s=1 k=2] done in 19s
+[flow0 w=0.2 s=2 k=2] done in 19s
+[flow0 w=0.2 s=3 k=2]   ipf 0: cost=0.0401 sinkhorn=0.0062 w2=0.0319 killed=0.310
+[flow0 w=0.2 s=3 k=2] done in 19s
+[flow0 w=0.2 s=1 k=3]   ipf 0: cost=0.1056 sinkhorn=0.0083 w2=0.0252 killed=0.000
+[flow0 w=0.2 s=2 k=3]   ipf 0: cost=0.1054 sinkhorn=0.0085 w2=0.0259 killed=0.006
+[flow0 w=0.2 s=1 k=3] done in 20s
+[flow0 w=0.2 s=2 k=3] done in 20s
+[flow0 w=0.2 s=3 k=3]   ipf 0: cost=0.1047 sinkhorn=0.0092 w2=0.0375 killed=0.002
+[flow0 w=0.2 s=3 k=3] done in 21s
+[flow0 w=0.2 s=4 k=1]   ipf 0: cost=0.1051 sinkhorn=0.0060 w2=0.0225 killed=0.008
+[flow0 w=0.4 s=0 k=1]   ipf 0: cost=0.1245 sinkhorn=0.0069 w2=0.0309 killed=0.008
+[flow0 w=0.2 s=4 k=1] done in 20s
+[flow0 w=0.4 s=0 k=1] done in 20s
+[flow0 w=0.4 s=1 k=1]   ipf 0: cost=0.1243 sinkhorn=0.0066 w2=0.0178 killed=0.002
+[flow0 w=0.4 s=1 k=1] done in 20s
+[flow0 w=0.2 s=4 k=2]   ipf 0: cost=0.0403 sinkhorn=0.0057 w2=0.0186 killed=0.264
+[flow0 w=0.4 s=0 k=2]   ipf 0: cost=0.0785 sinkhorn=0.0084 w2=0.0490 killed=0.160
+[flow0 w=0.2 s=4 k=2] done in 19s
+[flow0 w=0.4 s=0 k=2] done in 19s
+[flow0 w=0.4 s=1 k=2]   ipf 0: cost=0.0779 sinkhorn=0.0086 w2=0.0490 killed=0.134
+[flow0 w=0.4 s=1 k=2] done in 19s
+[flow0 w=0.4 s=0 k=3]   ipf 0: cost=0.1242 sinkhorn=0.0092 w2=0.0374 killed=0.002
+[flow0 w=0.2 s=4 k=3]   ipf 0: cost=0.1053 sinkhorn=0.0103 w2=0.0494 killed=0.000
+[flow0 w=0.4 s=0 k=3] done in 19s
+[flow0 w=0.2 s=4 k=3] done in 19s
+[flow0 w=0.4 s=1 k=3]   ipf 0: cost=0.1242 sinkhorn=0.0084 w2=0.0261 killed=0.002
+[flow0 w=0.4 s=1 k=3] done in 19s
+[flow0 w=0.4 s=3 k=1]   ipf 0: cost=0.1240 sinkhorn=0.0068 w2=0.0271 killed=0.004
+[flow0 w=0.4 s=2 k=1]   ipf 0: cost=0.1237 sinkhorn=0.0074 w2=0.0339 killed=0.000
+[flow0 w=0.4 s=3 k=1] done in 19s
+[flow0 w=0.4 s=2 k=1] done in 19s
+[flow0 w=0.4 s=4 k=1]   ipf 0: cost=0.1238 sinkhorn=0.0073 w2=0.0305 killed=0.008
+[flow0 w=0.4 s=4 k=1] done in 20s
+[flow0 w=0.4 s=2 k=2]   ipf 0: cost=0.0772 sinkhorn=0.0075 w2=0.0344 killed=0.158
+[flow0 w=0.4 s=3 k=2]   ipf 0: cost=0.0764 sinkhorn=0.0076 w2=0.0411 killed=0.194
+[flow0 w=0.4 s=2 k=2] done in 19s
+[flow0 w=0.4 s=3 k=2] done in 19s
+[flow0 w=0.4 s=4 k=2]   ipf 0: cost=0.0768 sinkhorn=0.0070 w2=0.0284 killed=0.144
+[flow0 w=0.4 s=4 k=2] done in 20s
+[flow0 w=0.4 s=2 k=3]   ipf 0: cost=0.1245 sinkhorn=0.0089 w2=0.0341 killed=0.004
+[flow0 w=0.4 s=3 k=3]   ipf 0: cost=0.1234 sinkhorn=0.0092 w2=0.0356 killed=0.002
+[flow0 w=0.4 s=2 k=3] done in 19s
+[flow0 w=0.4 s=3 k=3] done in 19s
+[flow0 w=0.4 s=4 k=3]   ipf 0: cost=0.1238 sinkhorn=0.0098 w2=0.0453 killed=0.002
+[flow0 w=0.4 s=4 k=3] done in 19s
+=== flows took 333.0s ===
+=== stage ppo_c ===
+[ppo C w=0.1 s=0]   upd 0/122 ret=-1.028 succ=0.000 (1s)
+[ppo C w=0.1 s=1]   upd 0/122 ret=-1.045 succ=0.000 (1s)
+[ppo C w=0.1 s=1]   upd 12/122 ret=-1.089 succ=0.115 (8s)
+[ppo C w=0.1 s=0]   upd 12/122 ret=-1.033 succ=0.155 (8s)
+[ppo C w=0.1 s=2]   upd 12/122 ret=-1.024 succ=0.145 (8s)
+[ppo C w=0.1 s=1]   upd 24/122 ret=-0.473 succ=0.395 (15s)
+[ppo C w=0.1 s=0]   upd 24/122 ret=-0.426 succ=0.425 (15s)
+[ppo C w=0.1 s=2]   upd 24/122 ret=-0.472 succ=0.390 (16s)
+[ppo C w=0.1 s=1]   upd 36/122 ret=-0.433 succ=0.420 (23s)
+[ppo C w=0.1 s=0]   upd 36/122 ret=-0.480 succ=0.400 (23s)
+[ppo C w=0.1 s=2]   upd 36/122 ret=-0.456 succ=0.400 (23s)
+[ppo C w=0.1 s=1]   upd 48/122 ret=-0.440 succ=0.415 (31s)
+[ppo C w=0.1 s=0]   upd 48/122 ret=-0.345 succ=0.475 (31s)
+[ppo C w=0.1 s=2]   upd 48/122 ret=-0.365 succ=0.425 (31s)
+[ppo C w=0.1 s=1]   upd 60/122 ret=-0.394 succ=0.440 (38s)
+[ppo C w=0.1 s=0]   upd 60/122 ret=-0.366 succ=0.455 (38s)
+[ppo C w=0.1 s=2]   upd 60/122 ret=-0.470 succ=0.395 (39s)
+[ppo C w=0.1 s=1]   upd 72/122 ret=-0.277 succ=0.495 (46s)
+[ppo C w=0.1 s=0]   upd 72/122 ret=-0.375 succ=0.445 (46s)
+[ppo C w=0.1 s=2]   upd 72/122 ret=-0.334 succ=0.455 (46s)
+[ppo C w=0.1 s=1]   upd 84/122 ret=-0.425 succ=0.425 (53s)
+[ppo C w=0.1 s=0]   upd 84/122 ret=-0.456 succ=0.405 (53s)
+[ppo C w=0.1 s=2]   upd 84/122 ret=-0.338 succ=0.460 (54s)
+[ppo C w=0.1 s=1]   upd 96/122 ret=-0.489 succ=0.375 (61s)
+[ppo C w=0.1 s=0]   upd 96/122 ret=-0.465 succ=0.395 (61s)
+[ppo C w=0.1 s=2]   upd 96/122 ret=-0.387 succ=0.445 (61s)
+[ppo C w=0.1 s=0]   upd 108/122 ret=-0.379 succ=0.450 (68s)
+[ppo C w=0.1 s=1]   upd 108/122 ret=-0.282 succ=0.500 (69s)
+[ppo C w=0.1 s=2]   upd 108/122 ret=-0.386 succ=0.460 (69s)
+[ppo C w=0.1 s=0]   upd 120/122 ret=-0.390 succ=0.440 (76s)
+[ppo C w=0.1 s=1]   upd 120/122 ret=-0.262 succ=0.505 (76s)
+[ppo C w=0.1 s=0] done in 78s
+[ppo C w=0.1 s=1] done in 78s
+[ppo C w=0.1 s=2]   upd 120/122 ret=-0.377 succ=0.430 (77s)
+[ppo C w=0.1 s=3]   upd 0/122 ret=-1.029 succ=0.000 (0s)
+[ppo C w=0.1 s=2] done in 79s
+[ppo C w=0.2 s=0]   upd 0/122 ret=-1.026 succ=0.000 (0s)
+[ppo C w=0.1 s=4]   upd 12/122 ret=-0.774 succ=0.220 (7s)
+[ppo C w=0.1 s=3]   upd 12/122 ret=-1.143 succ=0.090 (7s)
+[ppo C w=0.2 s=0]   upd 12/122 ret=-0.497 succ=0.390 (7s)
+[ppo C w=0.1 s=4]   upd 24/122 ret=-0.422 succ=0.420 (15s)
+[ppo C w=0.1 s=3]   upd 24/122 ret=-0.568 succ=0.355 (15s)
+[ppo C w=0.2 s=0]   upd 24/122 ret=-0.346 succ=0.470 (14s)
+[ppo C w=0.1 s=4]   upd 36/122 ret=-0.437 succ=0.415 (22s)
+[ppo C w=0.1 s=3]   upd 36/122 ret=-0.484 succ=0.395 (23s)
+[ppo C w=0.2 s=0]   upd 36/122 ret=-0.211 succ=0.505 (22s)
+[ppo C w=0.1 s=4]   upd 48/122 ret=-0.361 succ=0.455 (30s)
+[ppo C w=0.1 s=3]   upd 48/122 ret=-0.495 succ=0.385 (31s)
+[ppo C w=0.2 s=0]   upd 48/122 ret=-0.237 succ=0.525 (30s)
+[ppo C w=0.1 s=4]   upd 60/122 ret=-0.378 succ=0.450 (38s)
+[ppo C w=0.1 s=3]   upd 60/122 ret=-0.434 succ=0.420 (39s)
+[ppo C w=0.2 s=0]   upd 60/122 ret=-0.296 succ=0.480 (38s)
+[ppo C w=0.1 s=4]   upd 72/122 ret=-0.344 succ=0.455 (46s)
+[ppo C w=0.1 s=3]   upd 72/122 ret=-0.359 succ=0.440 (47s)
+[ppo C w=0.2 s=0]   upd 72/122 ret=-0.242 succ=0.515 (46s)
+[ppo C w=0.1 s=4]   upd 84/122 ret=-0.316 succ=0.460 (54s)
+[ppo C w=0.1 s=3]   upd 84/122 ret=-0.238 succ=0.520 (55s)
+[ppo C w=0.2 s=0]   upd 84/122 ret=-0.148 succ=0.565 (54s)
+[ppo C w=0.1 s=4]   upd 96/122 ret=-0.285 succ=0.480 (62s)
+[ppo C w=0.1 s=3]   upd 96/122 ret=-0.402 succ=0.420 (62s)
+[ppo C w=0.2 s=0]   upd 96/122 ret=-0.158 succ=0.565 (62s)
+[ppo C w=0.1 s=4]   upd 108/122 ret=-0.353 succ=0.445 (69s)
+[ppo C w=0.1 s=3]   upd 108/122 ret=-0.270 succ=0.520 (70s)
+[ppo C w=0.2 s=0]   upd 108/122 ret=-0.202 succ=0.535 (69s)
+[ppo C w=0.1 s=4]   upd 120/122 ret=-0.318 succ=0.495 (77s)
+[ppo C w=0.1 s=3]   upd 120/122 ret=-0.237 succ=0.515 (77s)
+[ppo C w=0.1 s=4] done in 78s
+[ppo C w=0.2 s=0]   upd 120/122 ret=-0.281 succ=0.485 (77s)
+[ppo C w=0.1 s=3] done in 78s
+[ppo C w=0.2 s=0] done in 77s
+[ppo C w=0.2 s=3]   upd 0/122 ret=-1.033 succ=0.000 (0s)
+[ppo C w=0.2 s=1]   upd 12/122 ret=-0.535 succ=0.385 (7s)
+[ppo C w=0.2 s=2]   upd 12/122 ret=-0.433 succ=0.445 (7s)
+[ppo C w=0.2 s=3]   upd 12/122 ret=-0.597 succ=0.370 (7s)
+[ppo C w=0.2 s=1]   upd 24/122 ret=-0.320 succ=0.495 (14s)
+[ppo C w=0.2 s=2]   upd 24/122 ret=-0.374 succ=0.450 (14s)
+[ppo C w=0.2 s=3]   upd 24/122 ret=-0.208 succ=0.550 (15s)
+[ppo C w=0.2 s=1]   upd 36/122 ret=-0.259 succ=0.520 (22s)
+[ppo C w=0.2 s=2]   upd 36/122 ret=-0.403 succ=0.420 (22s)
+[ppo C w=0.2 s=3]   upd 36/122 ret=-0.394 succ=0.440 (22s)
+[ppo C w=0.2 s=1]   upd 48/122 ret=-0.115 succ=0.605 (30s)
+[ppo C w=0.2 s=2]   upd 48/122 ret=-0.223 succ=0.530 (30s)
+[ppo C w=0.2 s=3]   upd 48/122 ret=-0.277 succ=0.460 (30s)
+[ppo C w=0.2 s=1]   upd 60/122 ret=-0.218 succ=0.555 (38s)
+[ppo C w=0.2 s=2]   upd 60/122 ret=-0.235 succ=0.530 (37s)
+[ppo C w=0.2 s=3]   upd 60/122 ret=-0.273 succ=0.500 (38s)
+[ppo C w=0.2 s=2]   upd 72/122 ret=-0.136 succ=0.570 (45s)
+[ppo C w=0.2 s=1]   upd 72/122 ret=-0.229 succ=0.525 (45s)
+[ppo C w=0.2 s=3]   upd 72/122 ret=-0.245 succ=0.510 (45s)
+[ppo C w=0.2 s=2]   upd 84/122 ret=-0.135 succ=0.565 (53s)
+[ppo C w=0.2 s=1]   upd 84/122 ret=-0.288 succ=0.480 (53s)
+[ppo C w=0.2 s=3]   upd 84/122 ret=-0.222 succ=0.530 (53s)
+[ppo C w=0.2 s=2]   upd 96/122 ret=-0.123 succ=0.570 (60s)
+[ppo C w=0.2 s=1]   upd 96/122 ret=-0.303 succ=0.465 (61s)
+[ppo C w=0.2 s=3]   upd 96/122 ret=-0.181 succ=0.540 (61s)
+[ppo C w=0.2 s=2]   upd 108/122 ret=-0.151 succ=0.555 (68s)
+[ppo C w=0.2 s=1]   upd 108/122 ret=-0.202 succ=0.525 (68s)
+[ppo C w=0.2 s=3]   upd 108/122 ret=-0.138 succ=0.570 (69s)
+[ppo C w=0.2 s=2]   upd 120/122 ret=-0.290 succ=0.470 (75s)
+[ppo C w=0.2 s=1]   upd 120/122 ret=-0.247 succ=0.515 (76s)
+[ppo C w=0.2 s=2] done in 76s
+[ppo C w=0.2 s=1] done in 77s
+[ppo C w=0.2 s=3]   upd 120/122 ret=-0.210 succ=0.520 (76s)
+[ppo C w=0.2 s=3] done in 77s
+[ppo C w=0.2 s=4]   upd 12/122 ret=-0.404 succ=0.435 (7s)
+[ppo C w=0.4 s=0]   upd 12/122 ret=-0.132 succ=0.595 (7s)
+[ppo C w=0.4 s=1]   upd 12/122 ret=-0.112 succ=0.585 (6s)
+[ppo C w=0.2 s=4]   upd 24/122 ret=-0.428 succ=0.400 (14s)
+[ppo C w=0.4 s=0]   upd 24/122 ret=-0.380 succ=0.455 (14s)
+[ppo C w=0.4 s=1]   upd 24/122 ret=-0.296 succ=0.505 (14s)
+[ppo C w=0.2 s=4]   upd 36/122 ret=-0.310 succ=0.470 (22s)
+[ppo C w=0.4 s=0]   upd 36/122 ret=-0.085 succ=0.620 (21s)
+[ppo C w=0.4 s=1]   upd 36/122 ret=-0.172 succ=0.565 (21s)
+[ppo C w=0.2 s=4]   upd 48/122 ret=-0.142 succ=0.555 (29s)
+[ppo C w=0.4 s=0]   upd 48/122 ret=0.088 succ=0.705 (29s)
+[ppo C w=0.4 s=1]   upd 48/122 ret=0.009 succ=0.625 (28s)
+[ppo C w=0.4 s=0]   upd 60/122 ret=-0.146 succ=0.575 (36s)
+[ppo C w=0.2 s=4]   upd 60/122 ret=-0.217 succ=0.500 (37s)
+[ppo C w=0.4 s=1]   upd 60/122 ret=-0.134 succ=0.545 (36s)
+[ppo C w=0.4 s=0]   upd 72/122 ret=-0.141 succ=0.580 (44s)
+[ppo C w=0.2 s=4]   upd 72/122 ret=-0.219 succ=0.520 (45s)
+[ppo C w=0.4 s=1]   upd 72/122 ret=-0.023 succ=0.630 (44s)
+[ppo C w=0.4 s=0]   upd 84/122 ret=0.051 succ=0.665 (52s)
+[ppo C w=0.2 s=4]   upd 84/122 ret=-0.212 succ=0.520 (52s)
+[ppo C w=0.4 s=1]   upd 84/122 ret=0.034 succ=0.665 (51s)
+[ppo C w=0.4 s=0]   upd 96/122 ret=-0.012 succ=0.640 (59s)
+[ppo C w=0.2 s=4]   upd 96/122 ret=-0.214 succ=0.535 (60s)
+[ppo C w=0.4 s=1]   upd 96/122 ret=0.046 succ=0.645 (59s)
+[ppo C w=0.4 s=0]   upd 108/122 ret=-0.001 succ=0.615 (67s)
+[ppo C w=0.2 s=4]   upd 108/122 ret=-0.225 succ=0.500 (68s)
+[ppo C w=0.4 s=1]   upd 108/122 ret=-0.043 succ=0.615 (66s)
+[ppo C w=0.4 s=0]   upd 120/122 ret=0.025 succ=0.660 (75s)
+[ppo C w=0.2 s=4]   upd 120/122 ret=-0.181 succ=0.535 (75s)
+[ppo C w=0.4 s=1]   upd 120/122 ret=-0.009 succ=0.655 (74s)
+[ppo C w=0.4 s=0] done in 75s
+[ppo C w=0.2 s=4] done in 76s
+[ppo C w=0.4 s=1] done in 75s
+[ppo C w=0.4 s=3]   upd 0/122 ret=-1.023 succ=0.000 (0s)
+[ppo C w=0.4 s=2]   upd 12/122 ret=-0.126 succ=0.575 (7s)
+[ppo C w=0.4 s=4]   upd 12/122 ret=-0.046 succ=0.635 (6s)
+[ppo C w=0.4 s=3]   upd 12/122 ret=-0.043 succ=0.660 (7s)
+[ppo C w=0.4 s=2]   upd 24/122 ret=-0.234 succ=0.525 (14s)
+[ppo C w=0.4 s=4]   upd 24/122 ret=-0.237 succ=0.530 (14s)
+[ppo C w=0.4 s=3]   upd 24/122 ret=-0.285 succ=0.525 (14s)
+[ppo C w=0.4 s=2]   upd 36/122 ret=-0.239 succ=0.530 (21s)
+[ppo C w=0.4 s=4]   upd 36/122 ret=-0.218 succ=0.540 (21s)
+[ppo C w=0.4 s=3]   upd 36/122 ret=-0.305 succ=0.500 (21s)
+[ppo C w=0.4 s=2]   upd 48/122 ret=0.033 succ=0.635 (29s)
+[ppo C w=0.4 s=4]   upd 48/122 ret=-0.065 succ=0.590 (28s)
+[ppo C w=0.4 s=3]   upd 48/122 ret=-0.109 succ=0.580 (29s)
+[ppo C w=0.4 s=2]   upd 60/122 ret=-0.082 succ=0.595 (36s)
+[ppo C w=0.4 s=4]   upd 60/122 ret=-0.069 succ=0.625 (36s)
+[ppo C w=0.4 s=3]   upd 60/122 ret=-0.225 succ=0.555 (36s)
+[ppo C w=0.4 s=2]   upd 72/122 ret=-0.097 succ=0.550 (44s)
+[ppo C w=0.4 s=4]   upd 72/122 ret=-0.048 succ=0.630 (44s)
+[ppo C w=0.4 s=3]   upd 72/122 ret=-0.078 succ=0.620 (44s)
+[ppo C w=0.4 s=2]   upd 84/122 ret=0.046 succ=0.630 (51s)
+[ppo C w=0.4 s=4]   upd 84/122 ret=-0.051 succ=0.635 (51s)
+[ppo C w=0.4 s=3]   upd 84/122 ret=-0.028 succ=0.630 (52s)
+[ppo C w=0.4 s=2]   upd 96/122 ret=-0.029 succ=0.600 (59s)
+[ppo C w=0.4 s=4]   upd 96/122 ret=-0.030 succ=0.635 (59s)
+[ppo C w=0.4 s=3]   upd 96/122 ret=-0.141 succ=0.585 (59s)
+[ppo C w=0.4 s=2]   upd 108/122 ret=-0.118 succ=0.535 (67s)
+[ppo C w=0.4 s=4]   upd 108/122 ret=-0.042 succ=0.610 (67s)
+[ppo C w=0.4 s=3]   upd 108/122 ret=-0.037 succ=0.625 (67s)
+[ppo C w=0.4 s=2]   upd 120/122 ret=-0.034 succ=0.585 (74s)
+[ppo C w=0.4 s=4]   upd 120/122 ret=0.010 succ=0.650 (74s)
+[ppo C w=0.4 s=3]   upd 120/122 ret=-0.063 succ=0.625 (74s)
+[ppo C w=0.4 s=2] done in 75s
+[ppo C w=0.4 s=4] done in 75s
+[ppo C w=0.4 s=3] done in 75s
+=== ppo_c took 386.5s ===
+=== stage ppo_d ===
+[ppo D w=0.1 s=0]   upd 0/122 ret=-1.028 succ=0.000 (1s)
+[ppo D w=0.1 s=2]   upd 12/122 ret=-1.029 succ=0.135 (7s)
+[ppo D w=0.1 s=1]   upd 12/122 ret=-1.001 succ=0.160 (7s)
+[ppo D w=0.1 s=0]   upd 12/122 ret=-1.044 succ=0.140 (7s)
+[ppo D w=0.1 s=2]   upd 24/122 ret=-0.570 succ=0.340 (15s)
+[ppo D w=0.1 s=1]   upd 24/122 ret=-0.580 succ=0.340 (15s)
+[ppo D w=0.1 s=0]   upd 24/122 ret=-0.590 succ=0.335 (15s)
+[ppo D w=0.1 s=2]   upd 36/122 ret=-0.534 succ=0.355 (23s)
+[ppo D w=0.1 s=0]   upd 36/122 ret=-0.384 succ=0.435 (23s)
+[ppo D w=0.1 s=1]   upd 36/122 ret=-0.485 succ=0.380 (23s)
+[ppo D w=0.1 s=2]   upd 48/122 ret=-0.391 succ=0.445 (31s)
+[ppo D w=0.1 s=0]   upd 48/122 ret=-0.281 succ=0.480 (31s)
+[ppo D w=0.1 s=1]   upd 48/122 ret=-0.360 succ=0.440 (31s)
+[ppo D w=0.1 s=0]   upd 60/122 ret=-0.199 succ=0.525 (39s)
+[ppo D w=0.1 s=2]   upd 60/122 ret=-0.481 succ=0.370 (39s)
+[ppo D w=0.1 s=1]   upd 60/122 ret=-0.297 succ=0.480 (39s)
+[ppo D w=0.1 s=0]   upd 72/122 ret=-0.329 succ=0.465 (47s)
+[ppo D w=0.1 s=2]   upd 72/122 ret=-0.301 succ=0.475 (47s)
+[ppo D w=0.1 s=1]   upd 72/122 ret=-0.268 succ=0.490 (47s)
+[ppo D w=0.1 s=0]   upd 84/122 ret=-0.293 succ=0.500 (54s)
+[ppo D w=0.1 s=2]   upd 84/122 ret=-0.263 succ=0.485 (55s)
+[ppo D w=0.1 s=1]   upd 84/122 ret=-0.280 succ=0.485 (55s)
+[ppo D w=0.1 s=0]   upd 96/122 ret=-0.326 succ=0.455 (62s)
+[ppo D w=0.1 s=2]   upd 96/122 ret=-0.250 succ=0.525 (63s)
+[ppo D w=0.1 s=1]   upd 96/122 ret=-0.289 succ=0.470 (63s)
+[ppo D w=0.1 s=0]   upd 108/122 ret=-0.355 succ=0.425 (70s)
+[ppo D w=0.1 s=2]   upd 108/122 ret=-0.229 succ=0.515 (71s)
+[ppo D w=0.1 s=1]   upd 108/122 ret=-0.252 succ=0.485 (71s)
+[ppo D w=0.1 s=0]   upd 120/122 ret=-0.195 succ=0.530 (78s)
+[ppo D w=0.1 s=2]   upd 120/122 ret=-0.181 succ=0.550 (79s)
+[ppo D w=0.1 s=0] done in 80s
+[ppo D w=0.1 s=1]   upd 120/122 ret=-0.201 succ=0.510 (79s)
+[ppo D w=0.1 s=3]   upd 0/122 ret=-1.028 succ=0.000 (0s)
+[ppo D w=0.1 s=2] done in 81s
+[ppo D w=0.1 s=1] done in 81s
+[ppo D w=0.2 s=0]   upd 0/122 ret=-1.027 succ=0.000 (0s)
+[ppo D w=0.1 s=3]   upd 12/122 ret=-1.100 succ=0.115 (7s)
+[ppo D w=0.2 s=0]   upd 12/122 ret=-0.461 succ=0.390 (7s)
+[ppo D w=0.1 s=4]   upd 12/122 ret=-0.746 succ=0.280 (7s)
+[ppo D w=0.1 s=3]   upd 24/122 ret=-0.540 succ=0.350 (15s)
+[ppo D w=0.2 s=0]   upd 24/122 ret=-0.215 succ=0.530 (15s)
+[ppo D w=0.1 s=4]   upd 24/122 ret=-0.474 succ=0.375 (15s)
+[ppo D w=0.1 s=3]   upd 36/122 ret=-0.382 succ=0.420 (23s)
+[ppo D w=0.2 s=0]   upd 36/122 ret=-0.276 succ=0.490 (23s)
+[ppo D w=0.1 s=4]   upd 36/122 ret=-0.448 succ=0.395 (23s)
+[ppo D w=0.2 s=0]   upd 48/122 ret=-0.076 succ=0.585 (30s)
+[ppo D w=0.1 s=3]   upd 48/122 ret=-0.325 succ=0.470 (31s)
+[ppo D w=0.1 s=4]   upd 48/122 ret=-0.185 succ=0.535 (31s)
+[ppo D w=0.2 s=0]   upd 60/122 ret=-0.082 succ=0.570 (38s)
+[ppo D w=0.1 s=3]   upd 60/122 ret=-0.255 succ=0.510 (39s)
+[ppo D w=0.1 s=4]   upd 60/122 ret=-0.339 succ=0.445 (39s)
+[ppo D w=0.2 s=0]   upd 72/122 ret=-0.019 succ=0.615 (46s)
+[ppo D w=0.1 s=3]   upd 72/122 ret=-0.222 succ=0.555 (47s)
+[ppo D w=0.1 s=4]   upd 72/122 ret=-0.221 succ=0.495 (47s)
+[ppo D w=0.2 s=0]   upd 84/122 ret=-0.056 succ=0.590 (54s)
+[ppo D w=0.1 s=3]   upd 84/122 ret=-0.177 succ=0.560 (55s)
+[ppo D w=0.1 s=4]   upd 84/122 ret=-0.241 succ=0.510 (55s)
+[ppo D w=0.2 s=0]   upd 96/122 ret=0.012 succ=0.645 (62s)
+[ppo D w=0.1 s=3]   upd 96/122 ret=-0.308 succ=0.490 (63s)
+[ppo D w=0.1 s=4]   upd 96/122 ret=-0.199 succ=0.550 (63s)
+[ppo D w=0.2 s=0]   upd 108/122 ret=-0.031 succ=0.590 (69s)
+[ppo D w=0.1 s=3]   upd 108/122 ret=-0.227 succ=0.545 (71s)
+[ppo D w=0.1 s=4]   upd 108/122 ret=-0.271 succ=0.475 (71s)
+[ppo D w=0.2 s=0]   upd 120/122 ret=-0.016 succ=0.625 (77s)
+[ppo D w=0.2 s=0] done in 78s
+[ppo D w=0.1 s=3]   upd 120/122 ret=-0.258 succ=0.510 (79s)
+[ppo D w=0.1 s=4]   upd 120/122 ret=-0.245 succ=0.520 (79s)
+[ppo D w=0.1 s=3] done in 79s
+[ppo D w=0.1 s=4] done in 79s
+[ppo D w=0.2 s=3]   upd 0/122 ret=-1.029 succ=0.000 (0s)
+[ppo D w=0.2 s=1]   upd 12/122 ret=-0.356 succ=0.470 (7s)
+[ppo D w=0.2 s=2]   upd 12/122 ret=-0.433 succ=0.440 (7s)
+[ppo D w=0.2 s=3]   upd 12/122 ret=-0.405 succ=0.450 (7s)
+[ppo D w=0.2 s=1]   upd 24/122 ret=-0.237 succ=0.515 (14s)
+[ppo D w=0.2 s=2]   upd 24/122 ret=-0.305 succ=0.485 (14s)
+[ppo D w=0.2 s=3]   upd 24/122 ret=-0.311 succ=0.455 (15s)
+[ppo D w=0.2 s=1]   upd 36/122 ret=-0.169 succ=0.540 (22s)
+[ppo D w=0.2 s=2]   upd 36/122 ret=-0.374 succ=0.415 (22s)
+[ppo D w=0.2 s=3]   upd 36/122 ret=-0.295 succ=0.470 (22s)
+[ppo D w=0.2 s=1]   upd 48/122 ret=-0.016 succ=0.610 (30s)
+[ppo D w=0.2 s=2]   upd 48/122 ret=-0.036 succ=0.625 (30s)
+[ppo D w=0.2 s=3]   upd 48/122 ret=0.006 succ=0.650 (30s)
+[ppo D w=0.2 s=1]   upd 60/122 ret=-0.078 succ=0.575 (37s)
+[ppo D w=0.2 s=2]   upd 60/122 ret=-0.145 succ=0.555 (37s)
+[ppo D w=0.2 s=3]   upd 60/122 ret=-0.103 succ=0.580 (38s)
+[ppo D w=0.2 s=1]   upd 72/122 ret=-0.103 succ=0.565 (45s)
+[ppo D w=0.2 s=2]   upd 72/122 ret=-0.027 succ=0.635 (45s)
+[ppo D w=0.2 s=3]   upd 72/122 ret=-0.034 succ=0.595 (45s)
+[ppo D w=0.2 s=1]   upd 84/122 ret=0.017 succ=0.650 (52s)
+[ppo D w=0.2 s=2]   upd 84/122 ret=-0.020 succ=0.620 (53s)
+[ppo D w=0.2 s=3]   upd 84/122 ret=-0.072 succ=0.595 (53s)
+[ppo D w=0.2 s=1]   upd 96/122 ret=-0.022 succ=0.630 (60s)
+[ppo D w=0.2 s=2]   upd 96/122 ret=-0.117 succ=0.580 (60s)
+[ppo D w=0.2 s=3]   upd 96/122 ret=-0.141 succ=0.555 (60s)
+[ppo D w=0.2 s=1]   upd 108/122 ret=-0.119 succ=0.560 (67s)
+[ppo D w=0.2 s=2]   upd 108/122 ret=-0.050 succ=0.605 (68s)
+[ppo D w=0.2 s=3]   upd 108/122 ret=-0.125 succ=0.565 (68s)
+[ppo D w=0.2 s=1]   upd 120/122 ret=-0.040 succ=0.610 (75s)
+[ppo D w=0.2 s=1] done in 76s
+[ppo D w=0.2 s=2]   upd 120/122 ret=0.029 succ=0.685 (76s)
+[ppo D w=0.2 s=2] done in 76s
+[ppo D w=0.2 s=3]   upd 120/122 ret=-0.022 succ=0.600 (76s)
+[ppo D w=0.2 s=3] done in 76s
+[ppo D w=0.2 s=4]   upd 12/122 ret=-0.403 succ=0.425 (7s)
+[ppo D w=0.4 s=0]   upd 12/122 ret=-0.259 succ=0.530 (7s)
+[ppo D w=0.4 s=1]   upd 12/122 ret=-0.168 succ=0.550 (6s)
+[ppo D w=0.2 s=4]   upd 24/122 ret=-0.165 succ=0.550 (14s)
+[ppo D w=0.4 s=0]   upd 24/122 ret=-0.320 succ=0.460 (14s)
+[ppo D w=0.4 s=1]   upd 24/122 ret=-0.234 succ=0.515 (13s)
+[ppo D w=0.2 s=4]   upd 36/122 ret=-0.143 succ=0.565 (22s)
+[ppo D w=0.4 s=0]   upd 36/122 ret=-0.210 succ=0.530 (21s)
+[ppo D w=0.4 s=1]   upd 36/122 ret=-0.227 succ=0.505 (21s)
+[ppo D w=0.2 s=4]   upd 48/122 ret=0.013 succ=0.615 (29s)
+[ppo D w=0.4 s=0]   upd 48/122 ret=0.076 succ=0.660 (28s)
+[ppo D w=0.4 s=1]   upd 48/122 ret=0.117 succ=0.700 (28s)
+[ppo D w=0.2 s=4]   upd 60/122 ret=-0.064 succ=0.595 (37s)
+[ppo D w=0.4 s=0]   upd 60/122 ret=-0.003 succ=0.640 (36s)
+[ppo D w=0.4 s=1]   upd 60/122 ret=-0.028 succ=0.620 (35s)
+[ppo D w=0.2 s=4]   upd 72/122 ret=-0.053 succ=0.590 (44s)
+[ppo D w=0.4 s=0]   upd 72/122 ret=-0.030 succ=0.635 (43s)
+[ppo D w=0.4 s=1]   upd 72/122 ret=0.021 succ=0.645 (43s)
+[ppo D w=0.2 s=4]   upd 84/122 ret=-0.021 succ=0.610 (52s)
+[ppo D w=0.4 s=0]   upd 84/122 ret=0.050 succ=0.635 (51s)
+[ppo D w=0.4 s=1]   upd 84/122 ret=0.107 succ=0.680 (50s)
+[ppo D w=0.4 s=0]   upd 96/122 ret=-0.006 succ=0.620 (59s)
+[ppo D w=0.2 s=4]   upd 96/122 ret=-0.138 succ=0.545 (60s)
+[ppo D w=0.4 s=1]   upd 96/122 ret=0.188 succ=0.745 (58s)
+[ppo D w=0.4 s=0]   upd 108/122 ret=0.098 succ=0.685 (66s)
+[ppo D w=0.2 s=4]   upd 108/122 ret=-0.054 succ=0.565 (67s)
+[ppo D w=0.4 s=1]   upd 108/122 ret=0.091 succ=0.685 (66s)
+[ppo D w=0.4 s=0]   upd 120/122 ret=-0.032 succ=0.585 (74s)
+[ppo D w=0.4 s=1]   upd 120/122 ret=0.095 succ=0.685 (73s)
+[ppo D w=0.2 s=4]   upd 120/122 ret=-0.015 succ=0.610 (75s)
+[ppo D w=0.4 s=0] done in 74s
+[ppo D w=0.4 s=1] done in 74s
+[ppo D w=0.2 s=4] done in 76s
+[ppo D w=0.4 s=3]   upd 0/122 ret=-1.027 succ=0.000 (0s)
+[ppo D w=0.4 s=2]   upd 12/122 ret=-0.024 succ=0.650 (7s)
+[ppo D w=0.4 s=4]   upd 12/122 ret=-0.086 succ=0.600 (7s)
+[ppo D w=0.4 s=3]   upd 12/122 ret=-0.156 succ=0.585 (7s)
+[ppo D w=0.4 s=2]   upd 24/122 ret=-0.334 succ=0.485 (14s)
+[ppo D w=0.4 s=4]   upd 24/122 ret=-0.173 succ=0.545 (14s)
+[ppo D w=0.4 s=3]   upd 24/122 ret=-0.329 succ=0.460 (14s)
+[ppo D w=0.4 s=2]   upd 36/122 ret=-0.166 succ=0.540 (21s)
+[ppo D w=0.4 s=4]   upd 36/122 ret=-0.087 succ=0.585 (21s)
+[ppo D w=0.4 s=3]   upd 36/122 ret=-0.315 succ=0.445 (22s)
+[ppo D w=0.4 s=2]   upd 48/122 ret=0.115 succ=0.725 (29s)
+[ppo D w=0.4 s=4]   upd 48/122 ret=0.092 succ=0.680 (29s)
+[ppo D w=0.4 s=3]   upd 48/122 ret=0.073 succ=0.660 (29s)
+[ppo D w=0.4 s=2]   upd 60/122 ret=-0.116 succ=0.585 (36s)
+[ppo D w=0.4 s=4]   upd 60/122 ret=-0.021 succ=0.630 (36s)
+[ppo D w=0.4 s=3]   upd 60/122 ret=-0.079 succ=0.600 (36s)
+[ppo D w=0.4 s=2]   upd 72/122 ret=0.015 succ=0.635 (44s)
+[ppo D w=0.4 s=4]   upd 72/122 ret=0.085 succ=0.695 (44s)
+[ppo D w=0.4 s=3]   upd 72/122 ret=-0.110 succ=0.545 (44s)
+[ppo D w=0.4 s=2]   upd 84/122 ret=0.003 succ=0.605 (51s)
+[ppo D w=0.4 s=4]   upd 84/122 ret=-0.011 succ=0.630 (51s)
+[ppo D w=0.4 s=3]   upd 84/122 ret=0.088 succ=0.685 (52s)
+[ppo D w=0.4 s=2]   upd 96/122 ret=-0.026 succ=0.640 (59s)
+[ppo D w=0.4 s=4]   upd 96/122 ret=-0.018 succ=0.625 (59s)
+[ppo D w=0.4 s=3]   upd 96/122 ret=-0.001 succ=0.630 (59s)
+[ppo D w=0.4 s=2]   upd 108/122 ret=-0.051 succ=0.615 (66s)
+[ppo D w=0.4 s=4]   upd 108/122 ret=0.120 succ=0.705 (66s)
+[ppo D w=0.4 s=3]   upd 108/122 ret=0.079 succ=0.680 (67s)
+[ppo D w=0.4 s=2]   upd 120/122 ret=0.089 succ=0.720 (74s)
+[ppo D w=0.4 s=4]   upd 120/122 ret=0.101 succ=0.695 (74s)
+[ppo D w=0.4 s=2] done in 74s
+[ppo D w=0.4 s=3]   upd 120/122 ret=0.075 succ=0.665 (74s)
+[ppo D w=0.4 s=4] done in 75s
+[ppo D w=0.4 s=3] done in 75s
+=== ppo_d took 387.9s ===
+=== stage ppo_e ===
+[ppo E w=0.1 s=2]   upd 12/122 ret=-1.316 succ=0.000 (4s)
+[ppo E w=0.1 s=0]   upd 12/122 ret=-1.308 succ=0.000 (4s)
+[ppo E w=0.1 s=1]   upd 12/122 ret=-1.310 succ=0.000 (4s)
+[ppo E w=0.1 s=2]   upd 24/122 ret=-1.240 succ=0.000 (8s)
+[ppo E w=0.1 s=0]   upd 24/122 ret=-1.231 succ=0.000 (8s)
+[ppo E w=0.1 s=1]   upd 24/122 ret=-1.239 succ=0.000 (8s)
+[ppo E w=0.1 s=2]   upd 36/122 ret=-1.166 succ=0.000 (11s)
+[ppo E w=0.1 s=0]   upd 36/122 ret=-1.162 succ=0.000 (11s)
+[ppo E w=0.1 s=1]   upd 36/122 ret=-1.171 succ=0.000 (12s)
+[ppo E w=0.1 s=2]   upd 48/122 ret=-1.057 succ=0.000 (15s)
+[ppo E w=0.1 s=0]   upd 48/122 ret=-1.047 succ=0.000 (15s)
+[ppo E w=0.1 s=1]   upd 48/122 ret=-1.051 succ=0.000 (15s)
+[ppo E w=0.1 s=0]   upd 60/122 ret=-1.001 succ=0.000 (18s)
+[ppo E w=0.1 s=2]   upd 60/122 ret=-1.006 succ=0.000 (18s)
+[ppo E w=0.1 s=1]   upd 60/122 ret=-0.998 succ=0.000 (19s)
+[ppo E w=0.1 s=0]   upd 72/122 ret=-0.948 succ=0.000 (22s)
+[ppo E w=0.1 s=2]   upd 72/122 ret=-0.972 succ=0.000 (22s)
+[ppo E w=0.1 s=1]   upd 72/122 ret=-0.956 succ=0.000 (23s)
+[ppo E w=0.1 s=0]   upd 84/122 ret=-0.870 succ=0.000 (26s)
+[ppo E w=0.1 s=2]   upd 84/122 ret=-0.881 succ=0.000 (26s)
+[ppo E w=0.1 s=1]   upd 84/122 ret=-0.871 succ=0.000 (26s)
+[ppo E w=0.1 s=0]   upd 96/122 ret=-0.826 succ=0.000 (30s)
+[ppo E w=0.1 s=2]   upd 96/122 ret=-0.841 succ=0.000 (30s)
+[ppo E w=0.1 s=1]   upd 96/122 ret=-0.840 succ=0.000 (30s)
+[ppo E w=0.1 s=0]   upd 108/122 ret=-0.795 succ=0.000 (33s)
+[ppo E w=0.1 s=2]   upd 108/122 ret=-0.810 succ=0.000 (33s)
+[ppo E w=0.1 s=1]   upd 108/122 ret=-0.809 succ=0.000 (34s)
+[ppo E w=0.1 s=0]   upd 120/122 ret=-0.765 succ=0.000 (37s)
+[ppo E w=0.1 s=2]   upd 120/122 ret=-0.784 succ=0.000 (37s)
+[ppo E w=0.1 s=0] done in 39s
+[ppo E w=0.1 s=2] done in 39s
+[ppo E w=0.1 s=1]   upd 120/122 ret=-0.779 succ=0.000 (38s)
+[ppo E w=0.1 s=1] done in 39s
+[ppo E w=0.1 s=3]   upd 12/122 ret=-1.306 succ=0.000 (4s)
+[ppo E w=0.1 s=4]   upd 12/122 ret=-1.311 succ=0.000 (4s)
+[ppo E w=0.2 s=0]   upd 12/122 ret=-1.308 succ=0.000 (4s)
+[ppo E w=0.1 s=3]   upd 24/122 ret=-1.243 succ=0.000 (7s)
+[ppo E w=0.1 s=4]   upd 24/122 ret=-1.242 succ=0.000 (7s)
+[ppo E w=0.2 s=0]   upd 24/122 ret=-1.231 succ=0.000 (7s)
+[ppo E w=0.1 s=3]   upd 36/122 ret=-1.193 succ=0.000 (11s)
+[ppo E w=0.1 s=4]   upd 36/122 ret=-1.176 succ=0.000 (11s)
+[ppo E w=0.2 s=0]   upd 36/122 ret=-1.163 succ=0.000 (11s)
+[ppo E w=0.1 s=4]   upd 48/122 ret=-1.061 succ=0.000 (14s)
+[ppo E w=0.1 s=3]   upd 48/122 ret=-1.074 succ=0.000 (14s)
+[ppo E w=0.2 s=0]   upd 48/122 ret=-1.049 succ=0.000 (15s)
+[ppo E w=0.1 s=4]   upd 60/122 ret=-1.011 succ=0.000 (18s)
+[ppo E w=0.1 s=3]   upd 60/122 ret=-1.005 succ=0.005 (18s)
+[ppo E w=0.2 s=0]   upd 60/122 ret=-1.001 succ=0.000 (18s)
+[ppo E w=0.1 s=4]   upd 72/122 ret=-0.965 succ=0.000 (21s)
+[ppo E w=0.1 s=3]   upd 72/122 ret=-0.967 succ=0.000 (22s)
+[ppo E w=0.2 s=0]   upd 72/122 ret=-0.949 succ=0.000 (22s)
+[ppo E w=0.1 s=4]   upd 84/122 ret=-0.878 succ=0.000 (25s)
+[ppo E w=0.1 s=3]   upd 84/122 ret=-0.879 succ=0.000 (25s)
+[ppo E w=0.2 s=0]   upd 84/122 ret=-0.866 succ=0.000 (26s)
+[ppo E w=0.1 s=4]   upd 96/122 ret=-0.838 succ=0.000 (29s)
+[ppo E w=0.1 s=3]   upd 96/122 ret=-0.842 succ=0.000 (29s)
+[ppo E w=0.2 s=0]   upd 96/122 ret=-0.825 succ=0.000 (29s)
+[ppo E w=0.1 s=4]   upd 108/122 ret=-0.800 succ=0.000 (32s)
+[ppo E w=0.1 s=3]   upd 108/122 ret=-0.807 succ=0.000 (33s)
+[ppo E w=0.2 s=0]   upd 108/122 ret=-0.794 succ=0.000 (33s)
+[ppo E w=0.1 s=4]   upd 120/122 ret=-0.775 succ=0.000 (36s)
+[ppo E w=0.1 s=4] done in 36s
+[ppo E w=0.1 s=3]   upd 120/122 ret=-0.767 succ=0.000 (37s)
+[ppo E w=0.1 s=3] done in 37s
+[ppo E w=0.2 s=0]   upd 120/122 ret=-0.762 succ=0.000 (37s)
+[ppo E w=0.2 s=0] done in 37s
+[ppo E w=0.2 s=1]   upd 12/122 ret=-1.311 succ=0.000 (4s)
+[ppo E w=0.2 s=2]   upd 12/122 ret=-1.315 succ=0.000 (4s)
+[ppo E w=0.2 s=3]   upd 12/122 ret=-1.306 succ=0.000 (4s)
+[ppo E w=0.2 s=1]   upd 24/122 ret=-1.236 succ=0.000 (8s)
+[ppo E w=0.2 s=2]   upd 24/122 ret=-1.240 succ=0.000 (8s)
+[ppo E w=0.2 s=3]   upd 24/122 ret=-1.242 succ=0.000 (7s)
+[ppo E w=0.2 s=1]   upd 36/122 ret=-1.170 succ=0.000 (11s)
+[ppo E w=0.2 s=2]   upd 36/122 ret=-1.167 succ=0.000 (11s)
+[ppo E w=0.2 s=3]   upd 36/122 ret=-1.167 succ=0.000 (11s)
+[ppo E w=0.2 s=1]   upd 48/122 ret=-1.046 succ=0.000 (15s)
+[ppo E w=0.2 s=2]   upd 48/122 ret=-1.055 succ=0.000 (15s)
+[ppo E w=0.2 s=3]   upd 48/122 ret=-1.060 succ=0.000 (14s)
+[ppo E w=0.2 s=1]   upd 60/122 ret=-0.995 succ=0.000 (18s)
+[ppo E w=0.2 s=2]   upd 60/122 ret=-0.999 succ=0.000 (18s)
+[ppo E w=0.2 s=3]   upd 60/122 ret=-1.006 succ=0.000 (18s)
+[ppo E w=0.2 s=1]   upd 72/122 ret=-0.952 succ=0.000 (22s)
+[ppo E w=0.2 s=2]   upd 72/122 ret=-0.949 succ=0.000 (22s)
+[ppo E w=0.2 s=3]   upd 72/122 ret=-0.979 succ=0.000 (21s)
+[ppo E w=0.2 s=1]   upd 84/122 ret=-0.865 succ=0.000 (26s)
+[ppo E w=0.2 s=2]   upd 84/122 ret=-0.862 succ=0.000 (25s)
+[ppo E w=0.2 s=3]   upd 84/122 ret=-0.878 succ=0.000 (25s)
+[ppo E w=0.2 s=2]   upd 96/122 ret=-0.822 succ=0.000 (28s)
+[ppo E w=0.2 s=1]   upd 96/122 ret=-0.829 succ=0.000 (29s)
+[ppo E w=0.2 s=3]   upd 96/122 ret=-0.842 succ=0.000 (29s)
+[ppo E w=0.2 s=2]   upd 108/122 ret=-0.788 succ=0.000 (32s)
+[ppo E w=0.2 s=1]   upd 108/122 ret=-0.793 succ=0.000 (33s)
+[ppo E w=0.2 s=3]   upd 108/122 ret=-0.808 succ=0.000 (32s)
+[ppo E w=0.2 s=2]   upd 120/122 ret=-0.753 succ=0.000 (36s)
+[ppo E w=0.2 s=2] done in 36s
+[ppo E w=0.2 s=1]   upd 120/122 ret=-0.768 succ=0.000 (37s)
+[ppo E w=0.2 s=1] done in 37s
+[ppo E w=0.2 s=3]   upd 120/122 ret=-0.774 succ=0.000 (36s)
+[ppo E w=0.2 s=3] done in 37s
+[ppo E w=0.2 s=4]   upd 12/122 ret=-1.311 succ=0.000 (4s)
+[ppo E w=0.4 s=0]   upd 12/122 ret=-1.307 succ=0.000 (4s)
+[ppo E w=0.4 s=1]   upd 12/122 ret=-1.309 succ=0.000 (4s)
+[ppo E w=0.2 s=4]   upd 24/122 ret=-1.240 succ=0.000 (7s)
+[ppo E w=0.4 s=0]   upd 24/122 ret=-1.232 succ=0.000 (8s)
+[ppo E w=0.4 s=1]   upd 24/122 ret=-1.234 succ=0.000 (7s)
+[ppo E w=0.2 s=4]   upd 36/122 ret=-1.172 succ=0.000 (11s)
+[ppo E w=0.4 s=0]   upd 36/122 ret=-1.162 succ=0.000 (11s)
+[ppo E w=0.4 s=1]   upd 36/122 ret=-1.170 succ=0.000 (11s)
+[ppo E w=0.2 s=4]   upd 48/122 ret=-1.057 succ=0.000 (14s)
+[ppo E w=0.4 s=0]   upd 48/122 ret=-1.051 succ=0.000 (15s)
+[ppo E w=0.4 s=1]   upd 48/122 ret=-1.047 succ=0.000 (14s)
+[ppo E w=0.2 s=4]   upd 60/122 ret=-1.008 succ=0.000 (18s)
+[ppo E w=0.4 s=0]   upd 60/122 ret=-0.998 succ=0.000 (18s)
+[ppo E w=0.4 s=1]   upd 60/122 ret=-0.997 succ=0.000 (18s)
+[ppo E w=0.2 s=4]   upd 72/122 ret=-0.967 succ=0.000 (21s)
+[ppo E w=0.4 s=0]   upd 72/122 ret=-0.946 succ=0.000 (22s)
+[ppo E w=0.4 s=1]   upd 72/122 ret=-0.947 succ=0.000 (22s)
+[ppo E w=0.2 s=4]   upd 84/122 ret=-0.869 succ=0.000 (25s)
+[ppo E w=0.4 s=0]   upd 84/122 ret=-0.865 succ=0.000 (26s)
+[ppo E w=0.4 s=1]   upd 84/122 ret=-0.859 succ=0.000 (25s)
+[ppo E w=0.2 s=4]   upd 96/122 ret=-0.834 succ=0.000 (29s)
+[ppo E w=0.4 s=0]   upd 96/122 ret=-0.820 succ=0.000 (29s)
+[ppo E w=0.4 s=1]   upd 96/122 ret=-0.828 succ=0.000 (29s)
+[ppo E w=0.2 s=4]   upd 108/122 ret=-0.797 succ=0.000 (32s)
+[ppo E w=0.4 s=0]   upd 108/122 ret=-0.785 succ=0.000 (33s)
+[ppo E w=0.4 s=1]   upd 108/122 ret=-0.797 succ=0.000 (33s)
+[ppo E w=0.2 s=4]   upd 120/122 ret=-0.764 succ=0.000 (36s)
+[ppo E w=0.2 s=4] done in 36s
+[ppo E w=0.4 s=0]   upd 120/122 ret=-0.753 succ=0.000 (37s)
+[ppo E w=0.4 s=0] done in 37s
+[ppo E w=0.4 s=1]   upd 120/122 ret=-0.764 succ=0.000 (36s)
+[ppo E w=0.4 s=1] done in 37s
+[ppo E w=0.4 s=2]   upd 12/122 ret=-1.315 succ=0.000 (4s)
+[ppo E w=0.4 s=3]   upd 12/122 ret=-1.306 succ=0.000 (4s)
+[ppo E w=0.4 s=4]   upd 12/122 ret=-1.311 succ=0.000 (4s)
+[ppo E w=0.4 s=2]   upd 24/122 ret=-1.240 succ=0.000 (7s)
+[ppo E w=0.4 s=3]   upd 24/122 ret=-1.240 succ=0.000 (7s)
+[ppo E w=0.4 s=4]   upd 24/122 ret=-1.240 succ=0.000 (7s)
+[ppo E w=0.4 s=2]   upd 36/122 ret=-1.167 succ=0.000 (11s)
+[ppo E w=0.4 s=3]   upd 36/122 ret=-1.168 succ=0.000 (11s)
+[ppo E w=0.4 s=4]   upd 36/122 ret=-1.172 succ=0.000 (11s)
+[ppo E w=0.4 s=2]   upd 48/122 ret=-1.055 succ=0.000 (14s)
+[ppo E w=0.4 s=3]   upd 48/122 ret=-1.058 succ=0.000 (15s)
+[ppo E w=0.4 s=4]   upd 48/122 ret=-1.057 succ=0.000 (14s)
+[ppo E w=0.4 s=2]   upd 60/122 ret=-1.000 succ=0.000 (18s)
+[ppo E w=0.4 s=3]   upd 60/122 ret=-0.997 succ=0.000 (18s)
+[ppo E w=0.4 s=4]   upd 60/122 ret=-1.009 succ=0.000 (18s)
+[ppo E w=0.4 s=2]   upd 72/122 ret=-0.954 succ=0.000 (21s)
+[ppo E w=0.4 s=3]   upd 72/122 ret=-0.957 succ=0.000 (22s)
+[ppo E w=0.4 s=4]   upd 72/122 ret=-0.967 succ=0.000 (22s)
+[ppo E w=0.4 s=2]   upd 84/122 ret=-0.868 succ=0.000 (25s)
+[ppo E w=0.4 s=3]   upd 84/122 ret=-0.869 succ=0.000 (25s)
+[ppo E w=0.4 s=4]   upd 84/122 ret=-0.875 succ=0.000 (25s)
+[ppo E w=0.4 s=2]   upd 96/122 ret=-0.826 succ=0.000 (28s)
+[ppo E w=0.4 s=4]   upd 96/122 ret=-0.836 succ=0.000 (28s)
+[ppo E w=0.4 s=3]   upd 96/122 ret=-0.832 succ=0.000 (29s)
+[ppo E w=0.4 s=2]   upd 108/122 ret=-0.792 succ=0.000 (32s)
+[ppo E w=0.4 s=4]   upd 108/122 ret=-0.796 succ=0.000 (32s)
+[ppo E w=0.4 s=3]   upd 108/122 ret=-0.795 succ=0.000 (32s)
+[ppo E w=0.4 s=2]   upd 120/122 ret=-0.762 succ=0.000 (35s)
+[ppo E w=0.4 s=2] done in 36s
+[ppo E w=0.4 s=3]   upd 120/122 ret=-0.761 succ=0.000 (35s)
+[ppo E w=0.4 s=4]   upd 120/122 ret=-0.762 succ=0.000 (35s)
+[ppo E w=0.4 s=4] done in 35s
+[ppo E w=0.4 s=3] done in 36s
+=== ppo_e took 187.7s ===
+=== stage eval ===
+[eval A0.001] success=0.550 collision=0.318 (61s)
+[eval A0.003] success=0.561 collision=0.315 (61s)
+[eval A0.01] success=0.512 collision=0.394 (61s)
+[eval A0.03] success=0.346 collision=0.585 (61s)
+[eval A0.1] success=0.098 collision=0.859 (64s)
+[eval B] success=0.507 collision=0.399 (64s)
+[eval C] success=0.523 collision=0.335 (67s)
+[eval D] success=0.637 collision=0.196 (68s)
+[eval E] success=0.000 collision=0.001 (40s)
+=== eval took 547.5s ===
+=== stage plots ===
+figures written to figures
+=== plots took 4.0s ===
+EXIT 0

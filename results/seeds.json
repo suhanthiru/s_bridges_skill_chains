@@ -1,0 +1,36 @@
+{
+ "seeds": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "quick": false,
+ "config": {
+  "bridge": {
+   "ipf_iters": 5,
+   "n_pairs": 20000,
+   "steps0": 4000,
+   "steps_ipf": 1500,
+   "batch": 1024,
+   "lr": 0.001,
+   "penalty": 1.0
+  },
+  "ppo": {
+   "lr": 0.0003,
+   "rollout": 32,
+   "epochs": 4,
+   "minibatch": 4096,
+   "gamma": 0.99,
+   "lam": 0.95,
+   "clip": 0.2
+  },
+  "ppo_steps": 2000000,
+  "ppo_envs": 512,
+  "episodes": 200,
+  "verify_n": 500
+ },
+ "torch": "2.11.0+cu128",
+ "device": "cuda"
+}
