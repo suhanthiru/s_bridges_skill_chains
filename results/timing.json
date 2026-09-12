@@ -8,5 +8,15 @@
  "plots": 4.0,
  "tune": 587.5,
  "phase1_seed99": 39.8,
- "phase1_seed98": 35.8
+ "phase1_seed98": 35.8,
+ "phase1_seed0": 504.7,
+ "phase1_seed1": 489.9,
+ "phase1_seed2": 483.0,
+ "phase1_seed3": 500.1,
+ "phase1_seed4": 572.0,
+ "phase1_seed5": 672.3,
+ "phase1_seed6": 805.6,
+ "phase1_seed7": 594.5,
+ "phase1_seed8": 553.7,
+ "phase1_seed9": 539.2
 }
