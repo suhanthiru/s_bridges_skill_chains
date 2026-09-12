@@ -29,7 +29,7 @@ VERIFY_EPS = (0.003, 0.01, 0.03)
 
 # Frozen after a small check at the tuning cell (w=0.20, sigma_d=0.02); see results/tuning.csv.
 CONFIG = dict(
-    bridge=dict(ipf_iters=5, n_pairs=20000, steps0=4000, steps_ipf=1500, batch=1024, lr=1e-3, penalty=10.0),
+    bridge=dict(ipf_iters=5, n_pairs=20000, steps0=4000, steps_ipf=1500, batch=1024, lr=1e-3, penalty=1.0),
     ppo=dict(lr=3e-4, rollout=32, epochs=4, minibatch=4096, gamma=0.99, lam=0.95, clip=0.2),
     ppo_steps=2_000_000, ppo_envs=512, episodes=200, verify_n=500,
 )
