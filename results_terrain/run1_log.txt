@@ -1,0 +1,312 @@
+=== stage train_bridges ===
+[bridge-plain mild s=0 k=1] 10000 pairs
+  step 0 loss 0.0784
+  step 1000 loss 0.0133
+  step 2000 loss 0.0152
+  step 3000 loss 0.0121
+[bridge-plain mild s=0 k=2] 10000 pairs
+  step 0 loss 0.0768
+  step 1000 loss 0.0146
+  step 2000 loss 0.0146
+  step 3000 loss 0.0147
+[bridge-plain mild s=0 k=3] 10000 pairs
+  step 0 loss 0.0558
+  step 1000 loss 0.0142
+  step 2000 loss 0.0121
+  step 3000 loss 0.0142
+[bridge-obs mild s=0 k=1] 10000 pairs
+  step 0 loss 0.1044
+  step 1000 loss 0.0136
+  step 2000 loss 0.0151
+  step 3000 loss 0.0120
+[bridge-obs mild s=0 k=2] 10000 pairs
+  step 0 loss 0.0974
+  step 1000 loss 0.0145
+  step 2000 loss 0.0149
+  step 3000 loss 0.0147
+[bridge-obs mild s=0 k=3] 10000 pairs
+  step 0 loss 0.0625
+  step 1000 loss 0.0145
+  step 2000 loss 0.0121
+  step 3000 loss 0.0142
+[bridge-plain mild s=1 k=1] 10000 pairs
+  step 0 loss 0.0687
+  step 1000 loss 0.0138
+  step 2000 loss 0.0128
+  step 3000 loss 0.0139
+[bridge-plain mild s=1 k=2] 10000 pairs
+  step 0 loss 0.0920
+  step 1000 loss 0.0145
+  step 2000 loss 0.0156
+  step 3000 loss 0.0136
+[bridge-plain mild s=1 k=3] 10000 pairs
+  step 0 loss 0.0516
+  step 1000 loss 0.0144
+  step 2000 loss 0.0141
+  step 3000 loss 0.0134
+[bridge-obs mild s=1 k=1] 10000 pairs
+  step 0 loss 0.0838
+  step 1000 loss 0.0140
+  step 2000 loss 0.0128
+  step 3000 loss 0.0138
+[bridge-obs mild s=1 k=2] 10000 pairs
+  step 0 loss 0.0997
+  step 1000 loss 0.0147
+  step 2000 loss 0.0157
+  step 3000 loss 0.0137
+[bridge-obs mild s=1 k=3] 10000 pairs
+  step 0 loss 0.1188
+  step 1000 loss 0.0146
+  step 2000 loss 0.0142
+  step 3000 loss 0.0135
+[bridge-plain mild s=2 k=1] 10000 pairs
+  step 0 loss 0.0777
+  step 1000 loss 0.0161
+  step 2000 loss 0.0138
+  step 3000 loss 0.0141
+[bridge-plain mild s=2 k=2] 10000 pairs
+  step 0 loss 0.0629
+  step 1000 loss 0.0148
+  step 2000 loss 0.0136
+  step 3000 loss 0.0142
+[bridge-plain mild s=2 k=3] 10000 pairs
+  step 0 loss 0.0849
+  step 1000 loss 0.0131
+  step 2000 loss 0.0139
+  step 3000 loss 0.0139
+[bridge-obs mild s=2 k=1] 10000 pairs
+  step 0 loss 0.0898
+  step 1000 loss 0.0160
+  step 2000 loss 0.0137
+  step 3000 loss 0.0141
+[bridge-obs mild s=2 k=2] 10000 pairs
+  step 0 loss 0.1113
+  step 1000 loss 0.0150
+  step 2000 loss 0.0136
+  step 3000 loss 0.0142
+[bridge-obs mild s=2 k=3] 10000 pairs
+  step 0 loss 0.0834
+  step 1000 loss 0.0133
+  step 2000 loss 0.0140
+  step 3000 loss 0.0138
+[bridge-plain mild s=3 k=1] 10000 pairs
+  step 0 loss 0.0676
+  step 1000 loss 0.0142
+  step 2000 loss 0.0128
+  step 3000 loss 0.0128
+[bridge-plain mild s=3 k=2] 10000 pairs
+  step 0 loss 0.0903
+  step 1000 loss 0.0125
+  step 2000 loss 0.0142
+  step 3000 loss 0.0134
+[bridge-plain mild s=3 k=3] 10000 pairs
+  step 0 loss 0.0476
+  step 1000 loss 0.0137
+  step 2000 loss 0.0155
+  step 3000 loss 0.0141
+[bridge-obs mild s=3 k=1] 10000 pairs
+  step 0 loss 0.0606
+  step 1000 loss 0.0143
+  step 2000 loss 0.0129
+  step 3000 loss 0.0127
+[bridge-obs mild s=3 k=2] 10000 pairs
+  step 0 loss 0.0632
+  step 1000 loss 0.0126
+  step 2000 loss 0.0139
+  step 3000 loss 0.0133
+[bridge-obs mild s=3 k=3] 10000 pairs
+  step 0 loss 0.0968
+  step 1000 loss 0.0140
+  step 2000 loss 0.0155
+  step 3000 loss 0.0142
+[bridge-plain mild s=4 k=1] 10000 pairs
+  step 0 loss 0.0979
+  step 1000 loss 0.0117
+  step 2000 loss 0.0135
+  step 3000 loss 0.0118
+[bridge-plain mild s=4 k=2] 10000 pairs
+  step 0 loss 0.0703
+  step 1000 loss 0.0128
+  step 2000 loss 0.0128
+  step 3000 loss 0.0129
+[bridge-plain mild s=4 k=3] 10000 pairs
+  step 0 loss 0.0944
+  step 1000 loss 0.0136
+  step 2000 loss 0.0149
+  step 3000 loss 0.0144
+[bridge-obs mild s=4 k=1] 10000 pairs
+  step 0 loss 0.0647
+  step 1000 loss 0.0122
+  step 2000 loss 0.0133
+  step 3000 loss 0.0118
+[bridge-obs mild s=4 k=2] 10000 pairs
+  step 0 loss 0.1129
+  step 1000 loss 0.0132
+  step 2000 loss 0.0127
+  step 3000 loss 0.0128
+[bridge-obs mild s=4 k=3] 10000 pairs
+  step 0 loss 0.1015
+  step 1000 loss 0.0137
+  step 2000 loss 0.0150
+  step 3000 loss 0.0145
+[bridge-plain rough s=0 k=1] 10000 pairs
+  step 0 loss 0.1045
+  step 1000 loss 0.0296
+  step 2000 loss 0.0375
+  step 3000 loss 0.0286
+[bridge-plain rough s=0 k=2] 10000 pairs
+  step 0 loss 0.1040
+  step 1000 loss 0.0368
+  step 2000 loss 0.0362
+  step 3000 loss 0.0363
+[bridge-plain rough s=0 k=3] 10000 pairs
+  step 0 loss 0.0786
+  step 1000 loss 0.0341
+  step 2000 loss 0.0270
+  step 3000 loss 0.0355
+[bridge-obs rough s=0 k=1] 10000 pairs
+  step 0 loss 0.1307
+  step 1000 loss 0.0305
+  step 2000 loss 0.0372
+  step 3000 loss 0.0287
+[bridge-obs rough s=0 k=2] 10000 pairs
+  step 0 loss 0.1245
+  step 1000 loss 0.0369
+  step 2000 loss 0.0364
+  step 3000 loss 0.0358
+[bridge-obs rough s=0 k=3] 10000 pairs
+  step 0 loss 0.0854
+  step 1000 loss 0.0341
+  step 2000 loss 0.0272
+  step 3000 loss 0.0358
+[bridge-plain rough s=1 k=1] 10000 pairs
+  step 0 loss 0.0937
+  step 1000 loss 0.0334
+  step 2000 loss 0.0309
+  step 3000 loss 0.0342
+[bridge-plain rough s=1 k=2] 10000 pairs
+  step 0 loss 0.1202
+  step 1000 loss 0.0358
+  step 2000 loss 0.0404
+  step 3000 loss 0.0334
+[bridge-plain rough s=1 k=3] 10000 pairs
+  step 0 loss 0.0806
+  step 1000 loss 0.0342
+  step 2000 loss 0.0338
+  step 3000 loss 0.0325
+[bridge-obs rough s=1 k=1] 10000 pairs
+  step 0 loss 0.1088
+  step 1000 loss 0.0337
+  step 2000 loss 0.0310
+  step 3000 loss 0.0342
+[bridge-obs rough s=1 k=2] 10000 pairs
+  step 0 loss 0.1282
+  step 1000 loss 0.0369
+  step 2000 loss 0.0406
+  step 3000 loss 0.0334
+[bridge-obs rough s=1 k=3] 10000 pairs
+  step 0 loss 0.1477
+  step 1000 loss 0.0342
+  step 2000 loss 0.0342
+  step 3000 loss 0.0328
+[bridge-plain rough s=2 k=1] 10000 pairs
+  step 0 loss 0.1090
+  step 1000 loss 0.0412
+  step 2000 loss 0.0327
+  step 3000 loss 0.0348
+[bridge-plain rough s=2 k=2] 10000 pairs
+  step 0 loss 0.0846
+  step 1000 loss 0.0358
+  step 2000 loss 0.0335
+  step 3000 loss 0.0344
+[bridge-plain rough s=2 k=3] 10000 pairs
+  step 0 loss 0.1068
+  step 1000 loss 0.0303
+  step 2000 loss 0.0351
+  step 3000 loss 0.0326
+[bridge-obs rough s=2 k=1] 10000 pairs
+  step 0 loss 0.1209
+  step 1000 loss 0.0412
+  step 2000 loss 0.0326
+  step 3000 loss 0.0347
+[bridge-obs rough s=2 k=2] 10000 pairs
+  step 0 loss 0.1326
+  step 1000 loss 0.0361
+  step 2000 loss 0.0339
+  step 3000 loss 0.0343
+[bridge-obs rough s=2 k=3] 10000 pairs
+  step 0 loss 0.1059
+  step 1000 loss 0.0302
+  step 2000 loss 0.0352
+  step 3000 loss 0.0328
+[bridge-plain rough s=3 k=1] 10000 pairs
+  step 0 loss 0.0944
+  step 1000 loss 0.0347
+  step 2000 loss 0.0301
+  step 3000 loss 0.0310
+[bridge-plain rough s=3 k=2] 10000 pairs
+  step 0 loss 0.1195
+  step 1000 loss 0.0279
+  step 2000 loss 0.0334
+  step 3000 loss 0.0320
+[bridge-plain rough s=3 k=3] 10000 pairs
+  step 0 loss 0.0708
+  step 1000 loss 0.0317
+  step 2000 loss 0.0385
+  step 3000 loss 0.0334
+[bridge-obs rough s=3 k=1] 10000 pairs
+  step 0 loss 0.0873
+  step 1000 loss 0.0349
+  step 2000 loss 0.0302
+  step 3000 loss 0.0308
+[bridge-obs rough s=3 k=2] 10000 pairs
+  step 0 loss 0.0920
+  step 1000 loss 0.0282
+  step 2000 loss 0.0332
+  step 3000 loss 0.0324
+[bridge-obs rough s=3 k=3] 10000 pairs
+  step 0 loss 0.1199
+  step 1000 loss 0.0321
+  step 2000 loss 0.0391
+  step 3000 loss 0.0340
+[bridge-plain rough s=4 k=1] 10000 pairs
+  step 0 loss 0.1198
+  step 1000 loss 0.0261
+  step 2000 loss 0.0333
+  step 3000 loss 0.0277
+[bridge-plain rough s=4 k=2] 10000 pairs
+  step 0 loss 0.0954
+  step 1000 loss 0.0301
+  step 2000 loss 0.0301
+  step 3000 loss 0.0309
+[bridge-plain rough s=4 k=3] 10000 pairs
+  step 0 loss 0.1203
+  step 1000 loss 0.0323
+  step 2000 loss 0.0372
+  step 3000 loss 0.0355
+[bridge-obs rough s=4 k=1] 10000 pairs
+  step 0 loss 0.0870
+  step 1000 loss 0.0262
+  step 2000 loss 0.0333
+  step 3000 loss 0.0278
+[bridge-obs rough s=4 k=2] 10000 pairs
+  step 0 loss 0.1380
+  step 1000 loss 0.0306
+  step 2000 loss 0.0304
+  step 3000 loss 0.0308
+[bridge-obs rough s=4 k=3] 10000 pairs
+  step 0 loss 0.1276
+  step 1000 loss 0.0329
+  step 2000 loss 0.0370
+  step 3000 loss 0.0358
+=== train_bridges took 949.5s ===
+=== stage eval ===
+[eval ORACLE] success=0.886 (651s)
+[eval TRACK] success=0.889 (125s)
+[eval BRIDGE-plain] success=0.391 (122s)
+[eval BRIDGE-obs] success=0.361 (124s)
+=== eval took 1043.9s ===
+=== stage plots ===
+figures written to figures
+=== plots took 2.2s ===
+EXIT 0
