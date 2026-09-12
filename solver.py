@@ -115,8 +115,13 @@ def simulate(net, g0, ref, mf, goal, fields, layout, n_step=50, backward=False, 
 
 
 def train_skill(tk, k, ref, mf, seed, device, K=5, n_pair=8000, steps0=2500, steps_ipf=1000,
-                batch=512, lr=1e-3, n_sim=50, log=print):
-    """DSBM.  Returns {(iter, direction): net} for iter in {0, K}."""
+                batch=512, lr=1e-3, n_sim=50, log=print, frozen_coupling=False, with_bwd=True):
+    """DSBM.  Returns {(iter, direction): net} for iter in {0, K}.
+
+    `frozen_coupling` is the control for the Phase-1 IPF result: it spends the
+    identical extra optimisation budget re-fitting on the *original* independent
+    coupling instead of on the IPF-refined one.  Any change it produces is
+    optimiser churn, not the refined coupling."""
     gen = torch.Generator(device=device).manual_seed(seed)
     goal, fields = tk.means[k + 1].unsqueeze(0), tk.obs_fields
     fwd, bwd = DriftNet(mf).to(device), DriftNet(mf).to(device)
@@ -136,12 +141,17 @@ def train_skill(tk, k, ref, mf, seed, device, K=5, n_pair=8000, steps0=2500, ste
                          transport_cost=cost))
 
     l1 = fit(fwd, x0, x1, ref, mf, goal, fields, steps0, batch, lr, False, gen)
-    l2 = fit(bwd, x0, x1, ref, mf, goal, fields, steps0, batch, lr, True, gen)
+    l2 = fit(bwd, x0, x1, ref, mf, goal, fields, steps0, batch, lr, True, gen) if (with_bwd or K > 0) else float("nan")
     out = {(0, "fwd"): {kk: v.detach().clone() for kk, v in fwd.state_dict().items()},
            (0, "bwd"): {kk: v.detach().clone() for kk, v in bwd.state_dict().items()}}
     diagnose(0)
     log(f"    iter0 loss fwd {l1:.4f} bwd {l2:.4f}")
     for it in range(1, K + 1):
+        if frozen_coupling:
+            fit(bwd, x0, x1, ref, mf, goal, fields, steps_ipf, batch, lr, True, gen)
+            fit(fwd, x0, x1, ref, mf, goal, fields, steps_ipf, batch, lr, False, gen)
+            diagnose(it)
+            continue
         a = tk.sample(k, n_pair)
         e, keep = simulate(fwd, a, ref, mf, goal, fields, tk.layout, n_sim, False, gen, kill)
         fit(bwd, a[keep], e[keep], ref, mf, goal, fields, steps_ipf, batch, lr, True, gen)
@@ -175,8 +185,10 @@ class BridgeController:
         self.fwd, self.bwd = [], []
         for k in range(TK.N_SKILL):
             f, b = DriftNet(mf).to(device), DriftNet(mf).to(device)
-            f.load_state_dict(nets[k][(it, "fwd")]); b.load_state_dict(nets[k][(it, "bwd")])
-            f.eval(); b.eval(); self.fwd.append(f); self.bwd.append(b)
+            f.load_state_dict(nets[k][(it, "fwd")]); f.eval(); self.fwd.append(f)
+            if with_D:
+                b.load_state_dict(nets[k][(it, "bwd")]); b.eval()
+            self.bwd.append(b)
 
     def __call__(self, g, k, tau, step):
         goal, fields = self.tk.means[k + 1].unsqueeze(0), self.tk.obs_fields

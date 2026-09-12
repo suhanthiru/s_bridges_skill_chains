@@ -37,10 +37,11 @@ TAU_CLIP = 0.02
 class Reference:
     """kind in {brownian, killed, unicycle, slip}."""
 
-    def __init__(self, kind, sigma=0.05, kappa=2.0, slip_scale=1.0, fields=None, push_sigma=0.0):
+    def __init__(self, kind, sigma=0.05, kappa=2.0, slip_scale=1.0, fields=None, push_sigma=0.0, body_cov=None):
         self.kind, self.sigma, self.slip_scale, self.push_sigma = kind, sigma, slip_scale, push_sigma
         self.kappa = 0.0 if kind in ("brownian", "killed") else kappa
         self.fields = fields
+        self.body_cov = body_cov          # (3,) diagonal body-frame covariance, replaces the terrain lookup
         self.state_dependent = kind == "slip"
 
     def cov(self, g, mf):
@@ -48,7 +49,10 @@ class Reference:
         n = g.shape[0]
         if not self.state_dependent:
             return (self.sigma ** 2) * torch.eye(3, device=g.device).expand(n, 3, 3)
-        S = TR.slip_cov_body(self.fields, g[:, :2], self.slip_scale)
+        if self.body_cov is not None:
+            S = torch.diag(self.body_cov.to(g.device)).expand(n, 3, 3)
+        else:
+            S = TR.slip_cov_body(self.fields, g[:, :2], self.slip_scale)
         S = S + (self.push_sigma ** 2) * torch.eye(3, device=g.device)
         F = mf.frame(g)
         return F @ S @ F.transpose(1, 2)

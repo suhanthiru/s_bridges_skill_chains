@@ -40,8 +40,11 @@ def cov_at(ref, g, mf, mode):
     """Diffusion covariance in the shape given by `mode`."""
     if mode == "scalar":
         return torch.full((g.shape[0],), ref.sigma ** 2, device=g.device)
-    p = TR.lookup(ref.fields, g[:, :2])[:, :3] * ref.slip_scale
-    d = p ** 2 + ref.push_sigma ** 2
+    if ref.body_cov is not None:
+        d = ref.body_cov.to(g.device).expand(g.shape[0], 3) + ref.push_sigma ** 2
+    else:
+        p = TR.lookup(ref.fields, g[:, :2])[:, :3] * ref.slip_scale
+        d = p ** 2 + ref.push_sigma ** 2
     if mode == "diag":
         return d
     F = mf.frame(g)

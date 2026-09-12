@@ -102,7 +102,9 @@ class Layout:
 
     def __init__(self, name):
         self.name = name
-        if name == "L1":
+        if name == "none":
+            self.gaps, self.pile = [(0.5, 10.0)], None      # a gap wider than the box: no wall
+        elif name == "L1":
             self.gaps = [(0.5, 0.22)]
             self.pile = None
         else:

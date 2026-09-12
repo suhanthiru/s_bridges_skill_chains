@@ -152,6 +152,15 @@ def main():
     if a.merge:
         merge()
         import seam; seam.merge(); return
+    if a.phase == "1b":
+        import phase1b
+        t0 = time.time()
+        rows, cost = phase1b.run(a.seed, a.workers, a.quick)
+        pd.DataFrame(rows).to_parquet(os.path.join(RES, f"phase1b_seed{a.seed}.parquet"), index=False)
+        pd.DataFrame(cost).to_parquet(os.path.join(RES, f"phase1b_solver_seed{a.seed}.parquet"), index=False)
+        if a.seed == 0:
+            phase1b.run_covfid().to_parquet(os.path.join(RES, "phase1b_covfid.parquet"), index=False)
+        print(f"=== phase 1b seed {a.seed} took {time.time() - t0:.0f}s ==="); return
     if a.phase in ("A", "B", "D"):
         import seam; seam.run_phase(a.phase, a.seed, a.quick); return
     if a.phase == "C":
