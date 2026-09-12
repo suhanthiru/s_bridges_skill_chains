@@ -152,6 +152,17 @@ def main():
     if a.merge:
         merge()
         import seam; seam.merge(); return
+    if a.phase == "4":
+        import phase4
+        t0 = time.time(); rows = phase4.run(a.seed, a.workers, a.quick)
+        write(rows, 4, a.seed); print(f"=== phase 4 seed {a.seed} took {time.time() - t0:.0f}s ==="); return
+    if a.phase == "5":
+        import phase5
+        t0 = time.time(); rows = phase5.run(a.seed, a.quick)
+        write(rows, 5, a.seed); print(f"=== phase 5 seed {a.seed} took {time.time() - t0:.0f}s ==="); return
+    if a.phase == "3":
+        import phase3
+        t0 = time.time(); phase3.run(a.quick); print(f"=== phase 3 took {time.time() - t0:.0f}s ==="); return
     if a.phase == "2":
         import phase2
         t0 = time.time(); rows = phase2.run(a.seed, a.quick)

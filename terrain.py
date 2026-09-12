@@ -108,8 +108,8 @@ class Layout:
             self.gaps = [(0.5, 0.22)]
             self.pile = None
         else:
-            self.gaps = [(0.30, 0.16), (0.70, 0.16)]
-            self.pile = (0.62, 0.70, 0.075)
+            self.gaps = [(0.38, 0.16), (0.62, 0.16)]
+            self.pile = (0.70, 0.66, 0.05)
 
     def in_gap(self, y):
         ok = torch.zeros_like(y, dtype=torch.bool)
@@ -135,15 +135,13 @@ class Layout:
 def marginals(layout, route="lower", gap_lat=0.040):
     """Four SE(2) marginals (mean, tangent covariance) along the route."""
     if layout.name == "L1":
-        ys = [0.5, 0.5, 0.5, 0.5]
-    else:
-        y = 0.30 if route == "lower" else 0.70
-        ys = [0.5, y, y, 0.5]
-    xs = [0.12, 0.40, 0.60, 0.88]
+        ys, xs = [0.5, 0.5, 0.5, 0.5], [0.12, 0.40, 0.60, 0.88]
+    else:   # rho_1 central before the wall, rho_2 behind the chosen gap
+        y = 0.38 if route == "lower" else 0.62
+        ys, xs = [0.5, 0.5, y, 0.5], [0.12, 0.42, 0.58, 0.88]
     th = [0.0, 0.0, 0.0, 0.0]
     if layout.name == "L2":
-        th = [math.atan2(ys[1] - ys[0], xs[1] - xs[0]), 0.0, 0.0,
-              math.atan2(ys[3] - ys[2], xs[3] - xs[2])]
+        th = [0.0, 0.5 * math.atan2(ys[2] - ys[1], xs[2] - xs[1]), 0.5 * math.atan2(ys[3] - ys[2], xs[3] - xs[2]), 0.0]
     wide = torch.diag(torch.tensor([0.050, 0.080, 0.250]) ** 2)
     narrow = torch.diag(torch.tensor([0.025, gap_lat, 0.150]) ** 2)
     means = [torch.tensor([x, y, t]) for x, y, t in zip(xs, ys, th)]

@@ -64,8 +64,11 @@ class Nominal:
 
 
 # ----------------------------------------------------------------- demos
+DEMO_TAG = ""
+
+
 def demo_path(layout):
-    return os.path.join(DATA, f"demos_{layout}.npz")
+    return os.path.join(DATA, f"demos_{layout}{DEMO_TAG}.npz")
 
 
 @torch.no_grad()
@@ -267,7 +270,9 @@ def eval_cell(method, models, layout, dist, seed, device, slip_scale=0.7, record
 
 
 def run(seed, quick=False):
+    global DEMO_TAG
     cfg = QUICK if quick else CFG
+    DEMO_TAG = "_quick" if quick else ""
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     rows = []
     for layout in LAYOUTS:
