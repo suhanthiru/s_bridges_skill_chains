@@ -214,3 +214,78 @@ current skill's straight segment.  Handoff W₂ by assignment vs ρ_k samples.
 **Wall-clock** (RTX 3080 Ti, shared): layouts 25 s, demos 9.3 min, tuning
 6.4 min, bridge training 15.8 min (30 nets), eval of four conditions 17.4 min
 (ORACLE 10.9 min of that).  `results_terrain/timing.json`.
+
+---
+
+# Experiment 3: SE(2) terrain suite (reference process, Lie group, robustness, seam trigger, marginals, augmentation)
+
+Files: `se2.py` (SE(2) ops + manifold interface), `terrain.py` (terrain classes, layouts L1/L2, marginals),
+`sde.py` (reference SDEs and their Gaussian bridges, closed-form Gaussian SB), `bridge_fast.py`
+(shape-specialised training path, tested against `sde.py`), `task.py` (chained-skill SE(2) task),
+`solver.py` (drift nets, DSBM/IPF, drift-disagreement D), `phase1b.py`–`phase5.py`, `analysis.py`,
+`analysis2.py`, `run.py`, `tests.py`. Results in `results/` (per-seed parquet shards, merged into
+`results.parquet` by `python run.py --merge`), figures `figures/phase*`, findings `findings/phase*.md`.
+
+```bash
+python run.py --phase tests                 # gate: linear-Gaussian covariance steering to 1e-3, SE(2), terrain, W2
+python run.py --phase 1 --seed S            # reference x manifold x disturbance x IPF (L1)
+python run.py --phase 1frozen --seed S      # optimiser-churn control for the IPF effect
+python run.py --phase 1b --seed S           # Lie group: curved routes x heading noise x anisotropy (flat, se2)
+python run.py --phase 1bx --seed S          #   ... the exact-transport SE(2) variant (se2x)
+python run.py --phase 2 --seed S            # nominal / ppo / diffusion / bridge_iter0 / bridge_ipf x disturbance x layout
+python run.py --phase 3                     # D(x,t) as failure predictor + replan trigger (uses phase-2 trajectories)
+python run.py --phase 4 --seed S            # L2, noisy map: width sweep (4a) and bimodal rho_2 (4b)
+python run.py --phase 5 --seed S            # diffusion trained on demos / noised / +bridge samples / bridge only
+python run.py --merge && python analysis.py --phase 1 && python analysis2.py --phase 1b   # etc.
+make all                                    # tests, phase 1 (10 seeds), merge
+```
+
+Design notes that matter for reading the findings:
+
+* **Reference SDEs.** All four are OU deviations from the interpolant, `d xi = -kappa xi dt + L(x) dW`,
+  so the bridge is a closed-form Doob h-transform and the position-dependent slip covariance enters
+  by quadrature along the interpolant (frozen-coefficient approximation). `brownian`/`killed`: kappa=0,
+  constant sigma; `unicycle`: kappa=2 pull toward the next marginal; `slip`: the same pull with
+  Sigma(x) from the terrain map. The linear-Gaussian case has the known entropic-OT closed form,
+  which the IPF logic reproduces to 3.5e-7 (`tests.py`).
+* **Manifolds.** `flat` models (x, y, theta) in R^3 with world-frame noise; `se2` uses geodesic
+  interpolation and left-invariant (body-frame) noise with invariant network features, so its bridge
+  construction is exactly equivariant (tested). The physics is SE(2) and every metric is SE(2)-correct
+  for both. `se2` carries deviations by first-order transport; `se2x` (Phase 1b) transports the drift
+  target and the accumulated covariance by the SE(2) adjoint.
+* **D(x,t)** = ||b_fwd + b_bwd||; near the bridge's support this equals ||xi||/(tau(1-tau)), the
+  normalised deviation from the support. Phase 3 uses the tau-normalised version for the trigger.
+* **Calibration** (declared before the grid): FRIC_SCALE=0.5 and slip magnitude 0.7 so that the
+  nominal PD controller is at about 0.99/0.80/0.43 on none/slip/rain.
+* **Baselines.** PPO: 1M steps (compute cap), 512 envs, trained under `slip`. Diffusion: chunk 8,
+  execute 4, DDPM-50 / DDIM-10 with beta up to 0.2 (a 50-step schedule must reach abar_T ~ 0; the
+  earlier terrain-run DIFF used beta max 0.02, abar_T = 0.6, and was weak for that reason). Demos: 500
+  nominal-PD rollouts per layout with the demonstrator's clean commands as labels.
+* **Compute.** The GPU on this machine has ~0.16 ms kernel-launch overhead; the bridge machinery is
+  hundreds of small ops per step, so bridge training runs on CPU (8 configs x 2 threads). PPO and
+  diffusion run on the GPU. Phase 1 used 10 seeds; the rest 5 (stated in each findings file).
+
+# Experiment 4: seam suite (is the handoff marginal load-bearing?)
+
+Files: `seam.py`, `seam_plots.py`, `tests_seam.py`; results `results_seam/`, `results_seam.parquet`
+(cells) and `results_seam_episodes.parquet` (episodes); figures `figures/seam_*`; findings
+`findings/seam_*.md`; roll-up `FINDINGS_seam.md`.
+
+```bash
+python run.py --phase seamtests             # PD following, Mahalanobis, shifted marginals
+python run.py --phase A --seed S            # point vs cloud, 5 conditions x terrain x sigma_k
+python run.py --phase B --seed S            # handoff-width sweep (BRIDGE-slip-tracked)
+python run.py --phase C                     # seam containment, from the A/B episode logs
+python run.py --phase D --seed S            # broken seam: skill 2 started from shifted rho_1'
+python run.py --merge                       # also merges the seam shards
+```
+
+Every condition is a reference generator wrapped in the same PD tracker (kp=10 + feed-forward):
+TRACK-oracle (nearest MPC demo), TRACK-naive (straight line through the marginal means),
+BRIDGE-tracked (Brownian-reference iteration-0 bridge drift flow from the entry state),
+BRIDGE-slip-tracked (unicycle + terrain-slip reference), TSM (behaviour-cloned skills fine-tuned by a
+differentiable rollout so terminal states land in the next skill's measured initiation set; the set is
+a classifier fitted to a 13x13 probe grid x 20 layouts x 50 rollouts, label = success >= 0.8).
+The environment is the planar terrain env of Experiment 2, unchanged: "heading axis" = along-track,
+"corridor normal" = lateral, Mahalanobis in R^2. Bridges are trained on marginal samples (not demo
+endpoints) so Phase B can rescale the marginals. Phase E (time-budget split) runs only if A passes.
