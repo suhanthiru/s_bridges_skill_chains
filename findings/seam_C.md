@@ -40,6 +40,10 @@
 * **TSM's competence boundary is its initiation set, not the Gaussian.** Its curve stays flat to ≈ 2.5σ and then falls (mild skill 3: 0.51 at 3.5σ, 0.04 at 5σ) — the classifier was fitted on a ±4σ probe grid with an 80 % success threshold, so its edge is wider than ρ_{k−1}'s 2σ. On mild terrain TSM's skill-2 delivery is low even from inside (0.66) because its fine-tuned BC policy over-shoots ρ₂ laterally on mild ground; that is a TSM training artefact, not a seam effect.
 * **Rough terrain softens every curve** (bridge gaps 0.33–0.37 instead of 0.48–0.65) because the delivered state is noisy for everyone; the ordering is unchanged.
 
+## Caveat from Phase D
+
+This analysis is observational: an entry outside ρ_{k−1} is the delivered state of an episode that has just been pushed hard and goes on being pushed. Phase D forces clean entries from a ρ₁′ shifted by up to 3σ and finds the bridges lose at most 0.024 — so most of the gap above is selection (being outside is a symptom of a bad episode), and the causal cost of an unmet precondition at these shift sizes is small.
+
 ## What it means for the question
 
 The handoff marginal is load-bearing as a *precondition*: for a bridge skill, "entered inside ρ_{k−1}" predicts delivery, and the guarantee that skill k delivers into skill k+1's precondition is what keeps the chain alive. But Phase A says a tracker that ignores the precondition entirely does better overall, so in this environment the precondition is describing the bridge's limitation rather than buying robustness.

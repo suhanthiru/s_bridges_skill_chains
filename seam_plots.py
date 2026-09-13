@@ -160,10 +160,10 @@ def phase_D(cells):
     tab = ["| condition | axis | " + " | ".join(f"δ={d}" for d in (0.0, 0.5, 1.0, 2.0, 3.0)) + " | first δ < 0.5 |", "|---|---|" + "---|" * 6]
     for ax, axis in zip(axes, ("normal", "heading")):
         for cond in ("BRIDGE-tracked", "BRIDGE-slip-tracked", "TSM"):
-            d = Dd[(Dd.condition == cond) & ((Dd.shift == f"shift_{axis}") | (Dd.shift == "none"))]
+            d = Dd[(Dd.condition == cond) & ((Dd["shift"] == f"shift_{axis}") | (Dd["shift"] == "none"))]
             g = d.groupby("delta").success
             m, h = g.mean(), g.apply(lambda v: ci95(v)[1])
-            ax.errorbar(m.index, m.values, h.values, marker="o", capsize=2, label=cond, **STYLE[cond])
+            ax.errorbar(m.index, m.values, h.values, capsize=2, label=cond, **{**STYLE[cond], "marker": "o"})
             below = [dl for dl in m.index if m[dl] < 0.5]
             tab.append(f"| {cond} | {axis} | " + " | ".join(fmt(*ci95(d[d.delta == dl].success)) for dl in (0.0, 0.5, 1.0, 2.0, 3.0))
                        + f" | {below[0] if below else 'none'} |")
@@ -175,7 +175,7 @@ def phase_D(cells):
     other = ["| condition | none | rot45 | rot90 | shrink 0.25x | grow 4x |", "|---|---|---|---|---|---|"]
     for cond in ("BRIDGE-tracked", "BRIDGE-slip-tracked", "TSM"):
         d = Dd[Dd.condition == cond]
-        other.append(f"| {cond} | " + " | ".join(fmt(*ci95(d[d.shift == k].success)) for k in ("none", "rot45", "rot90", "shrink", "grow")) + " |")
+        other.append(f"| {cond} | " + " | ".join(fmt(*ci95(d[d["shift"] == k].success)) for k in ("none", "rot45", "rot90", "shrink", "grow")) + " |")
     init = Dd.groupby(["shift", "delta"]).frac_in_tsm_init.mean().round(2).to_dict()
     return "\n".join(tab), "\n".join(other), init
 
