@@ -46,7 +46,7 @@ Success, flat vs SE(2), Δ = SE(2) − flat:
 
 Handoff-1 Mahalanobis (SE(2)-correct, median) tells the same story: SE(2) lower or equal at a ≤ 3 (e.g. S-curve h=1, a=3: 1.60 vs 1.61; straight h=1, a=1: 1.54 vs 1.63), higher at a = 10 (1.73–1.84 vs 1.47–1.85). The gap opens with heading noise and curvature at a = 1–3 exactly as hypothesised (S-curve, a = 3: +0.07 → +0.16 → +0.32 → +0.33 as h grows), and is ≈ 0 in the benign (0.05, 1, straight) cell.
 
-**The anisotropy-10 anomaly.** Flat beats SE(2) by 0.14–0.37 in all 12 a = 10 cells, and flat's success *rises* with heading noise there (turn90: 0.58 → 0.67) while SE(2)'s handoff error rises. Diagnostics (single seed, straight/S-curve, h = 0.2): both manifolds reach the goal without execution noise (SE(2) 0.97, flat 0.99), so the drift fields are fine; the gap appears only under noise. Two SE(2)-specific approximations were tested by an exact variant `se2x`: (i) the drift target is computed in the interpolant's frame and consumed in the sample's frame (first-order transport) — moving it by the adjoint of the relative pose raised the S-curve a = 10 cell from 0.32 to 0.49; (ii) accumulated deviations were summed in the interpolant's body frame rather than transported along the curving path — adding the adjoint transport changed nothing (0.47). Flat is still at 0.68. So half the gap is the transport approximation and half is unexplained; with lateral noise 10× longitudinal the world-frame Gaussian is, in practice, the better regression target for the corrective drift. The 5-seed `se2x` run is queued (`--phase 1bx`) and its table will be appended below.
+**The anisotropy-10 anomaly.** Flat beats SE(2) by 0.14–0.37 in all 12 a = 10 cells, and flat's success *rises* with heading noise there (turn90: 0.58 → 0.67) while SE(2)'s handoff error rises. Diagnostics (single seed, straight/S-curve, h = 0.2): both manifolds reach the goal without execution noise (SE(2) 0.97, flat 0.99), so the drift fields are fine; the gap appears only under noise. Two SE(2)-specific approximations were tested by an exact variant `se2x`: (i) the drift target is computed in the interpolant's frame and consumed in the sample's frame (first-order transport) — moving it by the adjoint of the relative pose raised the S-curve a = 10 cell from 0.32 to 0.49; (ii) accumulated deviations were summed in the interpolant's body frame rather than transported along the curving path — adding the adjoint transport changed nothing (0.47). Flat is still at 0.68. So half the gap is the transport approximation and half is unexplained; with lateral noise 10× longitudinal the world-frame Gaussian is, in practice, the better regression target for the corrective drift. The 5-seed `se2x` run is in section 5 below.
 
 ## 4. Solver cost (K = 4 IPF, S-curve/turn/straight, 3 seeds)
 
@@ -58,9 +58,54 @@ Handoff-1 Mahalanobis (SE(2)-correct, median) tells the same story: SE(2) lower 
 
 No hidden compute: same wall-clock within noise, same 2–3 iterations to converge.
 
+## 5. Exact-transport SE(2) (`se2x`, 5 seeds): drift target moved by Ad(exp(−ξ)) and covariance accumulated with the adjoint of the geodesic motion
+
+| route | h | a | flat | se2 | se2x | se2x − flat (p) | se2x − se2 (p) |
+|---|---|---|---|---|---|---|---|
+| straight | 0.05 | 1 | 0.770 | 0.805 | 0.805 | +0.035 (0.120) | +0.000 (0.953) |
+| straight | 0.05 | 3 | 0.784 | 0.821 | 0.822 | +0.038 (0.049) | +0.001 (0.892) |
+| straight | 0.05 | 10 | 0.536 | 0.567 | 0.561 | +0.025 (0.057) | -0.006 (0.698) |
+| straight | 0.2 | 1 | 0.833 | 0.813 | 0.826 | -0.007 (0.733) | +0.013 (0.169) |
+| straight | 0.2 | 3 | 0.766 | 0.783 | 0.784 | +0.018 (0.101) | +0.001 (0.717) |
+| straight | 0.2 | 10 | 0.691 | 0.625 | 0.683 | -0.008 (0.617) | +0.058 (0.006) |
+| straight | 0.5 | 1 | 0.616 | 0.700 | 0.723 | +0.107 (0.000) | +0.024 (0.022) |
+| straight | 0.5 | 3 | 0.726 | 0.708 | 0.716 | -0.011 (0.538) | +0.008 (0.145) |
+| straight | 0.5 | 10 | 0.728 | 0.581 | 0.641 | -0.087 (0.000) | +0.060 (0.009) |
+| straight | 1.0 | 1 | 0.583 | 0.614 | 0.678 | +0.095 (0.005) | +0.065 (0.102) |
+| straight | 1.0 | 3 | 0.587 | 0.622 | 0.665 | +0.078 (0.034) | +0.042 (0.271) |
+| straight | 1.0 | 10 | 0.687 | 0.550 | 0.443 | -0.244 (0.000) | -0.107 (0.004) |
+| turn90 | 0.05 | 1 | 0.748 | 0.780 | 0.770 | +0.022 (0.205) | -0.010 (0.481) |
+| turn90 | 0.05 | 3 | 0.727 | 0.775 | 0.805 | +0.078 (0.002) | +0.030 (0.013) |
+| turn90 | 0.05 | 10 | 0.578 | 0.355 | 0.584 | +0.006 (0.531) | +0.229 (0.000) |
+| turn90 | 0.2 | 1 | 0.730 | 0.778 | 0.798 | +0.069 (0.013) | +0.021 (0.009) |
+| turn90 | 0.2 | 3 | 0.690 | 0.723 | 0.764 | +0.074 (0.117) | +0.042 (0.003) |
+| turn90 | 0.2 | 10 | 0.636 | 0.371 | 0.615 | -0.021 (0.130) | +0.244 (0.000) |
+| turn90 | 0.5 | 1 | 0.577 | 0.694 | 0.717 | +0.140 (0.003) | +0.023 (0.061) |
+| turn90 | 0.5 | 3 | 0.613 | 0.708 | 0.710 | +0.096 (0.001) | +0.002 (0.898) |
+| turn90 | 0.5 | 10 | 0.694 | 0.420 | 0.581 | -0.113 (0.001) | +0.161 (0.000) |
+| turn90 | 1.0 | 1 | 0.538 | 0.562 | 0.695 | +0.158 (0.001) | +0.133 (0.005) |
+| turn90 | 1.0 | 3 | 0.544 | 0.578 | 0.636 | +0.092 (0.107) | +0.058 (0.061) |
+| turn90 | 1.0 | 10 | 0.669 | 0.482 | 0.376 | -0.294 (0.001) | -0.107 (0.028) |
+| scurve | 0.05 | 1 | 0.662 | 0.713 | 0.750 | +0.088 (0.006) | +0.038 (0.004) |
+| scurve | 0.05 | 3 | 0.587 | 0.662 | 0.672 | +0.085 (0.082) | +0.010 (0.244) |
+| scurve | 0.05 | 10 | 0.687 | 0.314 | 0.458 | -0.228 (0.001) | +0.144 (0.002) |
+| scurve | 0.2 | 1 | 0.611 | 0.728 | 0.736 | +0.125 (0.001) | +0.008 (0.565) |
+| scurve | 0.2 | 3 | 0.464 | 0.622 | 0.704 | +0.240 (0.001) | +0.081 (0.001) |
+| scurve | 0.2 | 10 | 0.665 | 0.313 | 0.456 | -0.209 (0.000) | +0.142 (0.007) |
+| scurve | 0.5 | 1 | 0.573 | 0.659 | 0.688 | +0.115 (0.008) | +0.030 (0.065) |
+| scurve | 0.5 | 3 | 0.338 | 0.660 | 0.654 | +0.316 (0.000) | -0.006 (0.630) |
+| scurve | 0.5 | 10 | 0.664 | 0.343 | 0.484 | -0.180 (0.001) | +0.141 (0.002) |
+| scurve | 1.0 | 1 | 0.501 | 0.579 | 0.724 | +0.222 (0.002) | +0.144 (0.015) |
+| scurve | 1.0 | 3 | 0.302 | 0.627 | 0.682 | +0.379 (0.000) | +0.054 (0.088) |
+| scurve | 1.0 | 10 | 0.651 | 0.470 | 0.404 | -0.247 (0.000) | -0.066 (0.003) |
+
+* `se2x` is on average +0.047 above `se2` over the grid and is never significantly worse than flat where a ≤ 3; it beats flat significantly in **16 of 24** a ≤ 3 cells (S-curve h = 1, a = 3: +0.38; 90° turn h = 1, a = 1: +0.16).
+* At a = 10 it recovers most of `se2`'s deficit for h ≤ 0.5 (90° turn: 0.36 → 0.58, 0.37 → 0.62, 0.42 → 0.58; flat 0.58 / 0.64 / 0.69) and ties flat in 4 of the 12 cells, but flat still wins **8 of 12** a = 10 cells significantly and `se2x` is the worst of the three at (h = 1, a = 10) on every route. The exact transport therefore was the main defect of `se2` at moderate heading noise, but under both extreme heading noise and extreme anisotropy the Lie-group construction (first-order deviation dynamics in a rotating frame) is still the wrong regression target and the world-frame Gaussian is better.
+* θ wrap with `se2x`: 0.637 / 0.585 (π−0.1 / π+0.1), vs flat 0.550 / 0.575 — the same small edge as un-wrapped.
+
 ## Bottom line
 
-The Lie group buys correct uncertainty (coverage/KL), exact equivariance, and +0.1 to +0.3 success on curved routes with heading noise — real and significant. It does not buy anything for strongly anisotropic body-frame slip; there the naive world-frame model wins, and the exact-transport fix recovers only part of the difference. The hypothesis as stated ("exactly when heading uncertainty *and* body-frame slip are large") is half right.
+The Lie group buys correct uncertainty (coverage/KL), exact equivariance, and +0.1 to +0.4 success on curved routes with heading noise (with exact transport, in 16/24 cells at a ≤ 3, never significantly worse) — real and significant. It does not buy anything for strongly anisotropic body-frame slip: at a = 10 the naive world-frame model wins 8/12 cells even against the exact-transport variant, and at (h = 1, a = 10) the SE(2) construction is the worst of the three. The hypothesis as stated ("exactly when heading uncertainty *and* body-frame slip are large") is half right: heading yes, anisotropy no.
 
 ## What I'd run next
 
