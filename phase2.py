@@ -76,8 +76,13 @@ def make_demos(layout, device, n):
     tk = TK.Task(TR.Layout(layout), "none", n, 4242, device, layout_id=0)
     out = tk.rollout(Nominal(tk), n=n, record=True)
     G = out["traj"]                                    # (n, 301, 3)
-    # recover the commands from consecutive poses (clip-consistent): u = log(g_t^-1 g_{t+1}) / dt
-    U = S.between(G[:, :-1].reshape(-1, 3), G[:, 1:].reshape(-1, 3)).reshape(n, 300, 3) / TK.DT
+    # the demonstrator is a deterministic function of the state, so re-evaluate it on the
+    # recorded poses to get noise-free commands (recovering u from consecutive poses would
+    # bake the process noise, sigma_base/sqrt(dt) ~ 0.2, into the labels)
+    ctl = Nominal(tk); U = torch.zeros(n, 300, 3, device=device)
+    for s_ in range(300):
+        k = s_ // TK.T_SKILL; tau = torch.full((n,), (s_ % TK.T_SKILL) / TK.T_SKILL, device=device)
+        U[:, s_] = TK.clip_u(ctl(G[:, s_], k, tau, s_)[0])
     os.makedirs(DATA, exist_ok=True)
     np.savez_compressed(demo_path(layout), G=G.cpu().numpy(), U=U.cpu().numpy(), success=out["success"].cpu().numpy())
     return float(out["success"].float().mean())
@@ -161,7 +166,10 @@ class DiffPolicy(nn.Module):
         self.n_train = n_train
         self.net = nn.Sequential(nn.Linear(CHUNK * 3 + OBS_DIM + 32, hidden), nn.SiLU(), nn.Linear(hidden, hidden), nn.SiLU(),
                                  nn.Linear(hidden, hidden), nn.SiLU(), nn.Linear(hidden, hidden), nn.SiLU(), nn.Linear(hidden, CHUNK * 3))
-        self.register_buffer("abar", torch.cumprod(1 - torch.linspace(1e-4, 0.02, n_train), 0))
+        # 50-step schedule must reach abar_T ~ 0 (beta up to 0.2 -> abar_T = 0.007); with the
+        # 1000-step DDPM betas (max 0.02) abar_T would be 0.6 and DDIM from pure noise is
+        # off-distribution - that bug is why the terrain-run DIFF baseline was weak
+        self.register_buffer("abar", torch.cumprod(1 - torch.linspace(1e-4, 0.2, n_train), 0))
         self.scale = torch.tensor([TK.UMAX, TK.UMAX, TK.WMAX])
 
     def forward(self, a, obs, t):

@@ -195,14 +195,14 @@ def solver_cost_job(args):
                 cost_iter0=float(c.iloc[0]), cost_final=float(c.iloc[-1]))
 
 
-def run(seed, workers=8, quick=False):
+def run(seed, workers=8, quick=False, manifolds=("flat", "se2")):
     import multiprocessing as mp
     hs, an, rt = (H_SCALES[:2], ANISO[:2], ROUTES[:2]) if quick else (H_SCALES, ANISO, ROUTES)
-    jobs = [(r, h, a, mf, seed, 0.0) for r in rt for h in hs for a in an for mf in ("flat", "se2")]
-    jobs += [("scurve", 0.2, 3, mf, seed, ws) for mf in ("flat", "se2") for ws in (0.1, -0.1)]   # theta wrap
+    jobs = [(r, h, a, mf, seed, 0.0) for r in rt for h in hs for a in an for mf in manifolds]
+    jobs += [("scurve", 0.2, 3, mf, seed, ws) for mf in manifolds for ws in (0.1, -0.1)]   # theta wrap
     with mp.get_context("spawn").Pool(workers) as p:
         rows = p.map(job, jobs, chunksize=1)
-        cost = p.map(solver_cost_job, [(r, mf, seed) for r in rt for mf in ("flat", "se2")], chunksize=1)
+        cost = p.map(solver_cost_job, [(r, mf, seed) for r in rt for mf in manifolds], chunksize=1)
     return rows, cost
 
 

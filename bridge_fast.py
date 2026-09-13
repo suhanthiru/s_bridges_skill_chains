@@ -33,7 +33,7 @@ def _gl(device, dtype):
 def mode_of(ref, mf):
     if not ref.state_dependent:
         return "scalar"
-    return "diag" if mf.name == "se2" else "full"
+    return "diag" if mf.name in ("se2", "se2x") else "full"
 
 
 def cov_at(ref, g, mf, mode):
@@ -122,4 +122,7 @@ def sample_and_target(ref, g0, prep, tau, mf, gen=None, backward=False):
         K = Sg / Q1t.clamp_min(1e-12)
         pull = (K * phi2 ** 2)[:, None] * xi
     target = vnom - ref.kappa * xi - pull
+    if mf.name == "se2x":
+        from se2 import adjoint, exp_se2
+        target = adjoint(exp_se2(-xi), target)    # xbar-frame velocity -> g-frame velocity
     return g, target

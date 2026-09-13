@@ -44,7 +44,7 @@ class DriftNet(nn.Module):
 
     def forward(self, g, tau, goal, fields):
         h = torch.cat([self.mf.feats(g, goal.expand_as(g), tau),
-                       TR.terrain_feats(fields, g, self.mf.name == "se2"), tau_emb(tau)], 1)
+                       TR.terrain_feats(fields, g, self.mf.name != "flat"), tau_emb(tau)], 1)
         return self.net(h)
 
 

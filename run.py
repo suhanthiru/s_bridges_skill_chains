@@ -167,12 +167,12 @@ def main():
         import phase2
         t0 = time.time(); rows = phase2.run(a.seed, a.quick)
         write(rows, 2, a.seed); print(f"=== phase 2 seed {a.seed} took {time.time() - t0:.0f}s ==="); return
-    if a.phase == "1b":
+    if a.phase in ("1b", "1bx"):
         import phase1b
-        t0 = time.time()
-        rows, cost = phase1b.run(a.seed, a.workers, a.quick)
-        pd.DataFrame(rows).to_parquet(os.path.join(RES, f"phase1b_seed{a.seed}.parquet"), index=False)
-        pd.DataFrame(cost).to_parquet(os.path.join(RES, f"phase1b_solver_seed{a.seed}.parquet"), index=False)
+        t0 = time.time(); tag = "x" if a.phase == "1bx" else ""
+        rows, cost = phase1b.run(a.seed, a.workers, a.quick, manifolds=("se2x",) if tag else ("flat", "se2"))
+        pd.DataFrame(rows).to_parquet(os.path.join(RES, f"phase1b{tag}_seed{a.seed}.parquet"), index=False)
+        pd.DataFrame(cost).to_parquet(os.path.join(RES, f"phase1b{tag}_solver_seed{a.seed}.parquet"), index=False)
         if a.seed == 0:
             phase1b.run_covfid().to_parquet(os.path.join(RES, "phase1b_covfid.parquet"), index=False)
         print(f"=== phase 1b seed {a.seed} took {time.time() - t0:.0f}s ==="); return

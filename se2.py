@@ -159,7 +159,20 @@ class SE2:
     n_feat = 5
 
 
-MANIFOLDS = {"flat": Flat, "se2": SE2}
+class SE2X(SE2):
+    """SE(2) with exact transport of the bridge drift target from the interpolant's
+    frame to the sample's frame (Ad of the relative pose) instead of the first-order
+    identity used by SE2.  Added in Phase 1b to test the anisotropy-10 anomaly."""
+    name = "se2x"
+
+
+def adjoint(h, v):
+    """Ad_h v for h = (t, theta) in SE(2), v = (vx, vy, omega): (R v + omega (t_y, -t_x), omega)."""
+    Rv = torch.einsum("nij,nj->ni", rot(h[:, 2]), v[:, :2])
+    return torch.cat([Rv + v[:, 2:3] * torch.stack([h[:, 1], -h[:, 0]], 1), v[:, 2:3]], 1)
+
+
+MANIFOLDS = {"flat": Flat, "se2": SE2, "se2x": SE2X}
 
 
 # --------------------------------------------------------------- metrics
