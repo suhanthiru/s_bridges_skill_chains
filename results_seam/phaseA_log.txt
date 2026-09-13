@@ -1,0 +1,196 @@
+[A s0 TRACK-oracle mild] 16s  succ@0.10 0.90
+[A s0 TRACK-oracle rough] 15s  succ@0.10 0.81
+[A s0 TRACK-naive mild] 15s  succ@0.10 0.92
+[A s0 TRACK-naive rough] 14s  succ@0.10 0.84
+  bridge brownian mild w=1.0 k=1 s=0: loss 0.0164
+  bridge brownian mild w=1.0 k=2 s=1: loss 0.0190
+  bridge brownian mild w=1.0 k=3 s=2: loss 0.0178
+[A s0 BRIDGE-tracked mild] 62s  succ@0.10 0.82
+  bridge brownian rough w=1.0 k=1 s=0: loss 0.0366
+  bridge brownian rough w=1.0 k=2 s=1: loss 0.0437
+  bridge brownian rough w=1.0 k=3 s=2: loss 0.0418
+[A s0 BRIDGE-tracked rough] 55s  succ@0.10 0.77
+  bridge slip mild w=1.0 k=1 s=0: loss 0.0165
+  bridge slip mild w=1.0 k=2 s=1: loss 0.0179
+  bridge slip mild w=1.0 k=3 s=2: loss 0.0162
+[A s0 BRIDGE-slip-tracked mild] 87s  succ@0.10 0.80
+  bridge slip rough w=1.0 k=1 s=0: loss 0.0373
+  bridge slip rough w=1.0 k=2 s=1: loss 0.0417
+  bridge slip rough w=1.0 k=3 s=2: loss 0.0360
+[A s0 BRIDGE-slip-tracked rough] 101s  succ@0.10 0.78
+  bc mild k=1: loss 0.1051
+  bc mild k=2: loss 0.1142
+  bc mild k=3: loss 0.1196
+  init set skill 2: 0.27 of probes inside, cls loss 0.121
+  init set skill 3: 0.24 of probes inside, cls loss 0.179
+  tsm ft k=1: bc 0.0969 term 0.0067
+  tsm ft k=2: bc 0.1287 term 0.0410
+  tsm ft k=3: bc 0.1080 term 0.0000
+[A s0 TSM mild] 475s  succ@0.10 0.86
+  bc rough k=1: loss 0.1465
+  bc rough k=2: loss 0.1442
+  bc rough k=3: loss 0.1536
+  init set skill 2: 0.60 of probes inside, cls loss 0.321
+  init set skill 3: 0.56 of probes inside, cls loss 0.231
+  tsm ft k=1: bc 0.1337 term 0.0033
+  tsm ft k=2: bc 0.1438 term 0.0028
+  tsm ft k=3: bc 0.1609 term 0.0000
+[A s0 TSM rough] 485s  succ@0.10 0.84
+=== seam phase A seed 0 took 1324.3s ===
+[A s1 TRACK-oracle mild] 17s  succ@0.10 0.88
+[A s1 TRACK-oracle rough] 15s  succ@0.10 0.79
+[A s1 TRACK-naive mild] 15s  succ@0.10 0.87
+[A s1 TRACK-naive rough] 15s  succ@0.10 0.79
+  bridge brownian mild w=1.0 k=1 s=10: loss 0.0173
+  bridge brownian mild w=1.0 k=2 s=11: loss 0.0166
+  bridge brownian mild w=1.0 k=3 s=12: loss 0.0168
+[A s1 BRIDGE-tracked mild] 64s  succ@0.10 0.78
+  bridge brownian rough w=1.0 k=1 s=10: loss 0.0390
+  bridge brownian rough w=1.0 k=2 s=11: loss 0.0385
+  bridge brownian rough w=1.0 k=3 s=12: loss 0.0399
+[A s1 BRIDGE-tracked rough] 58s  succ@0.10 0.74
+  bridge slip mild w=1.0 k=1 s=10: loss 0.0167
+  bridge slip mild w=1.0 k=2 s=11: loss 0.0151
+  bridge slip mild w=1.0 k=3 s=12: loss 0.0160
+[A s1 BRIDGE-slip-tracked mild] 93s  succ@0.10 0.73
+  bridge slip rough w=1.0 k=1 s=10: loss 0.0357
+  bridge slip rough w=1.0 k=2 s=11: loss 0.0325
+  bridge slip rough w=1.0 k=3 s=12: loss 0.0381
+[A s1 BRIDGE-slip-tracked rough] 85s  succ@0.10 0.76
+  bc mild k=1: loss 0.1043
+  bc mild k=2: loss 0.1071
+  bc mild k=3: loss 0.1123
+  init set skill 2: 0.28 of probes inside, cls loss 0.218
+  init set skill 3: 0.24 of probes inside, cls loss 0.199
+  tsm ft k=1: bc 0.1254 term 0.0614
+  tsm ft k=2: bc 0.1296 term 0.0388
+  tsm ft k=3: bc 0.0998 term 0.0026
+[A s1 TSM mild] 508s  succ@0.10 0.83
+  bc rough k=1: loss 0.1404
+  bc rough k=2: loss 0.1486
+  bc rough k=3: loss 0.1450
+  init set skill 2: 0.64 of probes inside, cls loss 0.207
+  init set skill 3: 0.55 of probes inside, cls loss 0.296
+  tsm ft k=1: bc 0.1563 term 0.0024
+  tsm ft k=2: bc 0.1444 term 0.0052
+  tsm ft k=3: bc 0.1563 term 0.0000
+[A s1 TSM rough] 473s  succ@0.10 0.81
+=== seam phase A seed 1 took 1342.9s ===
+[A s2 TRACK-oracle mild] 17s  succ@0.10 0.84
+[A s2 TRACK-oracle rough] 16s  succ@0.10 0.74
+[A s2 TRACK-naive mild] 15s  succ@0.10 0.89
+[A s2 TRACK-naive rough] 13s  succ@0.10 0.79
+  bridge brownian mild w=1.0 k=1 s=20: loss 0.0180
+  bridge brownian mild w=1.0 k=2 s=21: loss 0.0175
+  bridge brownian mild w=1.0 k=3 s=22: loss 0.0171
+[A s2 BRIDGE-tracked mild] 59s  succ@0.10 0.76
+  bridge brownian rough w=1.0 k=1 s=20: loss 0.0421
+  bridge brownian rough w=1.0 k=2 s=21: loss 0.0402
+  bridge brownian rough w=1.0 k=3 s=22: loss 0.0377
+[A s2 BRIDGE-tracked rough] 54s  succ@0.10 0.72
+  bridge slip mild w=1.0 k=1 s=20: loss 0.0167
+  bridge slip mild w=1.0 k=2 s=21: loss 0.0164
+  bridge slip mild w=1.0 k=3 s=22: loss 0.0170
+[A s2 BRIDGE-slip-tracked mild] 92s  succ@0.10 0.68
+  bridge slip rough w=1.0 k=1 s=20: loss 0.0371
+  bridge slip rough w=1.0 k=2 s=21: loss 0.0359
+  bridge slip rough w=1.0 k=3 s=22: loss 0.0399
+[A s2 BRIDGE-slip-tracked rough] 112s  succ@0.10 0.74
+  bc mild k=1: loss 0.1094
+  bc mild k=2: loss 0.1112
+  bc mild k=3: loss 0.1187
+  init set skill 2: 0.24 of probes inside, cls loss 0.192
+  init set skill 3: 0.25 of probes inside, cls loss 0.177
+  tsm ft k=1: bc 0.1200 term 0.0728
+  tsm ft k=2: bc 0.1241 term 0.0585
+  tsm ft k=3: bc 0.0949 term 0.0000
+[A s2 TSM mild] 439s  succ@0.10 0.69
+  bc rough k=1: loss 0.1387
+  bc rough k=2: loss 0.1501
+  bc rough k=3: loss 0.1442
+  init set skill 2: 0.60 of probes inside, cls loss 0.265
+  init set skill 3: 0.54 of probes inside, cls loss 0.350
+  tsm ft k=1: bc 0.1635 term 0.0016
+  tsm ft k=2: bc 0.1555 term 0.0099
+  tsm ft k=3: bc 0.1452 term 0.0000
+[A s2 TSM rough] 383s  succ@0.10 0.77
+=== seam phase A seed 2 took 1199.3s ===
+[A s3 TRACK-oracle mild] 11s  succ@0.10 0.90
+[A s3 TRACK-oracle rough] 11s  succ@0.10 0.82
+[A s3 TRACK-naive mild] 10s  succ@0.10 0.91
+[A s3 TRACK-naive rough] 10s  succ@0.10 0.82
+  bridge brownian mild w=1.0 k=1 s=30: loss 0.0161
+  bridge brownian mild w=1.0 k=2 s=31: loss 0.0165
+  bridge brownian mild w=1.0 k=3 s=32: loss 0.0179
+[A s3 BRIDGE-tracked mild] 56s  succ@0.10 0.77
+  bridge brownian rough w=1.0 k=1 s=30: loss 0.0357
+  bridge brownian rough w=1.0 k=2 s=31: loss 0.0371
+  bridge brownian rough w=1.0 k=3 s=32: loss 0.0413
+[A s3 BRIDGE-tracked rough] 54s  succ@0.10 0.78
+  bridge slip mild w=1.0 k=1 s=30: loss 0.0148
+  bridge slip mild w=1.0 k=2 s=31: loss 0.0152
+  bridge slip mild w=1.0 k=3 s=32: loss 0.0168
+[A s3 BRIDGE-slip-tracked mild] 80s  succ@0.10 0.76
+  bridge slip rough w=1.0 k=1 s=30: loss 0.0317
+  bridge slip rough w=1.0 k=2 s=31: loss 0.0342
+  bridge slip rough w=1.0 k=3 s=32: loss 0.0391
+[A s3 BRIDGE-slip-tracked rough] 83s  succ@0.10 0.79
+  bc mild k=1: loss 0.1105
+  bc mild k=2: loss 0.1046
+  bc mild k=3: loss 0.1114
+  init set skill 2: 0.27 of probes inside, cls loss 0.165
+  init set skill 3: 0.26 of probes inside, cls loss 0.192
+  tsm ft k=1: bc 0.1182 term 0.0395
+  tsm ft k=2: bc 0.1361 term 0.0322
+  tsm ft k=3: bc 0.1166 term 0.0022
+[A s3 TSM mild] 367s  succ@0.10 0.78
+  bc rough k=1: loss 0.1437
+  bc rough k=2: loss 0.1464
+  bc rough k=3: loss 0.1449
+  init set skill 2: 0.69 of probes inside, cls loss 0.258
+  init set skill 3: 0.63 of probes inside, cls loss 0.307
+  tsm ft k=1: bc 0.1461 term 0.0031
+  tsm ft k=2: bc 0.1681 term 0.0066
+  tsm ft k=3: bc 0.1239 term 0.0000
+[A s3 TSM rough] 371s  succ@0.10 0.82
+=== seam phase A seed 3 took 1053.7s ===
+[A s4 TRACK-oracle mild] 11s  succ@0.10 0.85
+[A s4 TRACK-oracle rough] 11s  succ@0.10 0.81
+[A s4 TRACK-naive mild] 10s  succ@0.10 0.90
+[A s4 TRACK-naive rough] 10s  succ@0.10 0.81
+  bridge brownian mild w=1.0 k=1 s=40: loss 0.0167
+  bridge brownian mild w=1.0 k=2 s=41: loss 0.0164
+  bridge brownian mild w=1.0 k=3 s=42: loss 0.0179
+[A s4 BRIDGE-tracked mild] 53s  succ@0.10 0.80
+  bridge brownian rough w=1.0 k=1 s=40: loss 0.0365
+  bridge brownian rough w=1.0 k=2 s=41: loss 0.0363
+  bridge brownian rough w=1.0 k=3 s=42: loss 0.0415
+[A s4 BRIDGE-tracked rough] 56s  succ@0.10 0.77
+  bridge slip mild w=1.0 k=1 s=40: loss 0.0163
+  bridge slip mild w=1.0 k=2 s=41: loss 0.0162
+  bridge slip mild w=1.0 k=3 s=42: loss 0.0173
+[A s4 BRIDGE-slip-tracked mild] 108s  succ@0.10 0.76
+  bridge slip rough w=1.0 k=1 s=40: loss 0.0356
+  bridge slip rough w=1.0 k=2 s=41: loss 0.0359
+  bridge slip rough w=1.0 k=3 s=42: loss 0.0392
+[A s4 BRIDGE-slip-tracked rough] 108s  succ@0.10 0.76
+  bc mild k=1: loss 0.1037
+  bc mild k=2: loss 0.1120
+  bc mild k=3: loss 0.1090
+  init set skill 2: 0.27 of probes inside, cls loss 0.156
+  init set skill 3: 0.26 of probes inside, cls loss 0.188
+  tsm ft k=1: bc 0.1317 term 0.0420
+  tsm ft k=2: bc 0.1425 term 0.0449
+  tsm ft k=3: bc 0.1260 term 0.0011
+[A s4 TSM mild] 462s  succ@0.10 0.80
+  bc rough k=1: loss 0.1543
+  bc rough k=2: loss 0.1529
+  bc rough k=3: loss 0.1391
+  init set skill 2: 0.66 of probes inside, cls loss 0.264
+  init set skill 3: 0.53 of probes inside, cls loss 0.345
+  tsm ft k=1: bc 0.1514 term 0.0034
+  tsm ft k=2: bc 0.1592 term 0.0299
+  tsm ft k=3: bc 0.1209 term 0.0000
+[A s4 TSM rough] 449s  succ@0.10 0.81
+=== seam phase A seed 4 took 1278.3s ===
+ADONE
