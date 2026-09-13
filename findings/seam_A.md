@@ -33,11 +33,11 @@ Mild terrain is the same story with larger gaps (−0.11 to −0.24 at σ_k ≥ 
 ## Reading the table
 
 * **Undisturbed, everything is at ceiling** (0.97–1.00). With the same closed-loop tracker, the reference path barely matters when nothing pushes the robot off it. The last run's BRIDGE < TRACK gap at σ_k = 0 was the open-loop execution, not the reference — that confound is gone.
-* **Under pushes the bridge reference is worse than the straight line.** The mechanism is visible in the handoff logs (Phase C): the bridge path is time-parametrised by a drift that grows like 1/(1−τ) toward the end of the skill, so its reference moves fastest exactly at the handoff, where friction-limited tracking falls behind; the straight line moves at a constant 0.25 m/s and the tracker never saturates. Inside-2σ rates at handoff 2 (rough, σ_k = 0.10): naive 0.84, bridges 0.80, TSM 0.85.
+* **Under pushes the bridge reference is worse than the straight line.** The mechanism is visible in the handoff logs (Phase C): the bridge path is time-parametrised by a drift that grows like 1/(1−τ) toward the end of the skill, so its reference moves fastest exactly at the handoff, where friction-limited tracking falls behind; the straight line moves at a constant 0.25 m/s and the tracker never saturates. Inside-2σ rates at handoff 2 (rough, σ_k = 0.10, 5 seeds): naive 0.82, bridges 0.78, TSM 0.77.
 * **The slip reference does not help here** (it helped 5× in the SE(2) suite where the bridge was executed open-loop). Once a tracker supplies the feedback, what the reference knew about terrain covariance is redundant.
 * **TRACK-naive ≥ TRACK-oracle.** The terrain-aware MPC path is not a better reference than a straight line for a kp = 10 tracker; the oracle's detours are unnecessary once feedback exists. So BRIDGE-tracked "matching the oracle" (it does, at rough σ_k = 0.06) is not the surprising result the prompt anticipated — the oracle path itself has no advantage.
 * **TSM clears its floor** (≥ 0.6 at σ_k = 0 mild: 1.00) without tuning. Its terminal-state penalty pulls the BC rollouts into the next initiation set; as a reference generator wrapped in the same PD it equals the straight line on rough terrain and is a little worse on mild (large seed variance).
-* Energy is 0.98–1.0 for the PD conditions and unchanged across references; the bridges and TSM do not save effort.
+* Effort ∫‖u‖² (all cells): bridges 0.81, TRACK-naive 0.87, TSM 1.12, TRACK-oracle 1.40. The bridges are the cheapest references by ~7% and the oracle's terrain-aware detours cost 60% more effort for no success gain.
 
 ## Notes
 
