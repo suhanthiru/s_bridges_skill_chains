@@ -147,11 +147,19 @@ def main():
     ap.add_argument("--quick", action="store_true")
     ap.add_argument("--workers", type=int, default=8)
     ap.add_argument("--merge", action="store_true")
+    ap.add_argument("--suite", default=None, help="'gen' maps --phase N to the generator suite (g0..g6)")
     a = ap.parse_args()
     os.makedirs(RES, exist_ok=True)
+    if a.suite == "gen" and a.phase is not None and not a.phase.startswith("g"):
+        a.phase = "g" + a.phase
     if a.merge:
         merge()
-        import seam; seam.merge(); return
+        import seam; seam.merge()
+        import gen_phases; gen_phases.merge(); return
+    if a.phase == "gentests":
+        os.system(f"{os.sys.executable} tests_gen.py"); return
+    if a.phase in ("g0", "g1", "g2", "g3", "g4", "g5", "g6"):
+        import gen_phases; gen_phases.run(a.phase, a.seed, a.quick); return
     if a.phase == "4":
         import phase4
         t0 = time.time(); rows = phase4.run(a.seed, a.workers, a.quick)
