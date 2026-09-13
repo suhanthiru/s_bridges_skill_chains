@@ -50,7 +50,7 @@ def auc(score, label):
     # average ranks for ties
     _, inv, cnt = np.unique(s, return_inverse=True, return_counts=True)
     sums = np.bincount(inv, weights=ranks); ranks = (sums / cnt)[inv]
-    n1, n0 = y.sum(), (~y).sum()
+    n1, n0 = float(y.sum()), float((~y).sum())      # floats: n1*n0 overflows a 32-bit int on Windows
     return float((ranks[y].sum() - n1 * (n1 + 1) / 2) / (n1 * n0))
 
 
