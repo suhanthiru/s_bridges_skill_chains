@@ -289,3 +289,48 @@ a classifier fitted to a 13x13 probe grid x 20 layouts x 50 rollouts, label = su
 The environment is the planar terrain env of Experiment 2, unchanged: "heading axis" = along-track,
 "corridor normal" = lateral, Mahalanobis in R^2. Bridges are trained on marginal samples (not demo
 endpoints) so Phase B can rescale the marginals. Phase E (time-budget split) runs only if A passes.
+
+---
+
+# Experiment 5: bridge-as-generator suite (is the bridge necessary as a data generator?)
+
+Files: `gen_sources.py` (generators, shared noise stream, SE(2) sampling-MPC oracle, coverage),
+`gen_policies.py` (diffusion / flow-matching / BC / BC-GMM behind one interface), `gen_phases.py`
+(phases g0–g6, CMA-ES niche search), `gen_plots.py`, `tests_gen.py`. Results `results_generator/`,
+merged `results_generator.parquet`, search log `results_generator/phaseg5_search.parquet`, figures
+`figures/gen_*`, findings `findings/gen_*.md`, roll-up `FINDINGS_generator.md`.
+
+```bash
+python run.py --phase gentests                  # shared noise, DART covariance, MPC-relabel, schedule
+python run.py --phase g0 --seed S               # kill test: DEMO, NOISED, BRIDGE-slip, PD-noise, DART, MPC-rollout
+python run.py --phase g1 --seed S               # isolations: references, action labels, coverage (L1)
+python run.py --phase g2 --seed S               # scale: generated size, N_demo, eval severity
+python run.py --phase g3 --seed S               # policy class: diffusion, flow, bc, bc_gmm
+python run.py --phase g4 --seed S               # manifold through the data (S-curve route)
+python run.py --phase g5 --seed 0               # CMA-ES niche search + L27 factorial + validation
+python run.py --phase g6 --seed S               # transfer and wrong-terrain-model generators
+python run.py --suite gen --phase 0 --seed S    # same as --phase g0 (the prompt's numbering)
+python run.py --merge                           # also merges the generator shards
+```
+
+Design notes:
+
+* **Every generator runs on the reference kinematics** g ← g·exp(u dt + √dt Σ(x)^½ z): no friction,
+  no base noise, Σ(x) the slip-reference covariance (isotropic match for PD-iso), z a standard-normal
+  stream fixed by the seed and shared by all sources. Only the controller differs, so PD-noise is a
+  control for BRIDGE-slip in the strict sense (`tests_gen.py` checks the shared draws).
+* **Datasets** = the first N_demo Phase-5 demos (clean demonstrator commands) + 4·N_demo generated
+  trajectories (DEMO: demos only). The bridge itself never sees the demos — it is trained on the
+  marginals — which is what the N_demo sweep (g2b) probes.
+* **Oracle MPC** (`gen_sources.MPC`): K = 200 sampled body-twist sequences, horizon 30, MPPI-weighted,
+  warm-started, on the same kinematics, toward the current skill's next marginal mean. MPC-relabel
+  imposes BRIDGE-slip's states and records the MPC's commands.
+* **DART**: the demonstrator (Nominal, kp = 6) executed with action noise η = Σ^½ z/√dt and no
+  displacement noise, clean commands recorded; the displacement covariance matches Σ dt (tested).
+* **Environment axes** (g5/g6): slip magnitude (× nominal 0.7), lateral-slip anisotropy (lateral std
+  × a), terrain correlation length (Voronoi seed count), push-rate multiplier, marginal heading std,
+  N_demo, demonstrator action noise; class-flip rate for the map the generator sees.
+* **Training budget**: 8 000 steps for every policy in g0–g4/g6; 2 500 in the g5 search evaluator
+  (3 seeds, 100 episodes) with 600-step bridges; validation of the top/bottom-3 θ with 10 seeds and
+  200 episodes at the full budget. CMA-ES via the `cma` package (σ₀ = 0.25 on [0,1]^7), 60 evaluations
+  maximising and 60 minimising f, plus a 3^(7−4) resolution-III fractional factorial (27 runs).
