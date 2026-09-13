@@ -139,7 +139,7 @@ def phase_C(eps=None):
                 g = d.groupby(cut, observed=True)[out].agg(["mean", "size"])
                 g = g[g["size"] >= 20]
                 x = [iv.mid for iv in g.index]
-                ax.plot(x, g["mean"], marker="o", label=cond, **st)
+                ax.plot(x, g["mean"], label=cond, **{**st, "marker": "o"})
             ax.axvline(2, color="0.5", ls=":"); ax.set_title(f"{rough}: skill {skill}, entry distance to rho_{skill - 1}")
             ax.set_xlabel("Mahalanobis entry distance (binned)")
         axes[r_, 0].set_ylabel("P(skill delivers inside next cloud)")
