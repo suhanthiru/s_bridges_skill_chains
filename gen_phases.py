@@ -59,9 +59,8 @@ def demos_for(tk, layout, n, seed, device, demo_noise=0.0, standard=True):
 # -------------------------------------------------------------- bridges
 def get_bridges(kind, tk, layout, seed, device, tag="", mf=S.SE2, steps0=None):
     """Iteration-0 bridge nets for reference `kind` on task `tk` (cached by tag)."""
-    if kind == "slip" and tag == "" and layout in ("L1", "L2") and mf.name == "se2":
-        nets = torch.load(P2.mpath("bridge", layout, seed), map_location=device)    # Phase 2's
-        return nets
+    if kind == "slip" and tag == "" and layout in ("L1", "L2") and mf.name == "se2" and os.path.exists(P2.mpath("bridge", layout, seed)):
+        return torch.load(P2.mpath("bridge", layout, seed), map_location=device)    # Phase 2's nets
     p = os.path.join(MODELS, f"bridge_{kind}_{layout}{tag}_{mf.name}_s{seed}.pt")
     if os.path.exists(p):
         return torch.load(p, map_location=device)
@@ -79,15 +78,14 @@ def get_bridges(kind, tk, layout, seed, device, tag="", mf=S.SE2, steps0=None):
     nets = {}
     for k in range(TK.N_SKILL):
         nets[k], _ = SV.train_skill(tkc, k, ref, mf, seed * 17 + k, cpu, K=0, log=lambda m: None, with_bwd=False, **cfg)
-    nets = {k: {kk: v.to(device) for kk, v in d_.items()} for k, d_ in
-            {k: {kk: sd for kk, sd in n_.items()} for k, n_ in nets.items()}.items()}
+    nets = {k: {key: {pn: t.to(device) for pn, t in sd.items()} for key, sd in n_.items()} for k, n_ in nets.items()}
     torch.save(nets, p)
     return nets
 
 
 # ------------------------------------------------------------- datasets
 def build(source, tk, layout, seed, device, demos, n_demo=N_DEMO, mult=GEN_MULT, ref_kind="slip", mf=S.SE2,
-          tag="", world_heading=None, cache=None):
+          tag="", world_heading=None, cache=None, bridge_steps=None):
     """Return (G, U, meta).  meta has coverage of the generated part."""
     cache = cache if cache is not None else {}
     Gd, Ud = demos[0][:n_demo], demos[1][:n_demo]
@@ -106,7 +104,7 @@ def build(source, tk, layout, seed, device, demos, n_demo=N_DEMO, mult=GEN_MULT,
         r = GS.make_ref(kind, tk)
         if hasattr(tk, "body_std"):
             r.body_cov = tk.body_std ** 2
-        nets = get_bridges(kind, tk, layout, seed, device, tag, mf)
+        nets = get_bridges(kind, tk, layout, seed, device, tag, mf, steps0=bridge_steps)
         Gg, Ug = GS.rollout(tk, mf, GS.bridge_act(nets, mf, tk), m, z, r)
     elif source == "PD-noise":
         Gg, Ug = GS.rollout(tk, mf, GS.pd_act(Gd, Ud), m, z, ref)
@@ -326,7 +324,8 @@ def f_theta(th, seeds, device, steps=STEPS_FAST, n_eval=100, log_rows=None, tag=
         succ = {}
         ttag = f"_th{tag}_{abs(hash(tuple(round(v, 4) if isinstance(v, float) else v for v in th.values()))) % 10 ** 8}"
         for source in ("BRIDGE-slip", "PD-noise"):
-            G, U, meta = build(source, tk, "L1", seed, device, demos, n_demo=th["n_demo"], tag=ttag)
+            G, U, meta = build(source, tk, "L1", seed, device, demos, n_demo=th["n_demo"], tag=ttag,
+                               bridge_steps=600 if not tag.startswith("validate") else None)   # search: cheaper bridges
             _, rs = train_eval("diffusion", tk, G, U, seed, device, steps, tke)
             succ[source] = rs[0]["success"]
             if log_rows is not None:
