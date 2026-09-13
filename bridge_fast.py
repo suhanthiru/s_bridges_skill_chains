@@ -33,7 +33,7 @@ def _gl(device, dtype):
 def mode_of(ref, mf):
     if not ref.state_dependent:
         return "scalar"
-    return "diag" if mf.name in ("se2", "se2x") else "full"
+    return "diag" if mf.name == "se2" else "full"
 
 
 def cov_at(ref, g, mf, mode):
@@ -66,7 +66,15 @@ def quad_Q(ref, g0, vnom, s, t, mf, mode):
     S = cov_at(ref, xbar, mf, mode)
     if mode == "diag":
         return (w[:, :, None] * S.reshape(n, GL_N, 3)).sum(1)
-    return (w[:, :, None, None] * S.reshape(n, GL_N, 3, 3)).sum(1)
+    S = S.reshape(n, GL_N, 3, 3)
+    if mf.name == "se2x":
+        # deviations accumulated at time r live in the frame at r; express them in the frame
+        # at time t by the adjoint of the geodesic motion exp((t-r) vnom) (the "banana")
+        from se2 import adjoint_mat, exp_se2
+        rel = exp_se2((-(t[:, None] - nodes)).reshape(-1, 1) * vv)
+        A = adjoint_mat(rel).reshape(n, GL_N, 3, 3)
+        S = A @ S @ A.transpose(-1, -2)
+    return (w[:, :, None, None] * S).sum(1)
 
 
 def prepare(ref, g0, g1, mf):

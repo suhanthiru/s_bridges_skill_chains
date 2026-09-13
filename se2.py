@@ -172,6 +172,14 @@ def adjoint(h, v):
     return torch.cat([Rv + v[:, 2:3] * torch.stack([h[:, 1], -h[:, 0]], 1), v[:, 2:3]], 1)
 
 
+def adjoint_mat(h):
+    """Ad_h as a (n,3,3) matrix: [[R(theta), (t_y, -t_x)^T], [0, 1]]."""
+    n = h.shape[0]
+    A = torch.zeros(n, 3, 3, device=h.device, dtype=h.dtype)
+    A[:, :2, :2] = rot(h[:, 2]); A[:, 0, 2] = h[:, 1]; A[:, 1, 2] = -h[:, 0]; A[:, 2, 2] = 1.0
+    return A
+
+
 MANIFOLDS = {"flat": Flat, "se2": SE2, "se2x": SE2X}
 
 
